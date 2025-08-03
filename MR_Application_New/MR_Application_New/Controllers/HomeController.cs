@@ -10,7 +10,7 @@ namespace MR_Application_New.Controllers
         }
 
 
-        public IActionResult mohan()
+        public IActionResult About()
         {
             return View();
         }
