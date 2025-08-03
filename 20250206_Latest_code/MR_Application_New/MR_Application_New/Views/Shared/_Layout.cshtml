@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/icons-Main/font/bootstrap-icons.css">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/popper.js/umd/popper.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            height: 120vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: white; /* Added white background color */
+        }
+
+
+        
+        /* Main content */
+        .main-content {
+            padding: 10px; /* Reduced padding */
+            margin-top: 10px; /* Reduced margin to minimize space for the navbar */
+            background-color: transparent; /* Removed background color */
+            border-radius: 10px; /* Slightly rounded corners */
+            min-height: 130vh; /* Ensures content takes full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-bottom: 60px; /* Added space at the bottom to avoid content overlap with fixed footer */
+        }
+
+        /* Full width content adjustments */
+        .full-width-content {
+            width: 80%; /* Reduced width from 100% to 80% */
+            height: 130vh; /* Increased height to 80% of the viewport height */
+            margin: 0 auto; /* Centers the content horizontally */
+            overflow: hidden; /* Ensures no overflow in the div */
+        }
+
+        /* Custom Navbar Styles */
+        .navbar {
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+/*             background: linear-gradient(135deg, #007bff, #28a745); /* Blue to light green gradient */
+            background: linear-gradient(135deg, #ff7f7f, #ff9a8b, #ff6a00, #ff7f7f); /* Light Red, Pink, Orange Gradient */
+
+ */            border-radius: 10px;
+            padding: 0 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 999; /* Ensures navbar stays above other content */
+            height: auto;
+        }
+
+        .navbar-brand img.logo {
+            height: 120px;
+            width: auto;
+            max-width: 100%;
+            transition: transform 0.3s ease-in-out, filter 0.5s ease-in-out;
+        }
+
+        /* Hover effect for logo */
+        .logo:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        /* Title and Slogan inside Navbar */
+        .navbar-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            color: white;
+            text-align: left;
+            margin-left: 20px;
+            padding: 10px 0;
+        }
+
+        .navbar-title h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin: 0;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .navbar-title p {
+            font-size: 1.2rem;
+            margin: 5px 0;
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        /* Navbar links */
+        .navbar-nav .nav-link {
+            color: white;
+            text-transform: uppercase;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: #0056b3;
+            color: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        /* Navbar link icon styling */
+        .navbar-nav .nav-link i {
+            margin-right: 8px;
+            font-size: 1.4rem;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 1rem;
+            color: #fff;
+            margin-top: 50px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            bottom: 0; /* Ensures it's aligned to the bottom */
+            flex-shrink: 0; /* Prevents footer from shrinking */
+        }
+
+        footer p {
+            margin: 0;
+            font-weight: 400;
+        }
+
+        /* Responsive design adjustments */
+        /* Corrected the typo from @@media to  @@media */
+         @@media (max-width: 1200px) {
+            .navbar-brand img.logo {
+                height: 100px;
+            }
+
+            .navbar-title h1 {
+                font-size: 2.4rem;
+            }
+
+            .navbar-title p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @@media (max-width: 992px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px 0;
+            }
+
+            .navbar-title {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .navbar-nav {
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
+            .navbar-brand img.logo {
+                height: 80px;
+            }
+        }
+
+         @@media (max-width: 768px) {
+            .navbar-title h1 {
+                font-size: 1.8rem;
+            }
+
+            .navbar-title p {
+                font-size: 1rem;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 8px 15px;
+            }
+
+            .navbar-brand img.logo {
+                height: 70px;
+            }
+        }
+
+        /* Large screen (TV or extra-large desktop) adjustments */
+        @@media (min-width: 1400px) {
+            .navbar-brand img.logo {
+                height: 150px;
+            }
+
+            .navbar-title h1 {
+                font-size: 3.5rem;
+            }
+
+            .navbar-title p {
+                font-size: 1.6rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar with improved styles and icons -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="~/img/unilever2.gif" alt="Logo" class="logo">
+            </a>
+            <div class="navbar-title">
+                <h1 class="font-weight-bold">Merchandiser App</h1>
+                <p class="lead">Your one-stop solution for all merchandising needs.</p>
+            </div>
+         
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="@Url.Action("Index", "Home")">
+                            <i class="bi bi-house-door-fill"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("About", "Home")">
+                            <i class="bi bi-info-circle-fill"></i> About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Contact", "Home")">
+                            <i class="bi bi-envelope-fill"></i> Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Login")">
+                            <i class="bi bi-box-arrow-in-right"></i> Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="full-width-content">
+            @RenderBody()
+        </div>
+        @RenderSection("Scripts", required: false)
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Merchandiser App. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

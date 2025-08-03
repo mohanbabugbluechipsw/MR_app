@@ -1,0 +1,150 @@
+﻿@using Model_New.Models
+@model List<Model_New.Models.QuestionsNew>
+@{
+    ViewData["Title"] = "Create Review";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form id="reviewForm" method="post" action="/ReviewPlane/AfterCreate" enctype="multipart/form-data">
+    <div class="container mt-5 p-4 shadow-lg rounded" style="background-color: #f0f8ff;">
+        <!-- Form Title -->
+        <h3 class="text-center mb-4" style="font-size: 2rem; color: #007bff; font-weight: bold; border-bottom: 2px solid #007bff; padding-bottom: 10px;">Post-visit Products</h3>
+
+        <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;">
+            <ul id="errorMessages" class="mb-0"></ul>
+        </div>
+
+        <!-- Review Form -->
+        @if (ViewBag.SysUsers != null && ViewBag.SysUsers.Count > 0)
+        {
+            <div class="row g-4">
+                @for (int i = 0; i < ViewBag.SysUsers.Count; i++)
+                {
+                    var user = ViewBag.SysUsers[i];
+                    <div class="col-12 col-md-6">
+                        <div class="form-group p-3 rounded" style="background-color: #e9f7ff;">
+                            <label class="font-weight-bold" style="color: #007bff;">Question @(i + 1): @user.Question</label>
+                            <input type="hidden" name="answers[@i].QuestionId" value="@user.QuestionId" />
+                            <input type="hidden" name="answers[@i].Type" value="@user.Type" />
+
+                            <!-- Conditional Input Types -->
+                            @if (user.Type == "radio")
+                            {
+                                <div class="form-check mb-3">
+                                    <input type="radio" class="form-check-input" id="yesOption_@i" name="answers[@i].Answer" value="Yes" />
+                                    <label class="form-check-label" for="yesOption_@i">Yes</label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input type="radio" class="form-check-input" id="noOption_@i" name="answers[@i].Answer" value="No" />
+                                    <label class="form-check-label" for="noOption_@i">No</label>
+                                </div>
+                            }
+                            else if (user.Type == "text")
+                            {
+                                <input type="text" class="form-control" name="answers[@i].Answer" placeholder="Enter your answer" required />
+                            }
+                            else if (user.Type == "photo")
+                            {
+                                <input type="file" class="form-control photo-upload" name="answers[@i].PhotoPath" accept="image/*" />
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <a href="@Url.Action("Create", "ReviewPlane")" class="btn btn-outline-secondary btn-lg" style="font-size: 1.1rem;">
+                    <i class="bi bi-arrow-left-circle"></i> Previous
+                </a>
+
+                <button type="submit" class="btn btn-primary btn-lg" id="submitBtn" style="font-size: 1.1rem;">
+                    Next <i class="bi bi-arrow-right-circle"></i>
+                </button>
+            </div>
+        }
+        else
+        {
+            <p class="text-center" style="color: #007bff;">No questions available for the selected criteria.</p>
+        }
+
+    </div> <!-- Closing container -->
+</form> <!-- Closing form tag -->
+@section Scripts {
+                        <script>
+                            let currentProgress = @ViewBag.Progress || 0;  // Start with initial progress (could be 0 or any value)
+                            const progressIncrement = 20;  // Progress increment by 20% per step (5 steps total)
+                            const totalSteps = 5;
+
+                            // Update the progress bar based on the current progress value
+                            function updateProgressBar() {
+                                const progressBar = document.getElementById("progressBar");
+                                progressBar.style.width = `${currentProgress}%`;
+                                progressBar.setAttribute("aria-valuenow", currentProgress);
+                                progressBar.innerText = `${currentProgress}%`;
+                            }
+
+                            // Validate form fields
+                            function validateForm() {
+                                let isValid = true;
+                                let errorMessages = []; // Array to store all error messages
+                                const form = document.getElementById("reviewForm");
+                                const questions = form.querySelectorAll(".form-group");
+
+                                // Check if all required text fields are filled
+                                questions.forEach((question, index) => {
+                                    const questionNumber = index + 1; // Add 1 to index for question number (starting from 1)
+                                    const answerInput = question.querySelector("input[name='answers[" + index + "].Answer']");
+
+                                    // Check if the question has a required text field and if it's filled
+                                    if (answerInput && answerInput.hasAttribute("required") && answerInput.value.trim() === "") {
+                                        isValid = false;
+                                        errorMessages.push(`Please answer Question ${questionNumber}.`);
+                                    }
+
+                                    // Check if at least one radio button is selected for radio inputs
+                                    if (question.querySelector("[name='answers[" + index + "].Answer'][type='radio']")) {
+                                        const radios = question.querySelectorAll("[name='answers[" + index + "].Answer'][type='radio']");
+                                        const isRadioSelected = Array.from(radios).some(radio => radio.checked);
+                                        if (!isRadioSelected) {
+                                            isValid = false;
+                                            errorMessages.push(`Please select an option for Question ${questionNumber}.`);
+                                        }
+                                    }
+
+                                    // Validate photo upload (if required)
+                                    // if (question.querySelector("input[type='file']")) {
+                                    //     const fileInput = question.querySelector("input[type='file']");
+                                    //     if (fileInput && fileInput.files.length === 0) {
+                                    //         isValid = false;
+                                    //         errorMessages.push(`Please upload a photo for Question ${questionNumber}.`);
+                                    //     }
+                                    // }
+                                });
+
+                                // If there are any error messages, show them in a single alert
+                                const errorAlert = document.getElementById("errorAlert");
+                                const errorMessagesList = document.getElementById("errorMessages");
+
+                                if (!isValid && errorMessages.length > 0) {
+                                    errorAlert.style.display = 'block';
+                                    errorMessagesList.innerHTML = errorMessages.map(msg => `<li>${msg}</li>`).join('');
+                                } else {
+                                    errorAlert.style.display = 'none'; // Hide alert if no errors
+                                }
+
+                                return isValid;
+                            }
+
+                            // Submit the form after validation
+                            document.getElementById("reviewForm").onsubmit = function (event) {
+                                if (!validateForm()) {
+                                    event.preventDefault(); // Prevent form submission if validation fails
+                                }
+                            };
+
+                            // Initial progress bar setup
+                            updateProgressBar();
+                        </script>
+                    }
+

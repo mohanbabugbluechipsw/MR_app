@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Progress Steps";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary">Progress Bar with Steps</h2>
+
+    <!-- Include Partial View for Progress Bar -->
+    @await Html.PartialAsync("/Views/ReviewPlane/PartialViews/_ProgressBarPartial")
+
+    <div class="text-center mt-4">
+        <button class="btn btn-primary" onclick="nextStep()">Next Step</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        let currentStep = 0;
+        const totalSteps = 3;
+
+        function nextStep() {
+            if (currentStep < totalSteps - 1) {
+                currentStep++;
+                $(".step-link").removeClass("active");
+                $(".step-link").eq(currentStep).addClass("active");
+                $("#progress-bar").css("width", (currentStep / (totalSteps - 1)) * 100 + "%");
+            }
+        }
+    </script>
+}

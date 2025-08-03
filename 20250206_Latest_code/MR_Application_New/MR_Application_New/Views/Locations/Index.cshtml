@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">
+        <i class="bi bi-speedometer2"></i> Admin Dashboard
+    </h2>
+
+    <div class="admin-dashboard text-center">
+        <p class="lead">Welcome to the Admin Dashboard! Here you can manage users, view reports, and configure settings.</p>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="bi bi-person-circle"></i> Manage Users
+                        </h5>
+                        <p class="card-text">Add, edit, or remove users from the system.</p>
+
+                        <!-- Button to trigger loading of partial view -->
+                        <a href="javascript:void(0);" id="loadUsersBtn" class="btn btn-primary">Go to Users</a>
+
+                        <!-- Div where the partial view will be loaded -->
+                        <div id="distributorFormContainer"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="bi bi-file-earmark-bar-graph"></i> View Reports
+                        </h5>
+                        <p class="card-text">Access various reports and analytics.</p>
+                        <a href="@Url.Action("Admin", "Login")" class="btn btn-primary">Go to Reports</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="bi bi-gear-fill"></i> Configure Settings
+                        </h5>
+                        <p class="card-text">Manage application settings and preferences.</p>
+                        <a href="@Url.Action("Admin", "Login")" class="btn btn-primary">Go to Settings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // When the "Go to Users" button is clicked
+            $("#loadUsersBtn").click(function () {
+                // Send an AJAX GET request to load the partial view
+                $.ajax({
+                    url: '@Url.Action("Create", "Admin")', // This URL should correspond to the action in the Admin controller
+                    type: 'GET',
+                    success: function (response) {
+                        // Load the partial view into the container div
+                        $("#distributorFormContainer").html(response);
+                    },
+                    error: function () {
+                        alert("Error loading distributor form.");
+                    }
+                });
+            });
+        });
+    </script>
+}

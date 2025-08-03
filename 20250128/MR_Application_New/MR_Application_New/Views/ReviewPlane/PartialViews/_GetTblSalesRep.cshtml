@@ -1,0 +1,26 @@
+﻿@* @model List<Model_New.Models.Tbl_sales_rep>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Rep Code</th>
+            <th>Rep Name</th>
+            <th>Joined Date</th>
+            <th>Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Rep_code</td>
+                <td>@item.Rep_name</td>
+                <td>@item.Joined_date</td>
+                <td>@item.Active</td>
+            </tr>
+        }
+    </tbody>
+</table>
+ *@

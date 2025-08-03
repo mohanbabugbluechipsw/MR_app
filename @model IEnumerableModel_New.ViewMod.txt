@@ -1,0 +1,295 @@
+@model IEnumerable<Model_New.ViewModels.ReviewAnswerViewModel>
+
+@{
+    ViewData["Title"] = "Filtered Review Answers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-primary mb-4 text-center">Filtered Review Answers</h2>
+
+<form method="post" action="/ReviewPlane/FilteredReviewAnswers" class="form-container bg-light p-4 rounded shadow">
+    <h4 class="mb-4 text-center">Filter Review Answers</h4>
+    <div class="row g-3">
+        <div class="col-md-4">
+            <label for="RSCode" class="form-label">RSCode:</label>
+            <input type="text" id="RSCode" name="RSCode" autocomplete="off" placeholder="Start typing to search..." class="form-control" />
+            <ul id="RSCodeSuggestions" class="list-group position-absolute" style="display: none; z-index: 1000; max-height: 200px; overflow-y: auto;"></ul>
+        </div>
+        <div class="col-md-4">
+            <label for="EmpName" class="form-label">Emp Name:</label>
+            <input type="text" id="EmpName" name="EmpName" autocomplete="off" placeholder="Start typing to search..." class="form-control" />
+            <ul id="EmpNameSuggestions" class="list-group position-absolute" style="display: none; z-index: 1000; max-height: 200px; overflow-y: auto;"></ul>
+        </div>
+        <div class="col-md-4">
+            <label for="Year" class="form-label">Year:</label>
+            <input type="number" id="Year" name="year" class="form-control" />
+        </div>
+    </div>
+    <div class="row g-3 mt-3">
+        <div class="col-md-4">
+            <label for="Month" class="form-label">Month:</label>
+            <input type="number" id="Month" name="month" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <label for="Date" class="form-label">Date:</label>
+            <input type="date" id="Date" name="date" class="form-control" />
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary w-100">Filter</button>
+        </div>
+
+         <div class="col-md-4 d-flex align-items-end">
+            <button type="button" id="refreshButton" class="btn btn-secondary w-100">Refresh</button>
+        </div>
+    </div>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <div class="table-responsive mt-4">
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="table-primary">
+                <tr>
+                    <th>EmpNo</th>
+                    <th>Rscode</th>
+                    <th>CreatedAt</th>
+                    <th>Photo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var answer in Model.Take(10))
+                {
+                    <tr>
+                        <td>@answer.EmpNo</td>
+                        <td>@answer.Rscode</td>
+                        <td>@answer.CreatedAt</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(answer.PhotoBase64))
+                            {
+                                <img src="data:image/jpeg;base64,@answer.PhotoBase64" alt="Photo" class="thumbnail img-fluid rounded" />
+                            }
+                            else
+                            {
+                                <span class="text-muted">No Photo</span>
+                            }
+                        </td>
+                    </tr>
+                }
+                @for (int i = Model.Count(); i < 10; i++)
+                {
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">Empty Record</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination (with example) -->
+    <nav aria-label="Page navigation" class="mt-3">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+}
+else
+{
+    <div class="alert alert-warning mt-4">No data found. Use the filters above to search.</div>
+}
+
+<!-- Modal for full-size image -->
+<div id="imageModal" class="modal fade" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="btn-close ms-auto p-3" data-bs-dismiss="modal" aria-label="Close"></button>
+            <img id="modalImage" src="" alt="Full-size image" class="img-fluid rounded mx-auto d-block p-3" />
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Handle keyup event for RSCode input
+        $('#RSCode').on('keyup', function () {
+            var input = $(this).val();
+            if (input.length >= 3) {
+                $.ajax({
+                    url: '/ReviewPlane/GetRscodeOptions',
+                    method: 'GET',
+                    data: { query: input },
+                    success: function (data) {
+                        var suggestionList = $('#RSCodeSuggestions');
+                        suggestionList.empty().show();
+                        data.forEach(function (item) {
+                            suggestionList.append('<li class="suggestion-item" style="cursor: pointer;" data-value="' + item.distributor + '">' + item.distributorName + ' (' + item.distributor + ')</li>');
+                        });
+                        $('.suggestion-item').on('click', function () {
+                            var value = $(this).data('value');
+                            $('#RSCode').val(value);
+                            $('#RSCodeSuggestions').hide();
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error fetching RSCode suggestions:", error);
+                    }
+                });
+            } else {
+                $('#RSCodeSuggestions').hide();
+            }
+        });
+
+        // Handle keyup event for EmpName input
+        $('#EmpName').on('keyup', function () {
+            var input = $(this).val();
+            if (input.length >= 3) {
+                $.ajax({
+                    url: '/ReviewPlane/GetEmpSuggestions',
+                    method: 'GET',
+                    data: { query: input },
+                    success: function (data) {
+                        var suggestionList = $('#EmpNameSuggestions');
+                        suggestionList.empty().show();
+                        data.forEach(function (item) {
+                            suggestionList.append('<li class="suggestion-item" style="cursor: pointer;" data-emp-name="' + item.empName + '" data-emp-no="' + item.empNo + '">' + item.empName + ' (' + item.empNo + ')</li>');
+                        });
+                        $('.suggestion-item').on('click', function () {
+                            var empName = $(this).data('emp-name');
+                            $('#EmpName').val(empName);
+                            $('#EmpNameSuggestions').hide();
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error fetching EmpName suggestions:", error);
+                    }
+                });
+            } else {
+                $('#EmpNameSuggestions').hide();
+            }
+        });
+
+         $('#refreshButton').on('click', function () {
+            // Clear form data
+            $('#RSCode').val('');
+            $('#EmpName').val('');
+            $('#Year').val('');
+            $('#Month').val('');
+            $('#Date').val('');
+
+            // Hide suggestions
+            $('#RSCodeSuggestions').hide();
+            $('#EmpNameSuggestions').hide();
+
+            // Clear the grid view (table)
+            $('table tbody').empty();
+        });
+
+
+        // Local storage to persist form data
+        const form = $('form');
+        form.find('input, select').each(function () {
+            const id = $(this).attr('id');
+            if (localStorage.getItem(id)) {
+                $(this).val(localStorage.getItem(id));
+            }
+            $(this).on('input change', function () {
+                localStorage.setItem(id, $(this).val());
+            });
+        });
+
+        // Image modal functionality
+        $('table').on('click', 'img.thumbnail', function () {
+            const imgSrc = $(this).attr('src');
+            $('#modalImage').attr('src', imgSrc);
+            new bootstrap.Modal($('#imageModal')).show();
+        });
+
+        // Suggestions hiding when clicking outside
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('#RSCode').length) {
+                $('#RSCodeSuggestions').hide();
+            }
+            if (!$(e.target).closest('#EmpName').length) {
+                $('#EmpNameSuggestions').hide();
+            }
+        });
+    });
+</script>
+
+<style>
+    /* Custom Styles */
+    .form-container {
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .pagination {
+        font-size: 1.1rem;
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+    }
+
+    .pagination .page-link {
+        color: #0d6efd;
+        transition: all 0.3s;
+    }
+
+    .pagination .page-link:hover {
+        background-color: #0d6efd;
+        color: #fff;
+    }
+
+    .table-bordered {
+        border: 1px solid #ddd;
+    }
+
+    .table-striped tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    /* Image modal */
+    #imageModal .modal-content {
+        background: #222;
+    }
+
+    #modalImage {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+    }
+
+    .thumbnail {
+        max-width: 100px;
+        cursor: pointer;
+    }
+
+    /* Responsive design */
+    @@media (max-width: 767px) {
+        .form-container {
+            padding: 15px;
+        }
+
+        .table td, .table th {
+            padding: 8px;
+        }
+    }
+</style>

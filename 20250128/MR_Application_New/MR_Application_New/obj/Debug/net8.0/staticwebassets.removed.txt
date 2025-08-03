@@ -1,0 +1,2 @@
+E:\MRApp20250123\MR_Application_New\MR_Application_New\MR_Application_New\wwwroot\lib\DataTables.zip
+E:\MRApp20250123\MR_Application_New\MR_Application_New\MR_Application_New\wwwroot\lib\DataTables-2.2.1.zip

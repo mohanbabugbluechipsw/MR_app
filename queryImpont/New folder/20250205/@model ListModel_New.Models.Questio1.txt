@@ -1,0 +1,354 @@
+@model List<Model_New.Models.QuestionsNew>
+@{
+    ViewData["Title"] = "Review Plan";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<form id="reviewForm" method="post" action="/ReviewPlane/CreateReview" enctype="multipart/form-data">
+    <div class="container mt-5 p-4 border rounded shadow-lg bg-light">
+        <!-- Step 1: Review Plan -->
+        <div id="step-1">
+            <h3 class="text-center mb-4 text-primary fw-bold border-bottom pb-2">
+                Review Plan
+            </h3>
+            <div class="row g-3">
+                <div class="col-12 col-sm-6">
+                    <div class="p-3 border rounded bg-white">
+                        <label class="form-label fw-bold">MR Code:</label>
+                        <input type="text" id="mrcodeInput" class="form-control" name="mrcode"
+                               value="@Context.Session.GetString("UserName")" readonly>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 position-relative">
+                    <div class="p-3 border rounded bg-white">
+                        <label class="form-label fw-bold">Select RSCODE:</label>
+                        <input type="text" id="rscodeInput" class="form-control" placeholder="Type RSCODE ..." autocomplete="off">
+                        <input type="hidden" id="selectedRscode" name="selectedRscode">
+                        <div id="rscodeSuggestions" class="list-group position-absolute w-100" style="z-index: 1000; display: none;"></div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 position-relative">
+                    <div class="p-3 border rounded bg-white">
+                        <label class="form-label fw-bold">Search Outlet:</label>
+                        <input type="text" id="outletInput" class="form-control" placeholder="Type to search..." autocomplete="off">
+                        <input type="hidden" id="selectedOutlet" name="selectedOutlet">
+                        <div id="outletSuggestions" class="list-group position-absolute w-100" style="z-index: 1000; display: none;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="button" class="btn btn-primary btn-lg" id="nextStep1">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Pre-visit Products -->
+        <div id="step-2" style="display: none;">
+            <h3 class="text-center mb-4 text-primary fw-bold border-bottom pb-2">
+                Pre-visit Products
+            </h3>
+            <div class="row g-3" id="questionContainer">
+                <!-- Questions will be loaded dynamically here -->
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-outline-secondary btn-lg" id="prevStep2">Previous</button>
+                <button type="button" class="btn btn-primary btn-lg" id="nextStep2">Next</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Post-visit Products -->
+        <div id="step-3" style="display: none;">
+            <h3 class="text-center mb-4 text-primary fw-bold border-bottom pb-2">
+                Post-visit Products
+            </h3>
+            <div class="row g-3" id="postqsnContainer">
+                <!-- Questions will be loaded dynamically here -->
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-outline-secondary btn-lg" id="prevStep3">Previous</button>
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+      $(document).ready(function () {
+
+    // Handle RSCODE suggestions
+    $("#rscodeInput").on("keyup", function () {
+        var searchTerm = $(this).val();
+        if (searchTerm.length > 0) {
+            $.get('/ReviewPlane/GetRSCodes', { term: searchTerm }, function (data) {
+                $("#rscodeSuggestions").empty().show();
+                data.forEach(item => {
+                    $("#rscodeSuggestions").append(
+                        `<a class="list-group-item list-group-item-action p-2" data-id="${item.code}" data-name="${item.name}">
+                            <strong>${item.code}</strong> - ${item.name}
+                        </a>`
+                    );
+                });
+            });
+        } else {
+            $("#rscodeSuggestions").hide();
+        }
+    });
+
+    $(document).on("click", "#rscodeSuggestions .list-group-item", function () {
+        $("#rscodeInput").val($(this).data("id") + " - " + $(this).data("name"));
+        $("#selectedRscode").val($(this).data("id"));
+        $("#rscodeSuggestions").hide();
+    });
+
+    // Handle Outlet suggestions
+    $("#outletInput").on("keyup", function () {
+        var searchTerm = $(this).val();
+        var rscode = $("#selectedRscode").val();
+        if (searchTerm.length > 2 && rscode) {
+            $.get('/ReviewPlane/GetOutlets', { term: searchTerm, rscode: rscode }, function (data) {
+                $("#outletSuggestions").empty().show();
+                data.forEach(item => {
+                    $("#outletSuggestions").append(
+                        `<a class="list-group-item list-group-item-action p-2" data-code="${item.code}" data-name="${item.name}">
+                            ${item.name} (${item.code})
+                        </a>`
+                    );
+                });
+            });
+        } else {
+            $("#outletSuggestions").hide();
+        }
+    });
+
+    $(document).on("click", "#outletSuggestions .list-group-item", function () {
+        $("#outletInput").val($(this).data("name") + " (" + $(this).data("code") + ")");
+        $("#selectedOutlet").val($(this).data("code"));
+        $("#outletSuggestions").hide();
+    });
+
+    // Step 1: Load Questions
+    $("#nextStep1").click(function () {
+        var rscode = $("#selectedRscode").val();
+        var mrCode = $("#mrcodeInput").val();
+        var outlet = $("#selectedOutlet").val();
+
+        // Check if fields are filled
+        if (!rscode || !mrCode || !outlet) {
+            alert("Please fill out RSCODE, MR Code, and Outlet to proceed.");
+            return;
+        }
+
+        $.get('/ReviewPlane/GetQuestions', { rscode: rscode, mrCode: mrCode, outlet: outlet }, function (data) {
+            if (data && data.length > 0) {
+                var questionContainer = $('#questionContainer');
+                questionContainer.empty();
+                data.forEach(function (question, index) {
+                    var questionHtml = `<div class="col-12 col-sm-6">
+                                            <div class="p-3 border rounded bg-white">
+                                                <label class="fw-bold">Question ${index + 1}: ${question.question}</label>
+                                                <input type="hidden" name="answers[${index}].QuestionId" value="${question.questionId}" />
+                                                <input type="hidden" name="answers[${index}].Type" value="${question.type}" />`;
+
+                    if (question.type === "radio") {
+                        var yesChecked = (question.selectedAnswer === 'Yes') ? 'checked' : '';
+                        var noChecked = (question.selectedAnswer === 'No') ? 'checked' : '';
+                        questionHtml += `
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="answers[${index}].Answer" value="Yes" ${yesChecked} />
+                                                    <label class="form-check-label">Yes</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="answers[${index}].Answer" value="No" ${noChecked} />
+                                                    <label class="form-check-label">No</label>
+                                                </div>`;
+                    } else if (question.type === "text") {
+                        questionHtml += `<input type="text" class="form-control" name="answers[${index}].Answer" value="${question.selectedAnswer || ''}" required />`;
+                    } else if (question.type === "photo") {
+                        questionHtml += `<input type="file" class="form-control" name="answers[${index}].PhotoPath" accept="image/*" />`;
+                    }
+
+                    questionHtml += `</div></div>`;
+                    questionContainer.append(questionHtml);
+                });
+
+                // Go to Step 2
+                $('#step-1').hide();
+                $('#step-2').show();
+            }
+        });
+    });
+
+    // Step 2: Next button click (Go to Step 3)
+    $("#nextStep2").click(function () {
+          var rscode = $("#selectedRscode").val();
+                    var mrCode = $("#mrcodeInput").val();
+                    var outlet = $("#selectedOutlet").val();
+
+
+        $.get('/ReviewPlane/postQuestions', { rscode: rscode, mrCode: mrCode, outlet: outlet }, function (data) {
+            if (data && data.length > 0) {
+                var postQuestionContainer = $('#postqsnContainer');
+                postQuestionContainer.empty();
+                data.forEach(function (question, index) {
+                    var questionHtml = `<div class="col-12 col-sm-6">
+                                            <div class="p-3 border rounded bg-white">
+                                                <label class="fw-bold">Question ${index + 1}: ${question.question}</label>
+                                                <input type="hidden" name="postAnswers[${index}].QuestionId" value="${question.questionId}" />
+                                                <input type="hidden" name="postAnswers[${index}].Type" value="${question.type}" />`;
+
+                    if (question.type === "radio") {
+                        var yesChecked = (question.selectedAnswer === 'Yes') ? 'checked' : '';
+                        var noChecked = (question.selectedAnswer === 'No') ? 'checked' : '';
+                        questionHtml += `
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="postAnswers[${index}].Answer" value="Yes" ${yesChecked} />
+                                                    <label class="form-check-label">Yes</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="postAnswers[${index}].Answer" value="No" ${noChecked} />
+                                                    <label class="form-check-label">No</label>
+                                                </div>`;
+                    } else if (question.type === "text") {
+                        questionHtml += `<input type="text" class="form-control" name="postAnswers[${index}].Answer" value="${question.selectedAnswer || ''}" required />`;
+                    } else if (question.type === "photo") {
+                        questionHtml += `<input type="file" class="form-control" name="postAnswers[${index}].PhotoPath" accept="image/*" />`;
+                    }
+
+                    questionHtml += `</div></div>`;
+                    postQuestionContainer.append(questionHtml);
+                });
+
+                // Go to Step 3
+                $('#step-2').hide();
+                $('#step-3').show();
+            }
+        });
+    });
+
+    // Submit the form
+    $("#submitReview").click(function () {
+        var formData = new FormData(); // Use FormData for file uploads
+
+        formData.append("MRCode", $("#mrcodeInput").val());
+        formData.append("RSCODE", $("#selectedRscode").val());
+        formData.append("SelectedOutlet", $("#selectedOutlet").val());
+
+        var preAnswers = [];
+        var postAnswers = [];
+
+        // Collect pre-answers (Step 2 questions)
+        $("#step-2 .p-3").each(function () {
+            var questionId = $(this).find("input[name^='answers[']").val();
+            var type = $(this).find("input[name$='Type']").val();
+            var answer = null;
+            var photoData = null;
+
+            $(this).find("input").each(function () {
+                var name = $(this).attr("name");
+                if (name.includes("Answer")) {
+                    if ($(this).attr('type') === 'radio' && $(this).prop('checked')) {
+                        answer = $(this).val();
+                    }
+                }
+            });
+
+            if (type === 'photo') {
+                var photoInput = $(this).find("input[type='file']")[0];
+                if (photoInput && photoInput.files.length > 0) {
+                    var file = photoInput.files[0];
+                    formData.append("Files", file);
+                    photoData = file.name;
+                }
+            }
+
+            var answerObj = {
+                QuestionId: questionId,
+                Type: type,
+                Answer: answer,
+                PhotoPath: photoData
+            };
+
+            preAnswers.push(answerObj);
+        });
+
+        // Collect post-answers (Step 3 questions)
+        $("#step-3 .p-3").each(function () {
+            var questionId = $(this).find("input[name^='postAnswers[']").val();
+            var type = $(this).find("input[name$='Type']").val();
+            var answer = null;
+            var photoData = null;
+
+            $(this).find("input").each(function () {
+                var name = $(this).attr("name");
+                if (name.includes("Answer")) {
+                    if ($(this).attr('type') === 'radio' && $(this).prop('checked')) {
+                        answer = $(this).val();
+                    }
+                }
+            });
+
+            if (type === 'photo') {
+                var photoInput = $(this).find("input[type='file']")[0];
+                if (photoInput && photoInput.files.length > 0) {
+                    var file = photoInput.files[0];
+                    formData.append("Files", file);
+                    photoData = file.name;
+                }
+            }
+
+            var answerObj = {
+                QuestionId: questionId,
+                Type: type,
+                Answer: answer,
+                PhotoPath: photoData
+            };
+
+            postAnswers.push(answerObj);
+        });
+
+        var jsonData = {
+            PreAnswers: preAnswers,
+            PostAnswers: postAnswers
+        };
+
+        formData.append("jsonData", JSON.stringify(jsonData));
+
+        // Submit the form using AJAX
+        $.ajax({
+            url: "/ReviewPlane/CreateReview",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                alert("Review submitted successfully!");
+                window.location.href = "/ReviewPlane/Index";
+            },
+            error: function (xhr, status, error) {
+                console.error("Error:", xhr.responseText);
+                alert("Error submitting the review.");
+            }
+        });
+    });
+
+      $("#prevStep2").click(function () {
+      $('#step-2').hide();
+      $('#step-1').show();
+  });
+
+  $("#prevStep3").click(function () {
+      $('#step-3').hide();
+      $('#step-2').show();
+  });
+});
+
+    </script>
+} 
+

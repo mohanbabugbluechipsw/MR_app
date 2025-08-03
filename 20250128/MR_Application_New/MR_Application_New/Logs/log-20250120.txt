@@ -1,0 +1,734 @@
+2025-01-20 10:14:33.497 +05:30 [INF] User profile is available. Using 'C:\Users\bluechip\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-20 10:14:33.947 +05:30 [INF] Now listening on: https://localhost:7158
+2025-01-20 10:14:33.948 +05:30 [INF] Now listening on: http://localhost:5162
+2025-01-20 10:14:34.249 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-20 10:14:34.249 +05:30 [INF] Hosting environment: Development
+2025-01-20 10:14:34.249 +05:30 [INF] Content root path: C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New
+2025-01-20 10:14:42.579 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ - null null
+2025-01-20 10:14:43.389 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2025-01-20 10:14:43.505 +05:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.HomeController (MR_Application_New).
+2025-01-20 10:14:43.549 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 10:14:43.916 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/lib/icons-Main/font/bootstrap-icons.css - null null
+2025-01-20 10:14:43.918 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/lib/bootstrap/js/bootstrap.bundle.min.js - null null
+2025-01-20 10:14:43.920 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/lib/bootstrap/css/bootstrap.min.css - null null
+2025-01-20 10:14:43.927 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/lib/jquery/dist/jquery.min.js - null null
+2025-01-20 10:14:43.927 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/lib/popper.js/umd/popper.min.js - null null
+2025-01-20 10:14:43.941 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/img/unilever2.gif - null null
+2025-01-20 10:14:43.947 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/img/maxresdefault.jpg - null null
+2025-01-20 10:14:43.956 +05:30 [INF] Executed ViewResult - view Index executed in 438.8718ms.
+2025-01-20 10:14:43.961 +05:30 [INF] Executed action MR_Application_New.Controllers.HomeController.Index (MR_Application_New) in 454.4419ms
+2025-01-20 10:14:43.962 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2025-01-20 10:14:43.970 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ - 200 null text/html; charset=utf-8 1604.246ms
+2025-01-20 10:14:43.995 +05:30 [INF] Sending file. Request path: '/img/maxresdefault.jpg'. Physical path: 'C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\wwwroot\img\maxresdefault.jpg'
+2025-01-20 10:14:43.995 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/img/maxresdefault.jpg - 200 165722 image/jpeg 48.1248ms
+2025-01-20 10:14:44.054 +05:30 [INF] Sending file. Request path: '/lib/bootstrap/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\wwwroot\lib\bootstrap\js\bootstrap.bundle.min.js'
+2025-01-20 10:14:44.054 +05:30 [INF] Sending file. Request path: '/lib/popper.js/umd/popper.min.js'. Physical path: 'C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\wwwroot\lib\popper.js\umd\popper.min.js'
+2025-01-20 10:14:44.055 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/lib/bootstrap/js/bootstrap.bundle.min.js - 200 80721 text/javascript 136.7459ms
+2025-01-20 10:14:44.055 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/lib/popper.js/umd/popper.min.js - 200 20122 text/javascript 127.6655ms
+2025-01-20 10:14:44.068 +05:30 [INF] Sending file. Request path: '/lib/bootstrap/css/bootstrap.min.css'. Physical path: 'C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\wwwroot\lib\bootstrap\css\bootstrap.min.css'
+2025-01-20 10:14:44.068 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/lib/bootstrap/css/bootstrap.min.css - 200 232803 text/css 156.0853ms
+2025-01-20 10:14:44.078 +05:30 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\wwwroot\lib\jquery\dist\jquery.min.js'
+2025-01-20 10:14:44.078 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 157.3711ms
+2025-01-20 10:14:44.110 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/img/download.jpg - null null
+2025-01-20 10:14:44.112 +05:30 [INF] Sending file. Request path: '/lib/icons-Main/font/bootstrap-icons.css'. Physical path: 'C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\wwwroot\lib\icons-main\font\bootstrap-icons.css'
+2025-01-20 10:14:44.112 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/lib/icons-Main/font/bootstrap-icons.css - 200 98255 text/css 199.8203ms
+2025-01-20 10:14:44.148 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/img/unilever.jpg - null null
+2025-01-20 10:14:44.148 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 10:14:44.148 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 10:14:44.152 +05:30 [INF] Sending file. Request path: '/img/download.jpg'. Physical path: 'C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\wwwroot\img\download.jpg'
+2025-01-20 10:14:44.152 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/img/download.jpg - 200 24986 image/jpeg 42.9029ms
+2025-01-20 10:14:44.156 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 8.8114ms
+2025-01-20 10:14:44.165 +05:30 [INF] Sending file. Request path: '/img/unilever2.gif'. Physical path: 'C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\wwwroot\img\unilever2.gif'
+2025-01-20 10:14:44.165 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/img/unilever2.gif - 200 1456934 image/gif 224.6065ms
+2025-01-20 10:14:44.205 +05:30 [INF] Sending file. Request path: '/img/unilever.jpg'. Physical path: 'C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\wwwroot\img\unilever.jpg'
+2025-01-20 10:14:44.205 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/img/unilever.jpg - 200 142463 image/jpeg 57.8685ms
+2025-01-20 10:14:44.314 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/lib/icons-Main/font/fonts/bootstrap-icons.woff2?dd67030699838ea613ee6dbda90effa6 - null null
+2025-01-20 10:14:44.419 +05:30 [INF] Sending file. Request path: '/lib/icons-Main/font/fonts/bootstrap-icons.woff2'. Physical path: 'C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\wwwroot\lib\icons-main\font\fonts\bootstrap-icons.woff2'
+2025-01-20 10:14:44.420 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/lib/icons-Main/font/fonts/bootstrap-icons.woff2?dd67030699838ea613ee6dbda90effa6 - 200 130396 font/woff2 105.7763ms
+2025-01-20 10:14:44.450 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 302.8843ms
+2025-01-20 10:14:44.470 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/favicon.ico - null null
+2025-01-20 10:14:44.473 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.QuestionsController.Get (MR_Application_New)'
+2025-01-20 10:14:44.486 +05:30 [INF] Route matched with {action = "Get", controller = "Questions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(Int32) on controller MR_Application_New.Controllers.QuestionsController (MR_Application_New).
+2025-01-20 10:14:49.370 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Login/Index - null null
+2025-01-20 10:14:49.378 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 10:14:49.380 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 10:14:49.598 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 10:14:49.627 +05:30 [INF] Executed ViewResult - view Index executed in 70.1907ms.
+2025-01-20 10:14:49.629 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 248.2504ms
+2025-01-20 10:14:49.629 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 10:14:49.776 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 10:14:49.781 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 10:14:49.781 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 8.9684ms
+2025-01-20 10:14:49.808 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.087ms
+2025-01-20 10:14:49.934 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Login/Index - 200 null text/html; charset=utf-8 565.4003ms
+2025-01-20 10:14:50.116 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/favicon.ico - null null
+2025-01-20 10:14:50.117 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.QuestionsController.Get (MR_Application_New)'
+2025-01-20 10:14:50.118 +05:30 [INF] Route matched with {action = "Get", controller = "Questions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(Int32) on controller MR_Application_New.Controllers.QuestionsController (MR_Application_New).
+2025-01-20 10:14:53.407 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7158/Login/Index - application/x-www-form-urlencoded 48
+2025-01-20 10:14:53.411 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 10:14:53.413 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String) on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 10:14:53.431 +05:30 [INF] Login attempt for email: veena.ravi@unilever.com
+2025-01-20 10:14:57.498 +05:30 [INF] Executed DbCommand (874ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [q].[QuestionId], [q].[Ba], [q].[CreatedAt], [q].[DeletedAt], [q].[Distributor], [q].[PartyHllcode], [q].[PartyMasterCode], [q].[PartyName], [q].[Question], [q].[Status], [q].[Type], [q].[UpdatedAt]
+FROM [QuestionsNew] AS [q]
+WHERE [q].[QuestionId] = @__p_0
+2025-01-20 10:14:57.508 +05:30 [INF] Executed DbCommand (884ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [q].[QuestionId], [q].[Ba], [q].[CreatedAt], [q].[DeletedAt], [q].[Distributor], [q].[PartyHllcode], [q].[PartyMasterCode], [q].[PartyName], [q].[Question], [q].[Status], [q].[Type], [q].[UpdatedAt]
+FROM [QuestionsNew] AS [q]
+WHERE [q].[QuestionId] = @__p_0
+2025-01-20 10:14:57.582 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 404
+2025-01-20 10:14:57.582 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 404
+2025-01-20 10:14:57.583 +05:30 [INF] Executed action MR_Application_New.Controllers.QuestionsController.Get (MR_Application_New) in 7465.1189ms
+2025-01-20 10:14:57.583 +05:30 [INF] Executed action MR_Application_New.Controllers.QuestionsController.Get (MR_Application_New) in 13096.8246ms
+2025-01-20 10:14:57.583 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.QuestionsController.Get (MR_Application_New)'
+2025-01-20 10:14:57.583 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.QuestionsController.Get (MR_Application_New)'
+2025-01-20 10:14:57.592 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/favicon.ico - 404 0 null 7475.6605ms
+2025-01-20 10:14:57.592 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/favicon.ico - 499 null null 13121.6258ms
+2025-01-20 10:14:58.264 +05:30 [INF] NormalUser login successful for email: veena.ravi@unilever.com
+2025-01-20 10:14:58.265 +05:30 [INF] Executing RedirectResult, redirecting to /Login/Welcome.
+2025-01-20 10:14:58.286 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 4873.2836ms
+2025-01-20 10:14:58.287 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 10:14:58.288 +05:30 [INF] Session started; Key:e7f49e9e-b6a0-c04f-e09a-1eac6686d17d, Id:6b8cf7e8-12c9-722d-7db2-529652dcf804
+2025-01-20 10:14:58.311 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7158/Login/Index - 302 0 null 4904.0603ms
+2025-01-20 10:14:58.319 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Login/Welcome - null null
+2025-01-20 10:14:58.359 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New)'
+2025-01-20 10:14:58.361 +05:30 [INF] Route matched with {action = "Welcome", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Welcome() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 10:14:58.388 +05:30 [INF] Welcome page accessed
+2025-01-20 10:14:58.389 +05:30 [INF] Executing ViewResult, running view Welcome.
+2025-01-20 10:14:58.489 +05:30 [INF] Executed ViewResult - view Welcome executed in 100.1249ms.
+2025-01-20 10:14:58.490 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New) in 129.1533ms
+2025-01-20 10:14:58.490 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New)'
+2025-01-20 10:14:58.491 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Login/Welcome - 200 null text/html; charset=utf-8 171.9268ms
+2025-01-20 10:14:58.500 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/lib/leaflet-routing-machine/leaflet-routing-machine.css - null null
+2025-01-20 10:14:58.500 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/lib/leaflet/leaflet.css - null null
+2025-01-20 10:14:58.504 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 10:14:58.503 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/lib/leaflet-routing-machine/leaflet-routing-machine.js - null null
+2025-01-20 10:14:58.503 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/lib/leaflet/leaflet.js - null null
+2025-01-20 10:14:58.505 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.3763ms
+2025-01-20 10:14:58.520 +05:30 [INF] Sending file. Request path: '/lib/leaflet/leaflet.js'. Physical path: 'C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\wwwroot\lib\leaflet\leaflet.js'
+2025-01-20 10:14:58.521 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/lib/leaflet/leaflet.js - 200 147552 text/javascript 18.1966ms
+2025-01-20 10:14:58.545 +05:30 [INF] Sending file. Request path: '/lib/leaflet-routing-machine/leaflet-routing-machine.js'. Physical path: 'C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\wwwroot\lib\leaflet-routing-machine\leaflet-routing-machine.js'
+2025-01-20 10:14:58.545 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/lib/leaflet-routing-machine/leaflet-routing-machine.js - 200 839252 text/javascript 41.6022ms
+2025-01-20 10:14:58.635 +05:30 [INF] Sending file. Request path: '/lib/leaflet-routing-machine/leaflet-routing-machine.css'. Physical path: 'C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\wwwroot\lib\leaflet-routing-machine\leaflet-routing-machine.css'
+2025-01-20 10:14:58.635 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/lib/leaflet-routing-machine/leaflet-routing-machine.css - 200 6186 text/css 134.9762ms
+2025-01-20 10:14:58.657 +05:30 [INF] Sending file. Request path: '/lib/leaflet/leaflet.css'. Physical path: 'C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\wwwroot\lib\leaflet\leaflet.css'
+2025-01-20 10:14:58.657 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/lib/leaflet/leaflet.css - 200 14806 text/css 157.0401ms
+2025-01-20 10:14:59.841 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 10:14:59.858 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.119ms
+2025-01-20 10:15:04.703 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7158/Login/Logout - application/x-www-form-urlencoded; charset=UTF-8 182
+2025-01-20 10:15:04.704 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Logout (MR_Application_New)'
+2025-01-20 10:15:04.707 +05:30 [INF] Route matched with {action = "Logout", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 10:15:04.709 +05:30 [INF] User logged out.
+2025-01-20 10:15:04.710 +05:30 [INF] Executing RedirectResult, redirecting to /Login/Index.
+2025-01-20 10:15:04.710 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Logout (MR_Application_New) in 3.2947ms
+2025-01-20 10:15:04.710 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Logout (MR_Application_New)'
+2025-01-20 10:15:04.711 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7158/Login/Logout - 302 0 null 8.5008ms
+2025-01-20 10:15:04.716 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Login/Index - null null
+2025-01-20 10:15:04.716 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 10:15:04.717 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 10:15:04.718 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 10:15:04.721 +05:30 [INF] Executed ViewResult - view Index executed in 2.7082ms.
+2025-01-20 10:15:04.721 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 4.7961ms
+2025-01-20 10:15:04.722 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 10:15:04.722 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Login/Index - 200 null text/html; charset=utf-8 7.5184ms
+2025-01-20 10:15:04.794 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ - null null
+2025-01-20 10:15:04.798 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2025-01-20 10:15:04.799 +05:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.HomeController (MR_Application_New).
+2025-01-20 10:15:04.799 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 10:15:04.803 +05:30 [INF] Executed ViewResult - view Index executed in 4.3397ms.
+2025-01-20 10:15:04.804 +05:30 [INF] Executed action MR_Application_New.Controllers.HomeController.Index (MR_Application_New) in 5.0723ms
+2025-01-20 10:15:04.804 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2025-01-20 10:15:04.804 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ - 200 null text/html; charset=utf-8 10.4786ms
+2025-01-20 10:15:04.813 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 10:15:04.814 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 10:15:04.814 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.3518ms
+2025-01-20 10:15:04.824 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.3653ms
+2025-01-20 11:58:16.484 +05:30 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-20 11:58:16.562 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-20 11:58:16.564 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-20 11:58:16.769 +05:30 [INF] Executed DbCommand (83ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2025-01-20 11:58:16.770 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-20 11:58:16.772 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-20 11:58:16.799 +05:30 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-01-20 11:58:16.809 +05:30 [INF] Applying migration '20250120062747_CreateTblSalesRep'.
+2025-01-20 11:58:16.993 +05:30 [ERR] Failed executing DbCommand (66ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Categories] (
+    [CategoryID] int NOT NULL IDENTITY,
+    [CategoryName] nvarchar(100) NOT NULL,
+    [IsActive] bit NULL DEFAULT CAST(1 AS bit),
+    [CreatedDate] datetime NULL DEFAULT ((getdate())),
+    CONSTRAINT [PK__Categori__19093A2BF703F80D] PRIMARY KEY ([CategoryID])
+);
+2025-01-20 12:05:30.924 +05:30 [INF] User profile is available. Using 'C:\Users\bluechip\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-20 12:05:31.752 +05:30 [INF] Now listening on: https://localhost:7158
+2025-01-20 12:05:31.752 +05:30 [INF] Now listening on: http://localhost:5162
+2025-01-20 12:05:31.960 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-20 12:05:31.961 +05:30 [INF] Hosting environment: Development
+2025-01-20 12:05:31.962 +05:30 [INF] Content root path: C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New
+2025-01-20 12:05:33.161 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ - null null
+2025-01-20 12:05:33.706 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2025-01-20 12:05:33.855 +05:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.HomeController (MR_Application_New).
+2025-01-20 12:05:33.873 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 12:05:34.386 +05:30 [INF] Executed ViewResult - view Index executed in 516.0945ms.
+2025-01-20 12:05:34.392 +05:30 [INF] Executed action MR_Application_New.Controllers.HomeController.Index (MR_Application_New) in 535.4631ms
+2025-01-20 12:05:34.392 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2025-01-20 12:05:34.406 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ - 200 null text/html; charset=utf-8 1416.8187ms
+2025-01-20 12:05:34.651 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 12:05:34.651 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 12:05:34.668 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 18.2206ms
+2025-01-20 12:05:34.709 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.7043ms
+2025-01-20 12:05:37.015 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Login/Index - null null
+2025-01-20 12:05:37.036 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 12:05:37.039 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 12:05:40.467 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 12:05:40.485 +05:30 [INF] Executed ViewResult - view Index executed in 44.013ms.
+2025-01-20 12:05:40.486 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 3446.9517ms
+2025-01-20 12:05:40.486 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 12:05:40.504 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 12:05:40.509 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 12:05:40.512 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Login/Index - 200 null text/html; charset=utf-8 3497.5845ms
+2025-01-20 12:05:40.513 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 8.8551ms
+2025-01-20 12:05:40.594 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 84.5615ms
+2025-01-20 12:05:43.548 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7158/Login/Index - application/x-www-form-urlencoded 48
+2025-01-20 12:05:43.558 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 12:05:43.573 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String) on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 12:05:43.758 +05:30 [INF] Login attempt for email: veena.ravi@unilever.com
+2025-01-20 12:05:46.845 +05:30 [INF] Accessing expired session, Key:e7f49e9e-b6a0-c04f-e09a-1eac6686d17d
+2025-01-20 12:05:46.929 +05:30 [INF] NormalUser login successful for email: veena.ravi@unilever.com
+2025-01-20 12:05:46.931 +05:30 [INF] Executing RedirectResult, redirecting to /Login/Welcome.
+2025-01-20 12:05:46.931 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 3358.4639ms
+2025-01-20 12:05:46.932 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 12:05:46.944 +05:30 [INF] Session started; Key:e7f49e9e-b6a0-c04f-e09a-1eac6686d17d, Id:83ad6342-84a8-9fb6-53a6-6a318a8a79fd
+2025-01-20 12:05:46.946 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7158/Login/Index - 302 0 null 3398.1319ms
+2025-01-20 12:05:46.953 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Login/Welcome - null null
+2025-01-20 12:05:46.957 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New)'
+2025-01-20 12:05:46.958 +05:30 [INF] Route matched with {action = "Welcome", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Welcome() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 12:05:47.006 +05:30 [INF] Welcome page accessed
+2025-01-20 12:05:47.007 +05:30 [INF] Executing ViewResult, running view Welcome.
+2025-01-20 12:05:47.145 +05:30 [INF] Executed ViewResult - view Welcome executed in 138.7264ms.
+2025-01-20 12:05:47.145 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New) in 186.9865ms
+2025-01-20 12:05:47.145 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New)'
+2025-01-20 12:05:47.146 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Login/Welcome - 200 null text/html; charset=utf-8 193.0862ms
+2025-01-20 12:05:47.163 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 12:05:47.167 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 3.1155ms
+2025-01-20 12:05:47.378 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 12:05:47.394 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 16.669ms
+2025-01-20 12:05:49.668 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ReviewPlane/Index - null null
+2025-01-20 12:05:49.673 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.ReviewPlaneController.Index (MR_Application_New)'
+2025-01-20 12:05:49.712 +05:30 [INF] Route matched with {action = "Index", controller = "ReviewPlane"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.ReviewPlaneController (MR_Application_New).
+2025-01-20 12:05:49.714 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 12:05:49.722 +05:30 [INF] Executed ViewResult - view Index executed in 9.1596ms.
+2025-01-20 12:05:49.723 +05:30 [INF] Executed action MR_Application_New.Controllers.ReviewPlaneController.Index (MR_Application_New) in 11.0692ms
+2025-01-20 12:05:49.724 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.ReviewPlaneController.Index (MR_Application_New)'
+2025-01-20 12:05:49.724 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ReviewPlane/Index - 200 null text/html; charset=utf-8 56.12ms
+2025-01-20 12:05:49.735 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 12:05:49.736 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.3806ms
+2025-01-20 12:05:49.790 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 12:05:49.803 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 13.1869ms
+2025-01-20 12:05:52.154 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ReviewPlane/GetTblSalesRep - null null
+2025-01-20 12:05:52.164 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.ReviewPlaneController.GetTblSalesRep (MR_Application_New)'
+2025-01-20 12:05:52.172 +05:30 [INF] Route matched with {action = "GetTblSalesRep", controller = "ReviewPlane"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTblSalesRep() on controller MR_Application_New.Controllers.ReviewPlaneController (MR_Application_New).
+2025-01-20 12:05:52.465 +05:30 [ERR] Failed executing DbCommand (191ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Action], [t].[Active], [t].[Bp_code], [t].[Joined_date], [t].[Nic], [t].[Rep_code], [t].[Rep_name], [t].[Usl_reference]
+FROM [Tbl_sales_reps] AS [t]
+2025-01-20 12:05:52.921 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Model_New.Models.MrAppDbNewContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Tbl_sales_reps'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:c3e3db59-78a2-4672-ae45-0d7f19ab159a
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Tbl_sales_reps'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:c3e3db59-78a2-4672-ae45-0d7f19ab159a
+Error Number:208,State:1,Class:16
+2025-01-20 12:05:53.295 +05:30 [INF] Executed action MR_Application_New.Controllers.ReviewPlaneController.GetTblSalesRep (MR_Application_New) in 1122.7883ms
+2025-01-20 12:05:53.322 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.ReviewPlaneController.GetTblSalesRep (MR_Application_New)'
+2025-01-20 12:05:53.343 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Tbl_sales_reps'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at MR_Application_New.Controllers.ReviewPlaneController.GetTblSalesRep() in C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\Controllers\ReviewPlaneController.cs:line 214
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:c3e3db59-78a2-4672-ae45-0d7f19ab159a
+Error Number:208,State:1,Class:16
+2025-01-20 12:05:53.486 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ReviewPlane/GetTblSalesRep - 500 null text/html; charset=utf-8 1332.4347ms
+2025-01-20 12:05:53.507 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 12:05:53.507 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 12:05:53.509 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.6772ms
+2025-01-20 12:05:53.526 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 19.5508ms
+2025-01-20 12:06:23.244 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 12:06:23.245 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.613ms
+2025-01-20 12:06:25.178 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ReviewPlane/GetTblSalesRep - null null
+2025-01-20 12:06:25.181 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.ReviewPlaneController.GetTblSalesRep (MR_Application_New)'
+2025-01-20 12:06:25.181 +05:30 [INF] Route matched with {action = "GetTblSalesRep", controller = "ReviewPlane"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTblSalesRep() on controller MR_Application_New.Controllers.ReviewPlaneController (MR_Application_New).
+2025-01-20 12:06:44.255 +05:30 [ERR] Failed executing DbCommand (1,549ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Action], [t].[Active], [t].[Bp_code], [t].[Joined_date], [t].[Nic], [t].[Rep_code], [t].[Rep_name], [t].[Usl_reference]
+FROM [Tbl_sales_reps] AS [t]
+2025-01-20 12:06:44.261 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Model_New.Models.MrAppDbNewContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Tbl_sales_reps'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:c3e3db59-78a2-4672-ae45-0d7f19ab159a
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Tbl_sales_reps'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:c3e3db59-78a2-4672-ae45-0d7f19ab159a
+Error Number:208,State:1,Class:16
+2025-01-20 12:06:44.496 +05:30 [INF] Executed action MR_Application_New.Controllers.ReviewPlaneController.GetTblSalesRep (MR_Application_New) in 19315.1929ms
+2025-01-20 12:06:44.497 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.ReviewPlaneController.GetTblSalesRep (MR_Application_New)'
+2025-01-20 12:06:44.498 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Tbl_sales_reps'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at MR_Application_New.Controllers.ReviewPlaneController.GetTblSalesRep() in C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\Controllers\ReviewPlaneController.cs:line 214
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:c3e3db59-78a2-4672-ae45-0d7f19ab159a
+Error Number:208,State:1,Class:16
+2025-01-20 12:06:44.576 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ReviewPlane/GetTblSalesRep - 500 null text/html; charset=utf-8 19398.8114ms
+2025-01-20 12:06:44.577 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 12:06:44.577 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 12:06:44.578 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.3634ms
+2025-01-20 12:06:44.626 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.7734ms
+2025-01-20 14:41:40.063 +05:30 [INF] User profile is available. Using 'C:\Users\bluechip\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-20 14:41:42.046 +05:30 [INF] Now listening on: https://localhost:7158
+2025-01-20 14:41:42.046 +05:30 [INF] Now listening on: http://localhost:5162
+2025-01-20 14:41:42.166 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-20 14:41:42.166 +05:30 [INF] Hosting environment: Development
+2025-01-20 14:41:42.166 +05:30 [INF] Content root path: C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New
+2025-01-20 14:41:45.858 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ - null null
+2025-01-20 14:41:47.660 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2025-01-20 14:41:47.930 +05:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.HomeController (MR_Application_New).
+2025-01-20 14:41:47.939 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 14:41:48.604 +05:30 [INF] Executed ViewResult - view Index executed in 665.3564ms.
+2025-01-20 14:41:48.609 +05:30 [INF] Executed action MR_Application_New.Controllers.HomeController.Index (MR_Application_New) in 678.7724ms
+2025-01-20 14:41:48.610 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2025-01-20 14:41:48.620 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ - 200 null text/html; charset=utf-8 2848.7739ms
+2025-01-20 14:41:49.081 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 14:41:49.089 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 7.9527ms
+2025-01-20 14:41:49.097 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 14:41:49.571 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 474.34ms
+2025-01-20 14:42:37.905 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Login/Index - null null
+2025-01-20 14:42:37.916 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 14:42:37.918 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 14:42:40.736 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 14:42:40.756 +05:30 [INF] Executed ViewResult - view Index executed in 18.6672ms.
+2025-01-20 14:42:40.757 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 2838.6703ms
+2025-01-20 14:42:40.759 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 14:42:40.789 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Login/Index - 200 null text/html; charset=utf-8 2884.4188ms
+2025-01-20 14:42:40.804 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 14:42:40.806 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 2.1197ms
+2025-01-20 14:42:40.806 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 14:42:40.858 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.1133ms
+2025-01-20 14:42:46.452 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7158/Login/Index - application/x-www-form-urlencoded 48
+2025-01-20 14:42:46.462 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 14:42:46.471 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String) on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 14:42:46.773 +05:30 [INF] Login attempt for email: veena.ravi@unilever.com
+2025-01-20 14:43:01.169 +05:30 [INF] Accessing expired session, Key:e7f49e9e-b6a0-c04f-e09a-1eac6686d17d
+2025-01-20 14:43:01.339 +05:30 [INF] NormalUser login successful for email: veena.ravi@unilever.com
+2025-01-20 14:43:01.340 +05:30 [INF] Executing RedirectResult, redirecting to /Login/Welcome.
+2025-01-20 14:43:01.341 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 14870.0484ms
+2025-01-20 14:43:01.341 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 14:43:01.364 +05:30 [INF] Session started; Key:e7f49e9e-b6a0-c04f-e09a-1eac6686d17d, Id:82468a72-ea59-4726-919d-d42ab4e21b91
+2025-01-20 14:43:01.366 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7158/Login/Index - 302 0 null 14913.9087ms
+2025-01-20 14:43:01.392 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Login/Welcome - null null
+2025-01-20 14:43:01.396 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New)'
+2025-01-20 14:43:01.399 +05:30 [INF] Route matched with {action = "Welcome", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Welcome() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 14:43:01.420 +05:30 [INF] Welcome page accessed
+2025-01-20 14:43:01.421 +05:30 [INF] Executing ViewResult, running view Welcome.
+2025-01-20 14:43:01.488 +05:30 [INF] Executed ViewResult - view Welcome executed in 67.8949ms.
+2025-01-20 14:43:01.488 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New) in 89.4644ms
+2025-01-20 14:43:01.489 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New)'
+2025-01-20 14:43:01.489 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Login/Welcome - 200 null text/html; charset=utf-8 96.9104ms
+2025-01-20 14:43:01.561 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 14:43:01.563 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 2.0457ms
+2025-01-20 14:43:03.057 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 14:43:03.072 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 15.4688ms
+2025-01-20 14:43:07.393 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ReviewPlane/Index - null null
+2025-01-20 14:43:07.397 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.ReviewPlaneController.Index (MR_Application_New)'
+2025-01-20 14:43:07.399 +05:30 [INF] Route matched with {action = "Index", controller = "ReviewPlane"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.ReviewPlaneController (MR_Application_New).
+2025-01-20 14:43:07.400 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 14:43:07.406 +05:30 [INF] Executed ViewResult - view Index executed in 6.6429ms.
+2025-01-20 14:43:07.409 +05:30 [INF] Executed action MR_Application_New.Controllers.ReviewPlaneController.Index (MR_Application_New) in 9.7249ms
+2025-01-20 14:43:07.409 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.ReviewPlaneController.Index (MR_Application_New)'
+2025-01-20 14:43:07.409 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ReviewPlane/Index - 200 null text/html; charset=utf-8 15.9795ms
+2025-01-20 14:43:07.548 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 14:43:07.549 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.1328ms
+2025-01-20 14:43:07.631 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 14:43:07.663 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.49ms
+2025-01-20 14:43:09.216 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ReviewPlane/Getdetails - null null
+2025-01-20 14:43:09.226 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.ReviewPlaneController.Getdetails (MR_Application_New)'
+2025-01-20 14:43:09.234 +05:30 [INF] Route matched with {action = "Getdetails", controller = "ReviewPlane"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Getdetails() on controller MR_Application_New.Controllers.ReviewPlaneController (MR_Application_New).
+2025-01-20 14:43:10.890 +05:30 [INF] Executed DbCommand (1,520ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[ReviewAnswerId], [r].[Answer], [r].[CreatedAt], [r].[EmpNo], [r].[Outlet], [r].[PhotoFilePath], [r].[QuestionId], [r].[Rscode], [r].[SelectedOptions]
+FROM [ReviewAnswers] AS [r]
+2025-01-20 14:43:10.929 +05:30 [INF] Executing PartialViewResult, running view ~/Views/ReviewPlane/PartialViews/_GetDetails.cshtml.
+2025-01-20 14:43:10.937 +05:30 [INF] Executed PartialViewResult - view ~/Views/ReviewPlane/PartialViews/_GetDetails.cshtml executed in 9.2474ms.
+2025-01-20 14:43:10.937 +05:30 [INF] Executed action MR_Application_New.Controllers.ReviewPlaneController.Getdetails (MR_Application_New) in 1703.4115ms
+2025-01-20 14:43:10.938 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.ReviewPlaneController.Getdetails (MR_Application_New)'
+2025-01-20 14:43:10.945 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ReviewPlane/Getdetails - 200 null text/html; charset=utf-8 1730.2911ms
+2025-01-20 14:43:11.253 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 14:43:11.255 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.6928ms
+2025-01-20 14:43:11.483 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 14:43:11.497 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.2604ms
+2025-01-20 14:43:11.889 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ReviewPlane/GetRscodeOptions - null null
+2025-01-20 14:43:11.890 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.ReviewPlaneController.GetRscodeOptions (MR_Application_New)'
+2025-01-20 14:43:11.895 +05:30 [INF] Route matched with {action = "GetRscodeOptions", controller = "ReviewPlane"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetRscodeOptions() on controller MR_Application_New.Controllers.ReviewPlaneController (MR_Application_New).
+2025-01-20 14:43:12.112 +05:30 [INF] Executed DbCommand (125ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Distributor]
+FROM [Tbl_Distributor] AS [t]
+2025-01-20 14:43:12.115 +05:30 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType13`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], MR_Application_New, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-01-20 14:43:12.122 +05:30 [INF] Executed action MR_Application_New.Controllers.ReviewPlaneController.GetRscodeOptions (MR_Application_New) in 227.7272ms
+2025-01-20 14:43:12.123 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.ReviewPlaneController.GetRscodeOptions (MR_Application_New)'
+2025-01-20 14:43:12.123 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ReviewPlane/GetRscodeOptions - 200 null application/json; charset=utf-8 233.9964ms
+2025-01-20 14:52:50.492 +05:30 [INF] User profile is available. Using 'C:\Users\bluechip\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-20 14:52:51.072 +05:30 [INF] Now listening on: https://localhost:7158
+2025-01-20 14:52:51.072 +05:30 [INF] Now listening on: http://localhost:5162
+2025-01-20 14:52:51.151 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-20 14:52:51.152 +05:30 [INF] Hosting environment: Development
+2025-01-20 14:52:51.152 +05:30 [INF] Content root path: C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New
+2025-01-20 14:52:52.658 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ - null null
+2025-01-20 14:52:53.052 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2025-01-20 14:52:53.097 +05:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.HomeController (MR_Application_New).
+2025-01-20 14:52:53.109 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 14:52:53.346 +05:30 [INF] Executed ViewResult - view Index executed in 233.3554ms.
+2025-01-20 14:52:53.354 +05:30 [INF] Executed action MR_Application_New.Controllers.HomeController.Index (MR_Application_New) in 256.3045ms
+2025-01-20 14:52:53.355 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2025-01-20 14:52:53.366 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 14:52:53.371 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ - 200 null text/html; charset=utf-8 723.086ms
+2025-01-20 14:52:53.375 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 8.4377ms
+2025-01-20 14:52:53.393 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 14:52:53.489 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 95.6747ms
+2025-01-20 14:53:31.303 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Login/Index - null null
+2025-01-20 14:53:31.321 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 14:53:31.323 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 14:53:33.672 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 14:53:33.686 +05:30 [INF] Executed ViewResult - view Index executed in 15.1833ms.
+2025-01-20 14:53:33.688 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 2364.2794ms
+2025-01-20 14:53:33.688 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 14:53:33.708 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Login/Index - 200 null text/html; charset=utf-8 2406.0583ms
+2025-01-20 14:53:33.768 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 14:53:33.770 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 14:53:33.771 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 3.2046ms
+2025-01-20 14:53:33.836 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 65.9576ms
+2025-01-20 14:53:36.661 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7158/Login/Index - application/x-www-form-urlencoded 48
+2025-01-20 14:53:36.676 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 14:53:36.692 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String) on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 14:53:36.830 +05:30 [INF] Login attempt for email: veena.ravi@unilever.com
+2025-01-20 14:53:38.259 +05:30 [INF] Accessing expired session, Key:e7f49e9e-b6a0-c04f-e09a-1eac6686d17d
+2025-01-20 14:53:38.294 +05:30 [INF] NormalUser login successful for email: veena.ravi@unilever.com
+2025-01-20 14:53:38.295 +05:30 [INF] Executing RedirectResult, redirecting to /Login/Welcome.
+2025-01-20 14:53:38.296 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 1603.9557ms
+2025-01-20 14:53:38.296 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 14:53:38.299 +05:30 [INF] Session started; Key:e7f49e9e-b6a0-c04f-e09a-1eac6686d17d, Id:e024206e-210d-3743-0c7e-b3fd0429f2a3
+2025-01-20 14:53:38.300 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7158/Login/Index - 302 0 null 1639.7745ms
+2025-01-20 14:53:38.353 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Login/Welcome - null null
+2025-01-20 14:53:38.360 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New)'
+2025-01-20 14:53:38.362 +05:30 [INF] Route matched with {action = "Welcome", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Welcome() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 14:53:38.388 +05:30 [INF] Welcome page accessed
+2025-01-20 14:53:38.389 +05:30 [INF] Executing ViewResult, running view Welcome.
+2025-01-20 14:53:38.452 +05:30 [INF] Executed ViewResult - view Welcome executed in 63.2607ms.
+2025-01-20 14:53:38.452 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New) in 89.7615ms
+2025-01-20 14:53:38.452 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New)'
+2025-01-20 14:53:38.452 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Login/Welcome - 200 null text/html; charset=utf-8 99.4633ms
+2025-01-20 14:53:38.494 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 14:53:38.499 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 4.6438ms
+2025-01-20 14:53:38.720 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 14:53:38.745 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 24.9767ms
+2025-01-20 14:53:42.625 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ReviewPlane/Index - null null
+2025-01-20 14:53:42.629 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.ReviewPlaneController.Index (MR_Application_New)'
+2025-01-20 14:53:42.630 +05:30 [INF] Route matched with {action = "Index", controller = "ReviewPlane"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.ReviewPlaneController (MR_Application_New).
+2025-01-20 14:53:42.633 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 14:53:42.643 +05:30 [INF] Executed ViewResult - view Index executed in 11.0626ms.
+2025-01-20 14:53:42.644 +05:30 [INF] Executed action MR_Application_New.Controllers.ReviewPlaneController.Index (MR_Application_New) in 13.1536ms
+2025-01-20 14:53:42.644 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.ReviewPlaneController.Index (MR_Application_New)'
+2025-01-20 14:53:42.644 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ReviewPlane/Index - 200 null text/html; charset=utf-8 19.4784ms
+2025-01-20 14:53:42.689 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 14:53:42.691 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.9463ms
+2025-01-20 14:53:42.745 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 14:53:42.770 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 25.6089ms
+2025-01-20 14:53:47.957 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ReviewPlane/Wizard - null null
+2025-01-20 14:53:47.964 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.ReviewPlaneController.Wizard (MR_Application_New)'
+2025-01-20 14:53:47.967 +05:30 [INF] Route matched with {action = "Wizard", controller = "ReviewPlane"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Wizard() on controller MR_Application_New.Controllers.ReviewPlaneController (MR_Application_New).
+2025-01-20 14:53:47.969 +05:30 [INF] Executing PartialViewResult, running view ~/Views/ReviewPlane/PartialViews/_Wizard.cshtml.
+2025-01-20 14:53:47.978 +05:30 [INF] Executed PartialViewResult - view ~/Views/ReviewPlane/PartialViews/_Wizard.cshtml executed in 9.2244ms.
+2025-01-20 14:53:47.978 +05:30 [INF] Executed action MR_Application_New.Controllers.ReviewPlaneController.Wizard (MR_Application_New) in 11.3863ms
+2025-01-20 14:53:47.978 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.ReviewPlaneController.Wizard (MR_Application_New)'
+2025-01-20 14:53:47.979 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ReviewPlane/Wizard - 200 null text/html; charset=utf-8 22.5741ms
+2025-01-20 14:53:48.085 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 14:53:48.086 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.6074ms
+2025-01-20 14:53:48.151 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 14:53:48.173 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.6714ms
+2025-01-20 14:53:50.210 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ReviewPlane/AddbeforeReview - null null
+2025-01-20 14:53:50.366 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.ReviewPlaneController.AddbeforeReview (MR_Application_New)'
+2025-01-20 14:53:50.367 +05:30 [INF] Route matched with {action = "AddbeforeReview", controller = "ReviewPlane"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddbeforeReview() on controller MR_Application_New.Controllers.ReviewPlaneController (MR_Application_New).
+2025-01-20 14:53:50.369 +05:30 [INF] Executing AddbeforeReview action.
+2025-01-20 14:53:50.478 +05:30 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT DISTINCT [t].[Distributor], [t].[Distributor_Name] AS [DistributorName]
+FROM [Tbl_Distributor] AS [t]
+2025-01-20 14:53:50.479 +05:30 [INF] 87 RS codes fetched from TblDistributors.
+2025-01-20 14:53:50.483 +05:30 [INF] Executing PartialViewResult, running view ~/Views/ReviewPlane/PartialViews/_AddbeforeReview.cshtml.
+2025-01-20 14:53:50.514 +05:30 [INF] Executed PartialViewResult - view ~/Views/ReviewPlane/PartialViews/_AddbeforeReview.cshtml executed in 31.6069ms.
+2025-01-20 14:53:50.514 +05:30 [INF] Executed action MR_Application_New.Controllers.ReviewPlaneController.AddbeforeReview (MR_Application_New) in 147.3049ms
+2025-01-20 14:53:50.515 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.ReviewPlaneController.AddbeforeReview (MR_Application_New)'
+2025-01-20 14:53:50.525 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ReviewPlane/AddbeforeReview - 200 null text/html; charset=utf-8 316.0451ms
+2025-01-20 14:53:50.538 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 14:53:50.539 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.604ms
+2025-01-20 14:53:50.598 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 14:53:50.615 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.2808ms
+2025-01-20 15:05:52.845 +05:30 [INF] User profile is available. Using 'C:\Users\bluechip\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-20 15:05:53.287 +05:30 [INF] Now listening on: https://localhost:7158
+2025-01-20 15:05:53.288 +05:30 [INF] Now listening on: http://localhost:5162
+2025-01-20 15:05:53.383 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-20 15:05:53.384 +05:30 [INF] Hosting environment: Development
+2025-01-20 15:05:53.384 +05:30 [INF] Content root path: C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New
+2025-01-20 15:05:57.628 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ - null null
+2025-01-20 15:05:57.946 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2025-01-20 15:05:57.993 +05:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.HomeController (MR_Application_New).
+2025-01-20 15:05:58.009 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 15:05:58.459 +05:30 [INF] Executed ViewResult - view Index executed in 436.4418ms.
+2025-01-20 15:05:58.478 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 15:05:58.500 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 15:05:58.506 +05:30 [INF] Executed action MR_Application_New.Controllers.HomeController.Index (MR_Application_New) in 512.8808ms
+2025-01-20 15:05:58.507 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2025-01-20 15:05:58.511 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 31.0552ms
+2025-01-20 15:05:58.519 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ - 200 null text/html; charset=utf-8 900.718ms
+2025-01-20 15:05:58.729 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 229.1152ms
+2025-01-20 15:06:03.098 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Login/Index - null null
+2025-01-20 15:06:03.109 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 15:06:03.114 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 15:06:23.038 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 15:06:23.055 +05:30 [INF] Executed ViewResult - view Index executed in 22.89ms.
+2025-01-20 15:06:23.056 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 19942.2542ms
+2025-01-20 15:06:23.056 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 15:06:23.066 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Login/Index - 200 null text/html; charset=utf-8 19968.5281ms
+2025-01-20 15:06:23.170 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 15:06:23.171 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 15:06:23.172 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 2.2168ms
+2025-01-20 15:06:23.208 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 36.3811ms
+2025-01-20 15:06:32.474 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7158/Login/Index - application/x-www-form-urlencoded 48
+2025-01-20 15:06:32.515 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 15:06:32.546 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String) on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 15:06:32.755 +05:30 [INF] Login attempt for email: veena.ravi@unilever.com
+2025-01-20 15:06:34.610 +05:30 [INF] Accessing expired session, Key:e7f49e9e-b6a0-c04f-e09a-1eac6686d17d
+2025-01-20 15:06:34.645 +05:30 [INF] NormalUser login successful for email: veena.ravi@unilever.com
+2025-01-20 15:06:34.646 +05:30 [INF] Executing RedirectResult, redirecting to /Login/Welcome.
+2025-01-20 15:06:34.647 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 2099.5815ms
+2025-01-20 15:06:34.647 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2025-01-20 15:06:34.649 +05:30 [INF] Session started; Key:e7f49e9e-b6a0-c04f-e09a-1eac6686d17d, Id:47e5e21a-4718-74d8-92a1-c2e79b5bd3e9
+2025-01-20 15:06:34.650 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7158/Login/Index - 302 0 null 2176.7914ms
+2025-01-20 15:06:34.659 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Login/Welcome - null null
+2025-01-20 15:06:34.663 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New)'
+2025-01-20 15:06:34.666 +05:30 [INF] Route matched with {action = "Welcome", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Welcome() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2025-01-20 15:06:34.912 +05:30 [INF] Welcome page accessed
+2025-01-20 15:06:34.913 +05:30 [INF] Executing ViewResult, running view Welcome.
+2025-01-20 15:06:35.001 +05:30 [INF] Executed ViewResult - view Welcome executed in 88.6518ms.
+2025-01-20 15:06:35.002 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New) in 121.4475ms
+2025-01-20 15:06:35.002 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Welcome (MR_Application_New)'
+2025-01-20 15:06:35.002 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Login/Welcome - 200 null text/html; charset=utf-8 343.6713ms
+2025-01-20 15:06:35.018 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 15:06:35.020 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 2.6066ms
+2025-01-20 15:06:35.147 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 15:06:35.177 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 30.4831ms
+2025-01-20 15:06:37.260 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ReviewPlane/Index - null null
+2025-01-20 15:06:37.266 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.ReviewPlaneController.Index (MR_Application_New)'
+2025-01-20 15:06:37.269 +05:30 [INF] Route matched with {action = "Index", controller = "ReviewPlane"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.ReviewPlaneController (MR_Application_New).
+2025-01-20 15:06:37.271 +05:30 [INF] Executing ViewResult, running view Index.
+2025-01-20 15:06:37.285 +05:30 [INF] Executed ViewResult - view Index executed in 14.3036ms.
+2025-01-20 15:06:37.285 +05:30 [INF] Executed action MR_Application_New.Controllers.ReviewPlaneController.Index (MR_Application_New) in 16.1589ms
+2025-01-20 15:06:37.285 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.ReviewPlaneController.Index (MR_Application_New)'
+2025-01-20 15:06:37.286 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ReviewPlane/Index - 200 null text/html; charset=utf-8 25.8732ms
+2025-01-20 15:06:37.377 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 15:06:37.378 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.2597ms
+2025-01-20 15:06:37.426 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 15:06:37.467 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.9223ms
+2025-01-20 15:07:24.150 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ReviewPlane/GetTblSalesRep - null null
+2025-01-20 15:07:24.167 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.ReviewPlaneController.GetTblSalesRep (MR_Application_New)'
+2025-01-20 15:07:24.171 +05:30 [INF] Route matched with {action = "GetTblSalesRep", controller = "ReviewPlane"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTblSalesRep() on controller MR_Application_New.Controllers.ReviewPlaneController (MR_Application_New).
+2025-01-20 15:08:03.308 +05:30 [ERR] Failed executing DbCommand (2,663ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Action], [t].[Active], [t].[Bp_code], [t].[Joined_date], [t].[Nic], [t].[Rep_code], [t].[Rep_name], [t].[Usl_reference]
+FROM [Tbl_sales_reps] AS [t]
+2025-01-20 15:08:03.799 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Model_New.Models.MrAppDbNewContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Tbl_sales_reps'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:1a0ef2f0-ad34-4714-9b24-87dc0aa0eeeb
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Tbl_sales_reps'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:1a0ef2f0-ad34-4714-9b24-87dc0aa0eeeb
+Error Number:208,State:1,Class:16
+2025-01-20 15:08:04.382 +05:30 [INF] Executed action MR_Application_New.Controllers.ReviewPlaneController.GetTblSalesRep (MR_Application_New) in 40210.4485ms
+2025-01-20 15:08:04.427 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.ReviewPlaneController.GetTblSalesRep (MR_Application_New)'
+2025-01-20 15:08:04.432 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Tbl_sales_reps'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at MR_Application_New.Controllers.ReviewPlaneController.GetTblSalesRep() in C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New\Controllers\ReviewPlaneController.cs:line 219
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:1a0ef2f0-ad34-4714-9b24-87dc0aa0eeeb
+Error Number:208,State:1,Class:16
+2025-01-20 15:08:04.967 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2025-01-20 15:08:04.967 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-20 15:08:04.969 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 2.3477ms
+2025-01-20 15:08:05.090 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ReviewPlane/GetTblSalesRep - 500 null text/html; charset=utf-8 40940.64ms
+2025-01-20 15:08:05.096 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 128.699ms

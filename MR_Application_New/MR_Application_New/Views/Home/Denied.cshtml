@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<style>
+    /* General Page Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        text-align: center;
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+        background: linear-gradient(135deg, #f39c12, #e74c3c, #8e44ad); /* Gradient background */
+    }
+
+        /* Paragraph Styling */
+        .container p {
+            font-size: 1.4rem; /* Adjusted font size */
+            color: aliceblue; /* Red color */
+            margin-bottom: 30px;
+        }
+
+    /* Button Styling */
+    .btn {
+        padding: 12px 30px;
+        background-color: #e74c3c; /* Red background */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        .btn:hover {
+            background-color: #c0392b; /* Darker red for hover effect */
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+</style>
+
+<div class="container">
+    <p>You do not have permission to view this page. Please contact your administrator if you believe this is an error.</p>
+    <a href="/" class="btn">Go to Home</a>
+</div>

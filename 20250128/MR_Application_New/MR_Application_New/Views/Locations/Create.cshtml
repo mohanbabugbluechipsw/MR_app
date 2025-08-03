@@ -1,0 +1,144 @@
+﻿
+<h1>Find Route Map Manually</h1>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="Name" class="form-label">Source Location</label>
+            <input type="text" id="Name" placeholder="Enter Source Location" class="form-control" required aria-describedby="sourceHelp">
+            <div id="sourceHelp" class="form-text">Please enter the name of the source location.</div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="DestinationLocation" class="form-label">Destination Location</label>
+            <select id="DestinationLocation" name="selectedDestinationId" class="form-select" required>
+                <option value="">-- Select a Destination --</option>
+                @foreach (var destination in ViewBag.Destinations)
+                {
+                    <option value="@destination.Id">@destination.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center mb-3">
+            <button id="showMap" class="btn btn-success btn-lg">Show Map</button>
+            <div id="loading" class="spinner-border text-primary d-none" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div id="map" style="height: 400px;"></div>
+        </div>
+    </div>
+    <div id="error-message" class="alert alert-danger mt-3 d-none" role="alert"></div>
+</div>
+
+@section Scripts {
+    <!-- Include Leaflet CSS and JS -->
+    <link rel="stylesheet" href="~/lib/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="~/lib/leaflet-routing-machine/leaflet-routing-machine.css" />
+    <script src="~/lib/leaflet/leaflet.js"></script>
+    <script src="~/lib/leaflet-routing-machine/leaflet-routing-machine.js"></script>
+
+    <script>
+        var map; // Declare map variable globally
+        var routingControl; // Variable for routing control
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize the map once on page load
+            map = L.map('map').setView([0, 0], 2); // Set default view
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+        });
+
+        document.getElementById('showMap').onclick = function () {
+            var sourceLocation = document.getElementById('Name').value;
+            var destinationSelect = document.getElementById('DestinationLocation');
+            var destinationId = destinationSelect.value;
+
+            if (sourceLocation && destinationId) {
+                document.getElementById('loading').classList.remove('d-none'); // Show loading spinner
+                document.getElementById('error-message').classList.add('d-none'); // Hide previous error messages
+
+                // Fetch source coordinates
+                fetchCoordinates(sourceLocation, destinationId);
+            } else {
+                alert('Please enter a source location and select a destination.');
+            }
+        };
+
+        function fetchCoordinates(sourceLocation, destinationId) {
+            $.ajax({
+                url: '/api/map/getCoordinates',
+                type: 'GET',
+                data: { locationName: sourceLocation },
+                success: function (sourceCoordinates) {
+                    fetchDestinationCoordinates(sourceCoordinates, destinationId);
+                },
+                error: function (error) {
+                    showError('Error fetching source coordinates.');
+                }
+            });
+        }
+
+        function fetchDestinationCoordinates(sourceCoordinates, destinationId) {
+            $.ajax({
+                url: '/api/map/getCoordinates',
+                type: 'GET',
+                data: { id: destinationId },
+                success: function (destinationCoordinates) {
+                    initializeMap(sourceCoordinates, destinationCoordinates);
+                },
+                error: function (error) {
+                    showError('Error fetching destination coordinates.');
+                }
+            });
+        }
+
+        function initializeMap(sourceCoordinates, destinationCoordinates) {
+            // Clear previous layers and add markers
+            map.eachLayer(function (layer) {
+                if (!(layer instanceof L.TileLayer)) {
+                    map.removeLayer(layer);
+                }
+            });
+
+            var sourceMarker = L.marker([sourceCoordinates.lat, sourceCoordinates.lon]).addTo(map)
+                .bindPopup('Source: ' + document.getElementById('Name').value).openPopup();
+            var destinationMarker = L.marker([destinationCoordinates.lat, destinationCoordinates.lon]).addTo(map)
+                .bindPopup('Destination: ' + document.getElementById('DestinationLocation').options[document.getElementById('DestinationLocation').selectedIndex].text).openPopup();
+
+            if (!routingControl) {
+                routingControl = L.Routing.control({
+                    waypoints: [
+                        L.latLng(sourceCoordinates.lat, sourceCoordinates.lon),
+                        L.latLng(destinationCoordinates.lat, destinationCoordinates.lon)
+                    ],
+                    routeWhileDragging: true
+                }).addTo(map);
+            } else {
+                routingControl.spliceWaypoints(0, 2); // Remove previous waypoints
+                routingControl.setWaypoints([
+                    L.latLng(sourceCoordinates.lat, sourceCoordinates.lon),
+                    L.latLng(destinationCoordinates.lat, destinationCoordinates.lon)
+                ]);
+            }
+
+            // Fit map bounds
+            var bounds = L.latLngBounds([sourceMarker.getLatLng(), destinationMarker.getLatLng()]);
+            map.fitBounds(bounds);
+            document.getElementById('loading').classList.add('d-none'); // Hide loading spinner
+        }
+
+        function showError(message) {
+            document.getElementById('error-message').textContent = message;
+            document.getElementById('error-message').classList.remove('d-none');
+            document.getElementById('loading').classList.add('d-none'); // Hide loading spinner
+        }
+    </script>
+}

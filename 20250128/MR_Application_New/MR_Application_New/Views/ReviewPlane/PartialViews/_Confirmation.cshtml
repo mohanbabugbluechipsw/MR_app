@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Review Submitted";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+
+
+<h1>Thank You!</h1>
+<p>@ViewBag.Message ?? "Your review was submitted successfully."</p>
+
+<a href="@Url.Action("Welcome", "Login")" class="btn btn-primary">Return to Home</a>

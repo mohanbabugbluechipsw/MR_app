@@ -1,0 +1,182 @@
+﻿@model IEnumerable<Model_New.Models.ReviewAnswer>
+
+@{
+    ViewData["Title"] = "Review Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+<div class="container">
+    <div class="row gy-3">
+        <div class="col-md-6 mb-3">
+            <label for="rscodeInput" class="form-label">Select RSCODE:</label>
+            <input type="text" id="rscodeInput" class="form-control" placeholder="Type RSCODE ..." autocomplete="off">
+            <input type="hidden" id="selectedRscode" name="selectedRscode">
+            <div id="rscodeSuggestions" class="list-group position-absolute"
+                 style="display: none; z-index: 1000; max-height: 200px; overflow-y: auto;">
+                <!-- Suggestions will appear here -->
+            </div>
+            <div id="rscodeError" class="text-danger" style="display: none;">Please select a RSCODE.</div>
+
+
+
+
+        </div>
+
+        <div class="col-md-3">
+            <label for="empNameDropdown" class="form-label">Employee Name</label>
+            <select id="empNameDropdown" class="form-select">
+                <option value="">Select Employee</option>
+                <!-- Employee options will be populated dynamically -->
+            </select>
+        </div>
+
+
+
+
+        <div class="col-md-2">
+            <label for="monthDropdown" class="form-label">Month</label>
+            <select id="monthDropdown" class="form-select">
+                <option value="">Month</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <label for="dayDropdown" class="form-label">Day</label>
+            <select id="dayDropdown" class="form-select">
+                <option value="">Day</option>
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <label for="outletDropdown" class="form-label">Outlet Code & Name</label>
+            <select id="outletDropdown" class="form-select">
+                <option value="">Select Outlet</option>
+                <option value="RS001">RS001</option>
+                <option value="RS002">RS002</option>
+                <option value="RS003">RS003</option>
+                <option value="RS004">RS004</option>
+            </select>
+        </div>
+
+        <div class="col-md-2 d-flex align-items-end">
+            <div class="w-100">
+                <label for="searchBar" class="form-label">Search</label>
+                <div class="input-group">
+                    <input type="text" id="searchBar" class="form-control" placeholder="Search...">
+                    <button class="btn btn-primary" onclick="search()">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // RSCODE suggestions handling
+            $('#rscodeInput').on('keyup', function () {
+                var searchTerm = $(this).val();
+                if (searchTerm.length > 0) {
+                    $.ajax({
+                        url: '/ReviewPlane/GetRSCodes',
+                        type: 'GET',
+                        data: { term: searchTerm },
+                        success: function (data) {
+                            $('#rscodeSuggestions').empty();
+                            if (data.length > 0) {
+                                $('#rscodeSuggestions').show();
+                                data.forEach(function (item) {
+                                    $('#rscodeSuggestions').append(
+                                        `<a class="list-group-item list-group-item-action" data-id="${item.code}" data-name="${item.name}">
+                                                    ${item.code} - ${item.name}
+                                                 </a>`
+                                    );
+                                });
+                            } else {
+                                $('#rscodeSuggestions').hide();
+                            }
+                        },
+                        error: function () {
+                            $('#rscodeSuggestions').hide();
+                            alert("Failed to fetch RSCODEs. Please try again.");
+                        }
+                    });
+                } else {
+                    $('#rscodeSuggestions').hide();
+                }
+            });
+
+            $(document).on('click', '#rscodeSuggestions .list-group-item', function () {
+                var rscode = $(this).data('id');
+                var rsname = $(this).data('name');
+                $('#rscodeInput').val(`${rscode} - ${rsname}`);
+                $('#selectedRscode').val(rscode);
+                $('#rscodeSuggestions').hide();
+            });
+
+            // Form validation before submission
+            $('#reviewForm').on('submit', function (e) {
+                if (!$('#selectedRscode').val()) {
+                    $('#rscodeError').show();
+                    e.preventDefault();
+                } else {
+                    $('#rscodeError').hide();
+                }
+            });
+
+            // Hide suggestions on outside click
+            $(document).on('click', function (e) {
+                if (!$(e.target).closest('#rscodeInput, #rscodeSuggestions').length) {
+                    $('#rscodeSuggestions').hide();
+                }
+            });
+        });
+
+
+
+
+        $(document).ready(function () {
+            // Fetch and populate employee names
+            $.ajax({
+                url: '/ReviewPlane/GetEmployees', // Adjust this to match your controller action
+                type: 'GET',
+                success: function (data) {
+                    console.log(data); // Debugging line to check the response structure
+
+                    if (data.length > 0) {
+
+                        data.forEach(function (employee) {
+                            alert(employee)
+                            $('#empNameDropdown').append(
+                                `<option value="${employee.empno}">${employee.empname}</option>`
+                            );
+                        });
+                    } else {
+                        $('#empNameDropdown').append('<option value="">No employees found</option>');
+                    }
+                },
+                error: function () {
+                    alert("Failed to fetch employee names. Please try again.");
+                }
+            });
+        });
+
+
+       
+    </script>
+}

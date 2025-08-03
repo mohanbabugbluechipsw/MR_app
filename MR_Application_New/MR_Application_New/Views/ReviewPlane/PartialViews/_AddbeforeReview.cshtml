@@ -1,0 +1,204 @@
+﻿@model IEnumerable<Model_New.Models.OutLetMasterDetail>
+
+@{
+    ViewData["Title"] = "Review Plane";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    var userName = Context.Session.GetString("UserName");
+}
+
+<form asp-action="AddbeforeReview" method="post" id="reviewForm">
+    <div class="container mt-5 p-4 border rounded shadow-lg" style="background-color: #b0e0e6; border: none;">
+        <!-- Form Title -->
+        <h3 class="text-center mb-4" style="font-size: 2rem; color: #007bff; font-weight: bold; border-bottom: 2px solid #007bff; padding-bottom: 10px;">Review Plane</h3>
+
+        <div class="row g-4">
+            <!-- MR Code input -->
+            <div class="col-md-6">
+                <div class="p-3 border rounded" style="background-color: #e0f7fa;">
+                    <label for="mrcodeInput" class="form-label font-weight-bold">MR Code:</label>
+                    <input type="text" id="mrcodeInput" class="form-control" name="mrcode" value="@userName" readonly>
+                    <!-- Error message for MR Code -->
+                    <div id="mrcodeError" class="text-danger mt-2" style="display: none;">MR Code is required.</div>
+                </div>
+            </div>
+
+            <!-- RSCODE input -->
+            <div class="col-md-6 position-relative">
+                <div class="p-3 border rounded" style="background-color: #e0f7fa;">
+                    <label for="rscodeInput" class="form-label font-weight-bold">Select RSCODE:</label>
+                    <input type="text" id="rscodeInput" class="form-control" placeholder="Type RSCODE ..." autocomplete="off">
+                    <input type="hidden" id="selectedRscode" name="selectedRscode">
+                    <div id="rscodeSuggestions" class="list-group" style="display: none; position: absolute; z-index: 1000; max-height: 200px; overflow-y: auto; border: 1px solid #ddd; border-radius: 0.25rem;"></div>
+                    <!-- Error message for RSCODE -->
+                    <div id="rscodeError" class="text-danger mt-2" style="display: none;">RSCODE is required.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mt-2">
+            <!-- Outlet input -->
+            <div class="col-md-6 position-relative">
+                <div class="p-3 border rounded" style="background-color: #e0f7fa;">
+                    <label for="outletInput" class="form-label font-weight-bold">Search Outlet:</label>
+                    <input type="text" id="outletInput" class="form-control" placeholder="Type to search..." autocomplete="off">
+                    <input type="hidden" id="selectedOutlet" name="selectedOutlet">
+                    <div id="outletSuggestions" class="list-group" style="display: none; position: absolute; z-index: 1000; max-height: 200px; overflow-y: auto; border: 1px solid #ddd; border-radius: 0.25rem;"></div>
+                    <!-- Error message for Outlet -->
+                    <div id="outletError" class="text-danger mt-2" style="display: none;">Outlet is required.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden Fields to Store RsName and PartyName -->
+        <input type="hidden" id="selectedRsName" name="selectedRsName" />
+        <input type="hidden" id="selectedPartyName" name="selectedPartyName" />
+
+        <!-- Submit Button -->
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-light btn-lg shadow-lg">Next</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .bg-dark-green {
+            background-color: #0a2d1d; /* Dark green color for the entire form */
+        }
+
+        .text-white {
+            color: white; /* Make the text inside the columns white for better contrast */
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            // RSCODE input handling
+            $('#rscodeInput').on('keyup', function () {
+                var searchTerm = $(this).val();
+
+                if (searchTerm.length > 0) {
+                    $.ajax({
+                        url: '/ReviewPlane/GetRSCodes',
+                        type: 'GET',
+                        data: { term: searchTerm },
+                        success: function (data) {
+                            $('#rscodeSuggestions').empty();
+                            if (data.length > 0) {
+                                $('#rscodeSuggestions').show();
+                                data.forEach(function (item) {
+                                    $('#rscodeSuggestions').append(
+                                        `<a class="list-group-item list-group-item-action p-2" data-id="${item.code}" data-name="${item.name}">
+                                                                            <strong>${item.code}</strong> - ${item.name}
+                                                                        </a>`
+                                    );
+                                });
+                            } else {
+                                $('#rscodeSuggestions').hide();
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error fetching RSCODEs:', error);
+                        }
+                    });
+                } else {
+                    $('#rscodeSuggestions').hide();
+                }
+            });
+
+            $(document).on('click', '#rscodeSuggestions .list-group-item', function () {
+                var rscode = $(this).data('id');
+                var rsname = $(this).data('name');
+                $('#rscodeInput').val(`${rscode} - ${rsname}`);
+                $('#selectedRscode').val(rscode);
+                $('#rscodeSuggestions').hide();
+            });
+
+            // Outlet input handling
+            $('#outletInput').on('keyup', function () {
+                var searchTerm = $(this).val();
+                var rscode = $('#selectedRscode').val();
+
+                if (searchTerm.length > 2) {
+                    $.ajax({
+                        url: '/ReviewPlane/GetOutlets',
+                        type: 'GET',
+                        data: { term: searchTerm, rscode: rscode },
+                        success: function (data) {
+                            $('#outletSuggestions').empty();
+                            if (data.length > 0) {
+                                $('#outletSuggestions').show();
+                                data.forEach(function (item) {
+                                    $('#outletSuggestions').append(
+                                        `<a class="list-group-item list-group-item-action p-2" data-code="${item.code}" data-name="${item.name}">
+                                                                            ${item.name} (${item.code})
+                                                                        </a>`
+                                    );
+                                });
+                            } else {
+                                $('#outletSuggestions').hide();
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error fetching outlets:', error);
+                        }
+                    });
+                } else {
+                    $('#outletSuggestions').hide();
+                }
+            });
+
+            // Form submission validation
+            $('#reviewForm').on('submit', function (e) {
+                var isValid = true;
+
+                // Check MR Code
+                if (!$('#mrcodeInput').val()) {
+                    $('#mrcodeError').show();
+                    isValid = false;
+                } else {
+                    $('#mrcodeError').hide();
+                }
+
+                // Check RSCODE
+                if (!$('#selectedRscode').val()) {
+                    $('#rscodeError').show();
+                    isValid = false;
+                } else {
+                    $('#rscodeError').hide();
+                }
+
+                // Check Outlet
+                if (!$('#selectedOutlet').val()) {
+                    $('#outletError').show();
+                    isValid = false;
+                } else {
+                    $('#outletError').hide();
+                }
+
+                // Prevent form submission if invalid
+                if (!isValid) {
+                    e.preventDefault();
+                }
+            });
+
+            $(document).on('click', '#outletSuggestions .list-group-item', function () {
+                var outletName = $(this).data('name');
+                var outletCode = $(this).data('code');
+                $('#outletInput').val(`${outletName} (${outletCode})`);
+                $('#selectedOutlet').val(outletCode);
+                $('#outletSuggestions').hide();
+            });
+
+            // MR Code missing validation (client-side alert if missing)
+            var userName = '@userName';
+            if (!userName) {
+                alert("MR Code is missing. Please log in again.");
+            }
+        });
+    </script>
+}

@@ -1,0 +1,221 @@
+﻿@{
+    ViewData["Title"] = "Review Products";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row justify-content-center">
+    <div class="col-12 col-lg-10">
+        <div class="card">
+            <div class="card-header bg-secondary text-white text-center">
+                <h1>Review Products</h1>
+            </div>
+            <div class="card-body">
+                <!-- Progress Indicator -->
+                <div class="progress mb-4">
+                    <div class="progress-bar" role="progressbar" id="progressBar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                        @ViewBag.Progress%
+                    </div>
+                </div>
+
+                <div class="row text-center">
+                    <!-- Steps -->
+                    <div class="col-6 col-md-4 col-lg-2 mb-3 step" id="step1" onclick="goToStep(1)">
+                        <div class="p-3 bg-success text-white rounded">
+                            <div>
+                                <span class="badge badge-pill badge-light p-3" style="font-size:24px">1</span>
+                            </div>
+                            <h6 class="mt-2">DT & Outlet Details</h6>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 mb-3 step" id="step2" onclick="goToStep(2)">
+                        <div class="p-3 bg-primary text-white rounded">
+                            <div>
+                                <span class="badge badge-pill badge-light p-3" style="font-size:24px">2</span>
+                            </div>
+                            <h6 class="mt-2">Pre-visit Review</h6>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 mb-3 step" id="step3" onclick="goToStep(3)">
+                        <div class="p-3 bg-warning text-dark rounded">
+                            <div>
+                                <span class="badge badge-pill badge-light p-3" style="font-size:24px">3</span>
+                            </div>
+                            <h6 class="mt-2">Pre-visit Photo</h6>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 mb-3 step" id="step4" onclick="goToStep(4)">
+                        <div class="p-3 bg-info text-white rounded">
+                            <div>
+                                <span class="badge badge-pill badge-light p-3" style="font-size:24px">4</span>
+                            </div>
+                            <h6 class="mt-2">Post-visit Review</h6>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2 mb-3 step" id="step5" onclick="goToStep(5)">
+                        <div class="p-3 bg-danger text-white rounded">
+                            <div>
+                                <span class="badge badge-pill badge-light p-3" style="font-size:24px">5</span>
+                            </div>
+                            <h6 class="mt-2">Post-visit Photo</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo Review Form -->
+                <form asp-action="ReviewPhoto" method="post" enctype="multipart/form-data">
+
+                    <h3 class="text-center mb-4">Pre-visit Photo</h3>
+
+                    <div id="reviewForm">
+                        <!-- Step 1 -->
+                        <div class="step-content" id="stepContent1">
+                            <div class="form-group">
+                                <label for="PhotoUpload1"> Is this placed in a clearly visible place to the shopper?</label>
+                                <input type="file" class="form-control" id="PhotoUpload1" name="PhotoUpload1" />
+                            </div>
+                            <div class="form-group">
+                                <label for="PhotoUpload2">2. Is this sachet hanger1 Laundry visible to the shopper?</label>
+                                <input type="file" class="form-control" id="PhotoUpload2" name="PhotoUpload2" />
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        
+
+                        <!-- Step 3 -->
+                        <div class="step-content" id="stepContent2" style="display:none;">
+                            <div class="form-group">
+                                <label for="Question1">1. Comment on the first question:</label>
+                                <textarea class="form-control" id="Question1" name="Question1"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="Question2">2. Comment on the second question:</label>
+                                <textarea class="form-control" id="Question2" name="Question2"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                      
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="d-flex justify-content-between">
+                        <!-- Previous Button for Step 1 -->
+                        <a href="@Url.Action("Create", "ReviewPlane")" class="btn btn-secondary mt-3" id="prevBtn" style="display:none;">Previous</a>
+
+                        <button type="button" class="btn btn-secondary" id="prevBtnStep" onclick="moveStep(-1)" style="display:none;">Previous</button>
+
+
+
+                        <div id="finalButtons" style="display: none;">
+                            <button type="button" class="btn btn-secondary" id="prevBtnFinal" onclick="moveStep(-1)">Previous</button>
+                            <button type="submit" class="btn btn-primary" id="submitBtn">Next</button>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="nextBtn" onclick="moveStep(1)">Next</button>
+
+
+                    </div>
+
+                   
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript to Handle Progress Bar, Step Updates, and Navigation -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        // Function to show current step
+        function showStep(step) {
+            for (let i = 1; i <= totalSteps; i++) {
+                let stepContent = document.getElementById('stepContent' + i);
+                if (stepContent) {
+                    stepContent.style.display = (i === step) ? 'block' : 'none';
+                }
+            }
+
+
+
+
+            // Show/hide buttons based on current step
+            if (step === 1) {
+                document.getElementById('prevBtn').style.display = "inline-block"; // Show Previous button for Step 1
+                document.getElementById('prevBtnStep').style.display = 'none';
+                document.getElementById('nextBtn').style.display = 'inline-block';
+                document.getElementById('submitBtn').style.display = 'none';
+                document.getElementById('finalButtons').style.display = 'none';
+            } else if (step === totalSteps) {
+                document.getElementById('nextBtn').style.display = 'none';
+                document.getElementById('submitBtn').style.display = 'inline-flex';
+                document.getElementById('prevBtnStep').style.display = 'none';
+                document.getElementById('finalButtons').style.display = 'inline-flex'; // Show both buttons at final step
+            } else {
+                document.getElementById('prevBtnStep').style.display = 'inline-block';
+                document.getElementById('nextBtn').style.display = 'inline-block';
+                document.getElementById('submitBtn').style.display = 'none';
+                document.getElementById('prevBtn').style.display = "none"; // Hide the Previous button for other steps
+                document.getElementById('finalButtons').style.display = 'none'; // Hide final buttons during intermediate steps
+            }
+        }
+
+        // Function to move between steps
+        window.moveStep = function (direction) {
+            if (currentStep + direction >= 1 && currentStep + direction <= totalSteps) {
+                currentStep += direction;
+                showStep(currentStep);
+            }
+        }
+
+        showStep(currentStep); // Show the first step on page load
+    });
+</script>
+
+<style>
+    .step {
+        cursor: pointer;
+    }
+
+        .step.active {
+            background-color: #e0e0e0;
+        }
+
+        .step.completed {
+            background-color: #28a745;
+            color: white;
+        }
+
+    .step-content {
+        display: none;
+    }
+
+
+    #finalButtons {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+        #finalButtons button {
+            width: 30%; /* Adjust the width of each button to fit them in one row */
+        }
+
+
+
+    #submitBtn {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+        #finalButtons button {
+            width: 30%; /* Adjust the width of each button to fit them in one row */
+        }
+
+    
+
+</style>

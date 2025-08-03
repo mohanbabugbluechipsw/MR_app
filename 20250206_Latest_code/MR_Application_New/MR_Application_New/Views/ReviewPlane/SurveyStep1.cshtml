@@ -1,0 +1,70 @@
+﻿@* @model IEnumerable<Model_New.Models.OutLetMasterDetail>
+
+<h2>OSA - @ViewBag.PartyName</h2>
+
+
+
+
+
+<form id="questionnaireForm" method="post" asp-action="SurveyStep1">
+    <!-- Fabric Cleaning Section -->
+    <h3>1. Fabric Cleaning</h3>
+    <label><input type="checkbox" name="Products" value="Rin refresh 40g"> Rin Refresh 40g</label><br>
+    <label><input type="checkbox" name="Products" value="Sunlight detergent powder"> Sunlight Detergent Powder</label><br>
+    <label><input type="checkbox" name="Products" value="Sunlight soap 110g (yellow)"> Sunlight Soap 110g (Yellow)</label><br>
+    <label><input type="checkbox" name="Products" value="Surf Excel 30g"> Surf Excel 30g</label><br>
+
+    <!-- Skin Cleaning Section -->
+    <h3>2. Skin Cleaning</h3>
+    <label><input type="checkbox" name="Products" value="Lifebuoy body soap 50g"> Lifebuoy Body Soap 50g</label><br>
+    <label><input type="checkbox" name="Products" value="Lifebuoy soap 75g"> Lifebuoy Soap 75g</label><br>
+    <label><input type="checkbox" name="Products" value="Lux soap 70g"> Lux Soap 70g</label><br>
+    <label><input type="checkbox" name="Products" value="Pears soap 70g"> Pears Soap 70g</label><br>
+
+    <!-- Home & Hygiene Section -->
+    <h3>3. Home & Hygiene</h3>
+    <label><input type="checkbox" name="Products" value="Harpic toilet cleaner"> Harpic Toilet Cleaner</label><br>
+    <label><input type="checkbox" name="Products" value="Vim Dishwash Liquid"> Vim Dishwash Liquid</label><br>
+    <label><input type="checkbox" name="Products" value="Colin Glass Cleaner"> Colin Glass Cleaner</label><br>
+    <label><input type="checkbox" name="Products" value="Domex Disinfectant"> Domex Disinfectant</label><br>
+
+    <!-- Oral Care Section -->
+    <h3>4. Oral Care</h3>
+    <label><input type="checkbox" name="Products" value="Closeup Toothpaste"> Closeup Toothpaste</label><br>
+    <label><input type="checkbox" name="Products" value="Pepsodent Toothpaste"> Pepsodent Toothpaste</label><br>
+    <label><input type="checkbox" name="Products" value="Colgate Toothpaste"> Colgate Toothpaste</label><br>
+    <label><input type="checkbox" name="Products" value="Listerine Mouthwash"> Listerine Mouthwash</label><br>
+
+    <!-- Hair Care Section -->
+    <h3>5. Hair Care</h3>
+    <label><input type="checkbox" name="Products" value="Pantene Shampoo"> Pantene Shampoo</label><br>
+    <label><input type="checkbox" name="Products" value="Dove Shampoo"> Dove Shampoo</label><br>
+    <label><input type="checkbox" name="Products" value="Head & Shoulders"> Head & Shoulders</label><br>
+    <label><input type="checkbox" name="Products" value="TRESemmé Shampoo"> TRESemmé Shampoo</label><br>
+
+    <!-- Lifebuoy Shampoo Section -->
+    <h3>6. Lifebuoy Shampoo</h3>
+    <label><input type="checkbox" name="Products" value="Lifebuoy Shampoo 200ml"> Lifebuoy Shampoo 200ml</label><br>
+    <label><input type="checkbox" name="Products" value="Lifebuoy Shampoo 500ml"> Lifebuoy Shampoo 500ml</label><br>
+
+    <!-- Navigation Buttons -->
+    <button type="submit" class="btn btn-primary">Next</button>    
+    <button type="button" id="backButton">Back</button>
+</form>
+
+
+@section Scripts {
+    <script>
+     
+        
+
+        $('#backButton').click(function (event) {
+            event.preventDefault();
+
+            // Navigate back to Index page
+            var url = '@Url.Action("Index")';
+            window.location.href = url;
+        });
+    </script>
+}
+ *@

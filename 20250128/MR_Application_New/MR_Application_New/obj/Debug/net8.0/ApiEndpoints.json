@@ -1,0 +1,23 @@
+[
+  {
+    "ContainingType": "MR_Application_New.Controllers.MapController",
+    "Method": "GetCoordinatesAsync",
+    "RelativePath": "api/Map/getCoordinates",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rscode",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PartyName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -1,0 +1,23 @@
+<div class="col-12 col-sm-6">
+                                                            <div class="p-3 border rounded bg-white">
+                                                                <label class="fw-bold">Question ${index + 1}: ${question.question}</label>
+                                                                <input type="hidden" name="answers[${index}].QuestionId" value="${question.questionId}" />
+                                                                <input type="hidden" name="answers[${index}].Type" value="${question.type}" />`;
+
+                            if (question.type === "radio") {
+                                var yesChecked = (question.selectedAnswer === 'Yes') ? 'checked' : '';
+                                var noChecked = (question.selectedAnswer === 'No') ? 'checked' : '';
+                                questionHtml += `
+                                                    <div class="form-check">
+                                                        <input type="radio" class="form-check-input" name="answers[${index}].Answer" value="Yes" ${yesChecked} />
+                                                        <label class="form-check-label">Yes</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input type="radio" class="form-check-input" name="answers[${index}].Answer" value="No" ${noChecked} />
+                                                        <label class="form-check-label">No</label>
+                                                    </div>`;
+                            } else if (question.type === "text") {
+                                questionHtml += `<input type="text" class="form-control" name="answers[${index}].Answer" value="${question.selectedAnswer || ''}" required />`;
+                            } else if (question.type === "photo") {
+                                questionHtml += `<input type="file" class="form-control" name="answers[${index}].PhotoPath" accept="image/*" />`;
+                            }

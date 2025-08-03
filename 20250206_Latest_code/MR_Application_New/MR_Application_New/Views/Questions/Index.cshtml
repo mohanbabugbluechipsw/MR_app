@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Model_New.Models.QuestionsNew>
+
+@{
+    ViewData["Title"] = "Questions";
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<h1>Questions List</h1>
+
+<p>
+
+    <a href="@Url.Action("Create", "Questions")" class="btn btn-primary">Create New Question</a>
+
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th>Distributor</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>BA (Before/After)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var question in Model)
+        {
+            <tr>
+                <td>@question.Question</td>
+                <td>@question.Distributor</td>
+                <td>@question.Type</td>
+                <td>@(question.Status ? "Active" : "Inactive")</td>
+                <td>@(question.Ba ? "After" : "Before")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@question.QuestionId" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@question.QuestionId" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

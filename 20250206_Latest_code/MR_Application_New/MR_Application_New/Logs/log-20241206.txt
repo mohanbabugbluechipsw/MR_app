@@ -1,0 +1,263 @@
+2024-12-06 12:21:02.292 +05:30 [INF] User profile is available. Using 'C:\Users\bluechip\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-06 12:21:03.296 +05:30 [INF] Now listening on: https://localhost:7158
+2024-12-06 12:21:03.296 +05:30 [INF] Now listening on: http://localhost:5162
+2024-12-06 12:21:03.365 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-06 12:21:03.366 +05:30 [INF] Hosting environment: Development
+2024-12-06 12:21:03.366 +05:30 [INF] Content root path: C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New
+2024-12-06 12:21:57.633 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ - null null
+2024-12-06 12:21:58.609 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2024-12-06 12:21:58.755 +05:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.HomeController (MR_Application_New).
+2024-12-06 12:21:58.764 +05:30 [INF] Executing ViewResult, running view Index.
+2024-12-06 12:21:59.896 +05:30 [INF] Executed ViewResult - view Index executed in 1133.1362ms.
+2024-12-06 12:21:59.902 +05:30 [INF] Executed action MR_Application_New.Controllers.HomeController.Index (MR_Application_New) in 1146.4453ms
+2024-12-06 12:21:59.903 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2024-12-06 12:21:59.914 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ - 200 null text/html; charset=utf-8 2294.4802ms
+2024-12-06 12:22:06.792 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/img/unilever2.gif - null null
+2024-12-06 12:22:06.794 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/img/maxresdefault.jpg - null null
+2024-12-06 12:22:06.798 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/img/download.jpg - null null
+2024-12-06 12:22:06.834 +05:30 [INF] The file /img/download.jpg was not modified
+2024-12-06 12:22:06.834 +05:30 [INF] The file /img/unilever2.gif was not modified
+2024-12-06 12:22:06.834 +05:30 [INF] The file /img/maxresdefault.jpg was not modified
+2024-12-06 12:22:06.837 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/img/download.jpg - 304 null image/jpeg 40.0225ms
+2024-12-06 12:22:06.837 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/img/unilever2.gif - 304 null image/gif 45.6892ms
+2024-12-06 12:22:06.837 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/img/maxresdefault.jpg - 304 null image/jpeg 42.9566ms
+2024-12-06 12:22:07.124 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-06 12:22:07.125 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/img/unilever.jpg - null null
+2024-12-06 12:22:07.126 +05:30 [INF] The file /img/unilever.jpg was not modified
+2024-12-06 12:22:07.126 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/img/unilever.jpg - 304 null image/jpeg 1.6395ms
+2024-12-06 12:22:07.133 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 8.7676ms
+2024-12-06 12:22:07.233 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2024-12-06 12:22:07.606 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 373.7878ms
+2024-12-06 12:22:07.885 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/favicon.ico - null null
+2024-12-06 12:22:07.897 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.QuestionsController.Get (MR_Application_New)'
+2024-12-06 12:22:07.942 +05:30 [INF] Route matched with {action = "Get", controller = "Questions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(Int32) on controller MR_Application_New.Controllers.QuestionsController (MR_Application_New).
+2024-12-06 12:22:25.708 +05:30 [INF] Executed DbCommand (638ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [q].[QuestionId], [q].[Ba], [q].[CreatedAt], [q].[DeletedAt], [q].[Distributor], [q].[PartyHllcode], [q].[PartyMasterCode], [q].[PartyName], [q].[Question], [q].[Status], [q].[Type], [q].[UpdatedAt]
+FROM [QuestionsNew] AS [q]
+WHERE [q].[QuestionId] = @__p_0
+2024-12-06 12:22:25.756 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 404
+2024-12-06 12:22:25.756 +05:30 [INF] Executed action MR_Application_New.Controllers.QuestionsController.Get (MR_Application_New) in 17813.0879ms
+2024-12-06 12:22:25.756 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.QuestionsController.Get (MR_Application_New)'
+2024-12-06 12:22:25.764 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/favicon.ico - 404 0 null 17880.5314ms
+2024-12-06 12:23:25.834 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Login/Index - null null
+2024-12-06 12:23:25.850 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2024-12-06 12:23:25.910 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2024-12-06 12:23:26.229 +05:30 [INF] Executing ViewResult, running view Index.
+2024-12-06 12:23:26.260 +05:30 [INF] Executed ViewResult - view Index executed in 32.1193ms.
+2024-12-06 12:23:26.260 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 350.429ms
+2024-12-06 12:23:26.264 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2024-12-06 12:23:26.267 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Login/Index - 200 null text/html; charset=utf-8 433.8737ms
+2024-12-06 12:23:26.445 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-06 12:23:26.445 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2024-12-06 12:23:26.447 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 2.065ms
+2024-12-06 12:23:26.462 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.0795ms
+2024-12-06 12:23:34.694 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7158/Login/Index - application/x-www-form-urlencoded 55
+2024-12-06 12:23:34.709 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2024-12-06 12:23:34.712 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String) on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2024-12-06 12:23:35.135 +05:30 [INF] Login attempt for email: raneesh.rajeevan@unilever.com
+2024-12-06 12:23:36.099 +05:30 [INF] Admin login successful for email: raneesh.rajeevan@unilever.com
+2024-12-06 12:23:36.129 +05:30 [INF] Executing RedirectResult, redirecting to /Admin/Index.
+2024-12-06 12:23:36.158 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 1445.4062ms
+2024-12-06 12:23:36.158 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2024-12-06 12:23:36.161 +05:30 [INF] Session started; Key:c1444b35-b2da-893b-488b-71bc5c063ee8, Id:06d71413-c6a3-f031-a590-e96954bf0831
+2024-12-06 12:23:36.198 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7158/Login/Index - 302 0 null 1504.5232ms
+2024-12-06 12:23:36.232 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Admin/Index - null null
+2024-12-06 12:23:36.264 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.AdminController.Index (MR_Application_New)'
+2024-12-06 12:23:36.268 +05:30 [INF] Route matched with {action = "Index", controller = "Admin"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.AdminController (MR_Application_New).
+2024-12-06 12:23:36.307 +05:30 [INF] AdminDashboard page accessed
+2024-12-06 12:23:36.308 +05:30 [INF] Executing ViewResult, running view Index.
+2024-12-06 12:23:36.629 +05:30 [INF] Executed ViewResult - view Index executed in 321.5424ms.
+2024-12-06 12:23:36.630 +05:30 [INF] Executed action MR_Application_New.Controllers.AdminController.Index (MR_Application_New) in 361.1886ms
+2024-12-06 12:23:36.630 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.AdminController.Index (MR_Application_New)'
+2024-12-06 12:23:36.631 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Admin/Index - 200 null text/html; charset=utf-8 400.855ms
+2024-12-06 12:23:36.693 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-06 12:23:36.694 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.0597ms
+2024-12-06 12:23:39.742 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2024-12-06 12:23:39.757 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 15.2501ms
+2024-12-06 12:23:44.139 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Questions/Index - null null
+2024-12-06 12:23:44.144 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.QuestionsController.Index (MR_Application_New)'
+2024-12-06 12:23:44.148 +05:30 [INF] Route matched with {action = "Index", controller = "Questions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MR_Application_New.Controllers.QuestionsController (MR_Application_New).
+2024-12-06 12:23:44.181 +05:30 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QuestionId], [q].[Ba], [q].[CreatedAt], [q].[DeletedAt], [q].[Distributor], [q].[PartyHllcode], [q].[PartyMasterCode], [q].[PartyName], [q].[Question], [q].[Status], [q].[Type], [q].[UpdatedAt]
+FROM [QuestionsNew] AS [q]
+2024-12-06 12:23:44.236 +05:30 [INF] Executing ViewResult, running view Index.
+2024-12-06 12:23:44.251 +05:30 [INF] Executed ViewResult - view Index executed in 16.0591ms.
+2024-12-06 12:23:44.257 +05:30 [INF] Executed action MR_Application_New.Controllers.QuestionsController.Index (MR_Application_New) in 104.0247ms
+2024-12-06 12:23:44.257 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.QuestionsController.Index (MR_Application_New)'
+2024-12-06 12:23:44.262 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Questions/Index - 200 null text/html; charset=utf-8 123.0961ms
+2024-12-06 12:23:44.278 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-06 12:23:44.280 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.601ms
+2024-12-06 12:23:44.335 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2024-12-06 12:23:44.355 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 20.3269ms
+2024-12-06 12:23:47.147 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Questions/Create - null null
+2024-12-06 12:23:47.154 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.QuestionsController.Create (MR_Application_New)'
+2024-12-06 12:23:47.158 +05:30 [INF] Route matched with {action = "Create", controller = "Questions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller MR_Application_New.Controllers.QuestionsController (MR_Application_New).
+2024-12-06 12:23:47.236 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Distributor_Name] AS [DistributorName], [t].[Distributor]
+FROM [Tbl_Distributor] AS [t]
+2024-12-06 12:23:47.242 +05:30 [INF] Executing ViewResult, running view Create.
+2024-12-06 12:23:47.263 +05:30 [INF] Executed ViewResult - view Create executed in 21.9865ms.
+2024-12-06 12:23:47.263 +05:30 [INF] Executed action MR_Application_New.Controllers.QuestionsController.Create (MR_Application_New) in 105.2393ms
+2024-12-06 12:23:47.263 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.QuestionsController.Create (MR_Application_New)'
+2024-12-06 12:23:47.264 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Questions/Create - 200 null text/html; charset=utf-8 116.9267ms
+2024-12-06 12:23:47.326 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-06 12:23:47.327 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.3836ms
+2024-12-06 12:23:47.380 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2024-12-06 12:23:47.404 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 24.5001ms
+2024-12-06 12:23:51.181 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-06 12:23:51.183 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 2.4315ms
+2024-12-06 12:23:53.840 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Admin/Index - null null
+2024-12-06 12:23:53.845 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.AdminController.Index (MR_Application_New)'
+2024-12-06 12:23:53.845 +05:30 [INF] Route matched with {action = "Index", controller = "Admin"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.AdminController (MR_Application_New).
+2024-12-06 12:23:53.846 +05:30 [INF] AdminDashboard page accessed
+2024-12-06 12:23:53.846 +05:30 [INF] Executing ViewResult, running view Index.
+2024-12-06 12:23:53.849 +05:30 [INF] Executed ViewResult - view Index executed in 3.2435ms.
+2024-12-06 12:23:53.850 +05:30 [INF] Executed action MR_Application_New.Controllers.AdminController.Index (MR_Application_New) in 4.5303ms
+2024-12-06 12:23:53.850 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.AdminController.Index (MR_Application_New)'
+2024-12-06 12:23:53.851 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Admin/Index - 200 null text/html; charset=utf-8 11.1179ms
+2024-12-06 12:23:53.873 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-06 12:23:53.874 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.6992ms
+2024-12-06 12:23:56.209 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7158/Login/Logout - application/x-www-form-urlencoded; charset=UTF-8 182
+2024-12-06 12:23:56.209 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Logout (MR_Application_New)'
+2024-12-06 12:23:56.211 +05:30 [INF] Route matched with {action = "Logout", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2024-12-06 12:23:56.213 +05:30 [INF] User logged out.
+2024-12-06 12:23:56.213 +05:30 [INF] Executing RedirectResult, redirecting to /Login/Index.
+2024-12-06 12:23:56.214 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Logout (MR_Application_New) in 2.9403ms
+2024-12-06 12:23:56.214 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Logout (MR_Application_New)'
+2024-12-06 12:23:56.214 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7158/Login/Logout - 302 0 null 6.235ms
+2024-12-06 12:23:56.218 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Login/Index - null null
+2024-12-06 12:23:56.218 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2024-12-06 12:23:56.218 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2024-12-06 12:23:56.219 +05:30 [INF] Executing ViewResult, running view Index.
+2024-12-06 12:23:56.222 +05:30 [INF] Executed ViewResult - view Index executed in 2.8099ms.
+2024-12-06 12:23:56.223 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 5.1367ms
+2024-12-06 12:23:56.223 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2024-12-06 12:23:56.224 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Login/Index - 200 null text/html; charset=utf-8 6.5576ms
+2024-12-06 12:23:56.253 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ - null null
+2024-12-06 12:23:56.256 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2024-12-06 12:23:56.256 +05:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.HomeController (MR_Application_New).
+2024-12-06 12:23:56.257 +05:30 [INF] Executing ViewResult, running view Index.
+2024-12-06 12:23:56.259 +05:30 [INF] Executed ViewResult - view Index executed in 2.4839ms.
+2024-12-06 12:23:56.260 +05:30 [INF] Executed action MR_Application_New.Controllers.HomeController.Index (MR_Application_New) in 3.9401ms
+2024-12-06 12:23:56.260 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2024-12-06 12:23:56.261 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ - 200 null text/html; charset=utf-8 8.7509ms
+2024-12-06 12:23:56.295 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-06 12:23:56.296 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2024-12-06 12:23:56.299 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 3.902ms
+2024-12-06 12:23:56.318 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.3218ms
+2024-12-06 14:10:20.775 +05:30 [INF] User profile is available. Using 'C:\Users\bluechip\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-06 14:10:21.492 +05:30 [INF] Now listening on: https://localhost:7158
+2024-12-06 14:10:21.492 +05:30 [INF] Now listening on: http://localhost:5162
+2024-12-06 14:10:21.561 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-06 14:10:21.561 +05:30 [INF] Hosting environment: Development
+2024-12-06 14:10:21.562 +05:30 [INF] Content root path: C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New_20241206\MR_Application_New\MR_Application_New
+2024-12-06 14:10:35.341 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/ - null null
+2024-12-06 14:10:37.405 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2024-12-06 14:10:38.167 +05:30 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.HomeController (MR_Application_New).
+2024-12-06 14:10:38.453 +05:30 [INF] Executing ViewResult, running view Index.
+2024-12-06 14:10:40.508 +05:30 [INF] Executed ViewResult - view Index executed in 2330.9759ms.
+2024-12-06 14:10:40.513 +05:30 [INF] Executed action MR_Application_New.Controllers.HomeController.Index (MR_Application_New) in 2344.7784ms
+2024-12-06 14:10:40.513 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.HomeController.Index (MR_Application_New)'
+2024-12-06 14:10:40.521 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/ - 200 null text/html; charset=utf-8 5313.7938ms
+2024-12-06 14:10:44.749 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2024-12-06 14:10:44.749 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-06 14:10:44.756 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 8.0751ms
+2024-12-06 14:10:44.805 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 56.447ms
+2024-12-06 14:10:45.124 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/favicon.ico - null null
+2024-12-06 14:10:45.133 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.QuestionsController.Get (MR_Application_New)'
+2024-12-06 14:10:45.148 +05:30 [INF] Route matched with {action = "Get", controller = "Questions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get(Int32) on controller MR_Application_New.Controllers.QuestionsController (MR_Application_New).
+2024-12-06 14:10:50.900 +05:30 [INF] Executed DbCommand (114ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [q].[QuestionId], [q].[Ba], [q].[CreatedAt], [q].[DeletedAt], [q].[Distributor], [q].[PartyHllcode], [q].[PartyMasterCode], [q].[PartyName], [q].[Question], [q].[Status], [q].[Type], [q].[UpdatedAt]
+FROM [QuestionsNew] AS [q]
+WHERE [q].[QuestionId] = @__p_0
+2024-12-06 14:10:50.930 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 404
+2024-12-06 14:10:50.931 +05:30 [INF] Executed action MR_Application_New.Controllers.QuestionsController.Get (MR_Application_New) in 5782.9899ms
+2024-12-06 14:10:50.931 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.QuestionsController.Get (MR_Application_New)'
+2024-12-06 14:10:50.939 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/favicon.ico - 404 0 null 5816.4114ms
+2024-12-06 14:10:58.091 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Login/Index - null null
+2024-12-06 14:10:58.122 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2024-12-06 14:10:58.125 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2024-12-06 14:10:58.224 +05:30 [INF] Executing ViewResult, running view Index.
+2024-12-06 14:10:58.239 +05:30 [INF] Executed ViewResult - view Index executed in 40.6309ms.
+2024-12-06 14:10:58.239 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 114.0414ms
+2024-12-06 14:10:58.239 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2024-12-06 14:10:58.240 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Login/Index - 200 null text/html; charset=utf-8 148.812ms
+2024-12-06 14:10:58.265 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2024-12-06 14:10:58.265 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-06 14:10:58.269 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 4.6752ms
+2024-12-06 14:10:58.312 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.7026ms
+2024-12-06 14:11:05.673 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7158/Login/Index - application/x-www-form-urlencoded 55
+2024-12-06 14:11:05.681 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2024-12-06 14:11:05.684 +05:30 [INF] Route matched with {action = "Index", controller = "Login"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String, System.String) on controller MR_Application_New.Controllers.LoginController (MR_Application_New).
+2024-12-06 14:11:05.892 +05:30 [INF] Login attempt for email: raneesh.rajeevan@unilever.com
+2024-12-06 14:11:06.445 +05:30 [INF] Admin login successful for email: raneesh.rajeevan@unilever.com
+2024-12-06 14:11:06.446 +05:30 [INF] Executing RedirectResult, redirecting to /Admin/Index.
+2024-12-06 14:11:06.447 +05:30 [INF] Executed action MR_Application_New.Controllers.LoginController.Index (MR_Application_New) in 762.7376ms
+2024-12-06 14:11:06.447 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.LoginController.Index (MR_Application_New)'
+2024-12-06 14:11:06.451 +05:30 [INF] Session started; Key:1e9195af-4773-6e08-685b-54eec6382a97, Id:85a0d29f-66ea-3c4d-0c5d-158f697720ab
+2024-12-06 14:11:06.455 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7158/Login/Index - 302 0 null 781.7226ms
+2024-12-06 14:11:06.473 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Admin/Index - null null
+2024-12-06 14:11:06.479 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.AdminController.Index (MR_Application_New)'
+2024-12-06 14:11:06.480 +05:30 [INF] Route matched with {action = "Index", controller = "Admin"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MR_Application_New.Controllers.AdminController (MR_Application_New).
+2024-12-06 14:11:06.487 +05:30 [INF] AdminDashboard page accessed
+2024-12-06 14:11:06.488 +05:30 [INF] Executing ViewResult, running view Index.
+2024-12-06 14:11:06.551 +05:30 [INF] Executed ViewResult - view Index executed in 63.5574ms.
+2024-12-06 14:11:06.552 +05:30 [INF] Executed action MR_Application_New.Controllers.AdminController.Index (MR_Application_New) in 72.046ms
+2024-12-06 14:11:06.553 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.AdminController.Index (MR_Application_New)'
+2024-12-06 14:11:06.554 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Admin/Index - 200 null text/html; charset=utf-8 80.7189ms
+2024-12-06 14:11:06.616 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-06 14:11:06.618 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.4199ms
+2024-12-06 14:11:06.886 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2024-12-06 14:11:06.909 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.8036ms
+2024-12-06 14:11:10.387 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Questions/Index - null null
+2024-12-06 14:11:10.398 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.QuestionsController.Index (MR_Application_New)'
+2024-12-06 14:11:10.404 +05:30 [INF] Route matched with {action = "Index", controller = "Questions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller MR_Application_New.Controllers.QuestionsController (MR_Application_New).
+2024-12-06 14:11:10.429 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[QuestionId], [q].[Ba], [q].[CreatedAt], [q].[DeletedAt], [q].[Distributor], [q].[PartyHllcode], [q].[PartyMasterCode], [q].[PartyName], [q].[Question], [q].[Status], [q].[Type], [q].[UpdatedAt]
+FROM [QuestionsNew] AS [q]
+2024-12-06 14:11:10.472 +05:30 [INF] Executing ViewResult, running view Index.
+2024-12-06 14:11:10.513 +05:30 [INF] Executed ViewResult - view Index executed in 42.5839ms.
+2024-12-06 14:11:10.514 +05:30 [INF] Executed action MR_Application_New.Controllers.QuestionsController.Index (MR_Application_New) in 109.6101ms
+2024-12-06 14:11:10.514 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.QuestionsController.Index (MR_Application_New)'
+2024-12-06 14:11:10.514 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Questions/Index - 200 null text/html; charset=utf-8 127.7738ms
+2024-12-06 14:11:10.535 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-06 14:11:10.536 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.7867ms
+2024-12-06 14:11:10.623 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2024-12-06 14:11:10.657 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.0897ms
+2024-12-06 14:11:13.566 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Questions/Create - null null
+2024-12-06 14:11:13.577 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.QuestionsController.Create (MR_Application_New)'
+2024-12-06 14:11:13.579 +05:30 [INF] Route matched with {action = "Create", controller = "Questions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller MR_Application_New.Controllers.QuestionsController (MR_Application_New).
+2024-12-06 14:11:13.603 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Distributor_Name] AS [DistributorName], [t].[Distributor]
+FROM [Tbl_Distributor] AS [t]
+2024-12-06 14:11:13.609 +05:30 [INF] Executing ViewResult, running view Create.
+2024-12-06 14:11:13.652 +05:30 [INF] Executed ViewResult - view Create executed in 44.2694ms.
+2024-12-06 14:11:13.652 +05:30 [INF] Executed action MR_Application_New.Controllers.QuestionsController.Create (MR_Application_New) in 72.9421ms
+2024-12-06 14:11:13.652 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.QuestionsController.Create (MR_Application_New)'
+2024-12-06 14:11:13.653 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Questions/Create - 200 null text/html; charset=utf-8 86.9758ms
+2024-12-06 14:11:13.730 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-06 14:11:13.731 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_framework/aspnetcore-browser-refresh.js - 200 13772 application/javascript; charset=utf-8 1.1432ms
+2024-12-06 14:11:13.797 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/_vs/browserLink - null null
+2024-12-06 14:11:13.816 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/_vs/browserLink - 200 null text/javascript; charset=UTF-8 18.9497ms
+2024-12-06 14:14:09.091 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Questions/GetPartyData?distributorId=803004 - null null
+2024-12-06 14:14:09.093 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.QuestionsController.GetPartyData (MR_Application_New)'
+2024-12-06 14:14:09.101 +05:30 [INF] Route matched with {action = "GetPartyData", controller = "Questions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetPartyData(Int32) on controller MR_Application_New.Controllers.QuestionsController (MR_Application_New).
+2024-12-06 14:14:10.149 +05:30 [INF] Executed DbCommand (1,010ms) [Parameters=[@__distributorId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[PartyHLLCode] AS [PartyHllcode]
+FROM [OutLetMaster_Details] AS [o]
+WHERE [o].[RSCODE] = @__distributorId_0
+2024-12-06 14:14:10.276 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType6`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], MR_Application_New, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-12-06 14:14:10.311 +05:30 [INF] Executed action MR_Application_New.Controllers.QuestionsController.GetPartyData (MR_Application_New) in 1210.0256ms
+2024-12-06 14:14:10.311 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.QuestionsController.GetPartyData (MR_Application_New)'
+2024-12-06 14:14:10.311 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Questions/GetPartyData?distributorId=803004 - 200 null application/json; charset=utf-8 1220.0519ms
+2024-12-06 14:14:14.343 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7158/Questions/GetPartyDetailsByHllcode?partyHllcode=T10040030040158 - null null
+2024-12-06 14:14:14.343 +05:30 [INF] Executing endpoint 'MR_Application_New.Controllers.QuestionsController.GetPartyDetailsByHllcode (MR_Application_New)'
+2024-12-06 14:14:14.345 +05:30 [INF] Route matched with {action = "GetPartyDetailsByHllcode", controller = "Questions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetPartyDetailsByHllcode(System.String) on controller MR_Application_New.Controllers.QuestionsController (MR_Application_New).
+2024-12-06 14:14:14.460 +05:30 [INF] Executed DbCommand (87ms) [Parameters=[@__partyHllcode_0='?' (Size = 50) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[PartyName], [o].[PartyMasterCode]
+FROM [OutLetMaster_Details] AS [o]
+WHERE [o].[PartyHLLCode] = @__partyHllcode_0
+2024-12-06 14:14:14.462 +05:30 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType7`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-12-06 14:14:14.464 +05:30 [INF] Executed action MR_Application_New.Controllers.QuestionsController.GetPartyDetailsByHllcode (MR_Application_New) in 119.2668ms
+2024-12-06 14:14:14.464 +05:30 [INF] Executed endpoint 'MR_Application_New.Controllers.QuestionsController.GetPartyDetailsByHllcode (MR_Application_New)'
+2024-12-06 14:14:14.464 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7158/Questions/GetPartyDetailsByHllcode?partyHllcode=T10040030040158 - 200 null application/json; charset=utf-8 122.3144ms

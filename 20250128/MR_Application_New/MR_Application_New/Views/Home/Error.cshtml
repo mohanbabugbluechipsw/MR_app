@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Error Occurred";
+}
+
+<style>
+    /* General Page Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        text-align: center;
+        background-color: #ffffff;
+        padding: 50px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+    }
+
+    /* Heading Styling */
+    h1 {
+        font-size: 2.5rem;
+        color: #e74c3c; /* Red color for error */
+        margin-bottom: 20px;
+    }
+
+    /* Paragraph Styling */
+    .container p {
+        font-size: 1.2rem;
+        color: #7f8c8d; /* Muted gray color */
+        margin-bottom: 30px;
+    }
+
+    /* Button Styling */
+    .btn {
+        padding: 12px 30px;
+        background-color: #007bff; /* Blue background */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+        background-color: #0056b3; /* Darker blue for hover effect */
+        transform: translateY(-2px);
+    }
+
+    .btn:active {
+        transform: translateY(0);
+    }
+
+    /* Icon Styling */
+    .bi-exclamation-triangle-fill {
+        font-size: 3rem;
+        color: #e74c3c; /* Red color for the icon */
+        margin-right: 15px;
+    }
+
+</style>
+
+<div class="container text-center mt-5">
+    <h1 class="text-danger mb-4"><i class="bi bi-exclamation-triangle-fill"></i> An Error Occurred!</h1>
+    <p class="lead text-muted">@ViewData["ErrorMessage"]</p>
+    <a href="@Url.Action("Index", "Login")" class="btn btn-primary mt-3">Go to Home</a>
+</div>

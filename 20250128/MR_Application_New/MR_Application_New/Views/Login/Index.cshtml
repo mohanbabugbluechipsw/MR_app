@@ -1,0 +1,156 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* General Page Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 40px 30px;
+        width: 100%;
+        max-width: 400px;
+        margin-top: 40px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        border-radius: 4px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .input-group-text {
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+        border-right: none;
+        border-radius: 4px 0 0 4px;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .text-danger {
+        font-size: 12px;
+    }
+</style>
+
+<form id="loginForm" asp-action="Index" method="post">
+    <div class="container">
+        <h2>Login</h2>
+
+        <div class="form-group">
+            <label for="Email" class="control-label">Email</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                <input type="email" id="Email" name="Email" class="form-control" placeholder="Enter your email" required />
+            </div>
+            <span class="text-danger" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="Password" class="control-label">Password</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                <input type="password" id="Password" name="Password" class="form-control" placeholder="Enter your password" required minlength="6" />
+            </div>
+            <span class="text-danger" id="passwordError"></span>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @@await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    <script>
+        // Clear input fields on page load
+        window.onload = function () {
+            document.getElementById('Email').value = '';
+            document.getElementById('Password').value = '';
+        };
+
+        // Client-Side Validation
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            let isValid = true;
+
+            // Clear previous error messages
+            document.getElementById("emailError").innerText = "";
+            document.getElementById("passwordError").innerText = "";
+
+            // Validate Email
+            const email = document.getElementById("Email").value;
+            const emailPattern = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailError").innerText = "Please enter a valid email address.";
+                isValid = false;
+            }
+
+            // Validate Password
+            const password = document.getElementById("Password").value;
+            if (password.length < 6) {
+                document.getElementById("passwordError").innerText = "Password must be at least 6 characters long.";
+                isValid = false;
+            }
+
+            // Prevent form submission if validation fails
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+}

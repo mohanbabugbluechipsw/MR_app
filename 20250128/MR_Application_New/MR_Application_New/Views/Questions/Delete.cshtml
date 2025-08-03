@@ -1,0 +1,16 @@
+﻿@* @model Model_New.Models.Question
+
+<h2>Are you sure you want to delete this question?</h2>
+
+<div>
+    <strong>@Model.Question1</strong>
+</div>
+
+<div>
+    <form method="post" action="@Url.Action("Delete1", new { id = Model.QuestionId })">
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+ *@

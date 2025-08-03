@@ -1,0 +1,36 @@
+﻿@* Views/Shared/_LogoutPartial.cshtml *@
+
+
+
+
+<form id="logoutForm" method="post" class="d-inline">
+
+    @Html.AntiForgeryToken() <!-- Include Anti-Forgery Token -->
+    <button type="submit" class="btn btn-link nav-link text-dark">Logout</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#logoutForm').submit(function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Perform AJAX request to the logout action
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Logout", "Login")', // The URL for the logout action
+                data: $(this).serialize(), // Serialize form data including anti-forgery token
+                success: function () {
+                    // On success, redirect to the Login/Index page
+                    window.location.href = '@Url.Action("Index", "Home")';
+                },
+                error: function () {
+                    // Handle error (optional)
+                    alert('An error occurred while logging out.');
+                }
+            });
+        });
+    });
+</script>
+

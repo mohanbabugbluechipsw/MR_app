@@ -1,0 +1,146 @@
+@using Model_New.Models
+@model List<Model_New.Models.QuestionsNew>
+@{
+    ViewData["Title"] = "Create Review";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form id="reviewForm" method="post" action="/ReviewPlane/AfterCreate" enctype="multipart/form-data">
+    <div class="container mt-5 p-4 border rounded shadow-lg" style="background-color: #b0e0e6; border: none;">
+        <!-- Form Title -->
+        <h3 class="text-center mb-4" style="font-size: 2rem; color: #007bff; font-weight: bold; border-bottom: 2px solid #007bff; padding-bottom: 10px;">Post-visit Products</h3>
+
+        <div class="row g-4">
+            <!-- MR Code input -->
+            <div class="col-md-6">
+                <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;">
+                    <ul id="errorMessages" class="mb-0"></ul>
+                </div>
+            </div>
+
+            @if (ViewBag.SysUsers != null && ViewBag.SysUsers.Count > 0)
+            {
+                <div class="row g-4">
+                    @for (int i = 0; i < ViewBag.SysUsers.Count; i++)
+                    {
+                        var user = ViewBag.SysUsers[i];
+@*                         var savedAnswer = ViewBag.SavedAnswersDict?[user.QuestionId];
+ *@
+                        <div class="col-12 col-md-6">
+                            <div class="form-group p-3 border rounded" style="background-color: #e0f7fa;">
+                                <label class="font-weight-bold">Question @(i + 1): @user.Question</label>
+                                <input type="hidden" name="answers[@i].QuestionId" value="@user.QuestionId" />
+                                <input type="hidden" name="answers[@i].Type" value="@user.Type" />
+
+                                @if (user.Type == "radio")
+                                {
+                                    <div class="form-check mb-3">
+                                        <input type="radio" class="form-check-input" name="answers[@i].Answer" value="Yes" @* @(savedAnswer?.Answer == "Yes" ? "checked" : "" *@) />
+                                        <label class="form-check-label">Yes</label>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <input type="radio" class="form-check-input" name="answers[@i].Answer" value="No" @* @(savedAnswer?.Answer == "No" ? "checked" : "" *@) />
+                                        <label class="form-check-label">No</label>
+                                    </div>
+                                }
+                                else if (user.Type == "text")
+                                {
+                                    <input type="text" class="form-control" name="answers[@i].Answer" @* value="@savedAnswer?.Answer" *@ required />
+                                }
+                                else if (user.Type == "photo")
+                                {
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="answers[@i].PhotoPath" accept="image/*" />
+                                        <label class="custom-file-label">Choose file</label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <button type="button" class="btn btn-outline-secondary btn-lg" id="backButton">
+                        <i class="bi bi-arrow-left-circle"></i> Previous
+                    </button>
+                    <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                        Next <i class="bi bi-arrow-right-circle"></i>
+                    </button>
+                </div>
+            }
+            else
+            {
+                <p class="text-center">No questions available.</p>
+            }
+
+        </div> <!-- Closing col -->
+    </div> <!-- Closing row -->
+</form> <!-- Closing form tag -->
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function saveFormData() {
+                let formData = {};
+                document.querySelectorAll("[name^='answers']").forEach(input => {
+                    if (input.type === "radio") {
+                        if (input.checked) {
+                            formData[input.name] = input.value;
+                        }
+                    } else {
+                        formData[input.name] = input.value;
+                    }
+                });
+                sessionStorage.setItem("reviewFormData", JSON.stringify(formData));
+            }
+
+            function loadFormData() {
+                let savedData = JSON.parse(sessionStorage.getItem("reviewFormData") || "{}");
+                Object.keys(savedData).forEach(name => {
+                    let input = document.querySelector(`[name='${name}']`);
+                    if (input) {
+                        if (input.type === "radio") {
+                            document.querySelector(`[name='${name}'][value='${savedData[name]}']`).checked = true;
+                        } else {
+                            input.value = savedData[name];
+                        }
+                    }
+                });
+            }
+
+            function validateForm() {
+                let isValid = true;
+                let errors = [];
+                document.querySelectorAll(".form-group").forEach((q, i) => {
+                    let input = q.querySelector(`[name='answers[${i}].Answer']`);
+                    if (input && input.hasAttribute("required") && !input.value.trim()) {
+                        isValid = false;
+                        errors.push(`Answer Question ${i + 1}`);
+                    }
+                    let radios = q.querySelectorAll(`[name='answers[${i}].Answer'][type='radio']`);
+                    if (radios.length && !Array.from(radios).some(r => r.checked)) {
+                        isValid = false;
+                        errors.push(`Select an option for Question ${i + 1}`);
+                    }
+                });
+                document.getElementById("errorAlert").style.display = errors.length ? 'block' : 'none';
+                document.getElementById("errorMessages").innerHTML = errors.map(e => `<li>${e}</li>`).join('');
+                return isValid;
+            }
+
+            document.getElementById("reviewForm").addEventListener("submit", function (e) {
+                if (!validateForm()) {
+                    e.preventDefault();
+                } else {
+                    saveFormData();
+                }
+            });
+
+            document.getElementById("backButton").addEventListener("click", function () {
+                saveFormData();
+                window.location.href = '@Url.Action("create", "ReviewPlane")';
+            });
+
+            loadFormData();
+        });
+    </script>
+}

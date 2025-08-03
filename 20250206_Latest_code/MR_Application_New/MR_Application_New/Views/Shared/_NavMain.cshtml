@@ -1,0 +1,25 @@
+﻿
+<ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="/Login/Welcome">
+            <i class="bi bi-house-fill"></i> Home
+        </a>
+    </li>
+
+
+    <li class="nav-item">
+        <a class="nav-link" href="/ReviewPlane/Index">
+            <i class="bi bi-search"></i> Review Plan
+        </a>
+    </li>
+ 
+    <li class="nav-item">
+        <a class="nav-link" href="/Locations/Getcurrent">
+            <i class="bi bi-compass-fill"></i> Map Locations
+        </a>
+    </li>
+  
+    <li class="nav-item">
+        @await Html.PartialAsync("_LogoutPartial")
+    </li>
+</ul>

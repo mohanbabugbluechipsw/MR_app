@@ -1,0 +1,254 @@
+﻿@model IEnumerable<Model_New.Models.OutLetMasterDetail>
+
+@{
+    ViewData["Title"] = "Review Plane";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    var userName = Context.Session.GetString("UserName");
+}
+
+<!-- Centered Box -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <div class="card shadow-sm">
+                <div class="card-header bg-secondary text-white text-center">
+                    <h1>Review Products</h1>
+                </div>
+                <div class="card-body">
+                    <!-- Progress Indicator -->
+                    <div class="progress mb-4" style="height: 30px;">
+                        <div class="progress-bar" role="progressbar" id="progressBar"
+                             style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                            0% - Step 1
+                        </div>
+                    </div>
+
+                    <!-- Steps -->
+                    <div class="row text-center">
+                        <div class="col-6 col-md-4 col-lg-2 mb-3">
+                            <div class="p-2 bg-success text-white rounded step" data-step="1">
+                                <span class="badge badge-pill badge-light p-2" style="font-size:18px">1</span>
+                                <h6 class="mt-2" style="font-size:14px;">DT & Outlet Details</h6>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 mb-3">
+                            <div class="p-2 bg-primary text-white rounded step" data-step="2">
+                                <span class="badge badge-pill badge-light p-2" style="font-size:18px">2</span>
+                                <h6 class="mt-2" style="font-size:14px;">Pre-visit Review</h6>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2 mb-3">
+                            <div class="p-2 bg-info text-white rounded step" data-step="4">
+                                <span class="badge badge-pill badge-light p-2" style="font-size:18px">3</span>
+                                <h6 class="mt-2" style="font-size:14px;">Post-visit Review</h6>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Form Section -->
+                    <form asp-action="AddbeforeReview" method="post" id="reviewForm">
+                        <h3 class="text-center mb-4">DT & Outlet Details</h3>
+
+                        <div class="row">
+                            <!-- MR Code input -->
+                            <div class="col-md-6 mb-3">
+                                <label for="mrcodeInput" class="form-label">MR Code:</label>
+                                <input type="text" id="mrcodeInput" class="form-control" name="mrcode" value="@userName" readonly>
+                            </div>
+
+                            <!-- RSCODE input -->
+                            <div class="col-md-6 mb-3">
+                                <label for="rscodeInput" class="form-label">Select RSCODE:</label>
+                                <input type="text" id="rscodeInput" class="form-control" placeholder="Type RSCODE ..." autocomplete="off">
+                                <input type="hidden" id="selectedRscode" name="selectedRscode">
+                                <div id="rscodeSuggestions" class="list-group position-absolute"
+                                     style="display: none; z-index: 1000; max-height: 200px; overflow-y: auto;">
+                                    <!-- Suggestions will appear here -->
+                                </div>
+                                <div id="rscodeError" class="text-danger" style="display: none;">Please select a RSCODE.</div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Outlet input -->
+                            <div class="col-md-6 mb-3">
+                                <label for="outletInput" class="form-label">Search Outlet:</label>
+                                <input type="text" id="outletInput" class="form-control" placeholder="Type to search..." autocomplete="off">
+                                <input type="hidden" id="selectedOutlet" name="selectedOutlet">
+                                <div id="outletSuggestions" class="list-group position-absolute"
+                                     style="display: none; z-index: 1000; max-height: 200px; overflow-y: auto;">
+                                    <!-- Suggestions will appear dynamically -->
+                                </div>
+                                <div id="outletError" class="text-danger" style="display: none;">Please select an Outlet.</div>
+                            </div>
+                        </div>
+
+                        <!-- Hidden Fields -->
+                        <input type="hidden" id="selectedRsName" name="selectedRsName" />
+                        <input type="hidden" id="selectedPartyName" name="selectedPartyName" />
+
+                        <!-- Submit Button -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Next</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // RSCODE suggestions handling
+            $('#rscodeInput').on('keyup', function () {
+                var searchTerm = $(this).val();
+                if (searchTerm.length > 0) {
+                    $.ajax({
+                        url: '/ReviewPlane/GetRSCodes',
+                        type: 'GET',
+                        data: { term: searchTerm },
+                        success: function (data) {
+                            $('#rscodeSuggestions').empty();
+                            if (data.length > 0) {
+                                $('#rscodeSuggestions').show();
+                                data.forEach(function (item) {
+                                    $('#rscodeSuggestions').append(
+                                        `<a class="list-group-item list-group-item-action" data-id="${item.code}" data-name="${item.name}">
+                                                                    ${item.code} - ${item.name}
+                                                                </a>`
+                                    );
+                                });
+                            } else {
+                                $('#rscodeSuggestions').hide();
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            $('#rscodeSuggestions').hide();
+                            console.error('Error fetching RSCODEs:', error);
+                            alert("Failed to fetch RSCODEs. Please try again.");
+                        }
+                    });
+                } else {
+                    $('#rscodeSuggestions').hide();
+                }
+            });
+
+            $(document).on('click', '#rscodeSuggestions .list-group-item', function () {
+                var rscode = $(this).data('id');
+                var rsname = $(this).data('name');
+                $('#rscodeInput').val(`${rscode} - ${rsname}`);
+                $('#selectedRscode').val(rscode);
+                $('#rscodeSuggestions').hide();
+            });
+
+            // Outlet suggestions handling
+            $('#outletInput').on('keyup', function () {
+                var searchTerm = $(this).val();
+                var rscode = $('#selectedRscode').val();
+                if (searchTerm.length > 2) {
+                    $.ajax({
+                        url: '/ReviewPlane/GetOutlets',
+                        type: 'GET',
+                        data: { term: searchTerm, rscode: rscode },
+                        success: function (data) {
+                            $('#outletSuggestions').empty();
+                            if (data.length > 0) {
+                                $('#outletSuggestions').show();
+                                data.forEach(function (item) {
+                                    $('#outletSuggestions').append(
+                                        `<a class="list-group-item list-group-item-action" data-code="${item.code}" data-name="${item.name}">
+                                                                    ${item.name} (${item.code})
+                                                                </a>`
+                                    );
+                                });
+                            } else {
+                                $('#outletSuggestions').hide();
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            $('#outletSuggestions').hide();
+                            console.error('Error fetching outlets:', error);
+                            alert("Failed to fetch outlets. Please try again.");
+                        }
+                    });
+                } else {
+                    $('#outletSuggestions').hide();
+                }
+            });
+
+            $(document).on('click', '#outletSuggestions .list-group-item', function () {
+                var outletName = $(this).data('name');
+                var outletCode = $(this).data('code');
+                $('#outletInput').val(`${outletName} (${outletCode})`);
+                $('#selectedOutlet').val(outletCode);
+                $('#outletSuggestions').hide();
+            });
+
+            // Update progress bar based on form completion
+            const progressBar = $('#progressBar');
+
+            function updateProgress(step) {
+                const progress = step * 20; // Each step contributes 20% to the progress
+                progressBar.css('width', progress + '%').attr('aria-valuenow', progress);
+                progressBar.text(progress + '% - Step ' + step);
+
+                // Send progress to the server using AJAX
+                $.ajax({
+                    url: '/ReviewPlane/UpdateProgress',
+                    type: 'POST',
+                    data: { progress: progress },
+                    success: function (response) {
+                        console.log("Progress sent to server successfully:", response);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error sending progress to the server:", error);
+                    }
+                });
+            }
+
+            // Add click event listener to each step
+            $('.step').on('click', function () {
+                const step = $(this).data('step');
+                updateProgress(step);
+            });
+
+            // Form validation before submission
+            $('#reviewForm').on('submit', function (e) {
+                var isValid = true;
+                if (!$('#selectedRscode').val()) {
+                    $('#rscodeError').show();
+                    isValid = false;
+                } else {
+                    $('#rscodeError').hide();
+                }
+                if (!$('#selectedOutlet').val()) {
+                    $('#outletError').show();
+                    isValid = false;
+                } else {
+                    $('#outletError').hide();
+                }
+                if (!isValid) {
+                    e.preventDefault();
+                }
+            });
+
+            // Hide suggestions on outside click
+            $(document).on('click', function (e) {
+                if (!$(e.target).closest('#rscodeInput, #rscodeSuggestions').length) {
+                    $('#rscodeSuggestions').hide();
+                }
+                if (!$(e.target).closest('#outletInput, #outletSuggestions').length) {
+                    $('#outletSuggestions').hide();
+                }
+            });
+        });
+    </script>
+}

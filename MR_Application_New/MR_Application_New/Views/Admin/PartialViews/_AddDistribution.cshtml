@@ -1,0 +1,181 @@
+﻿@* @model Model_New.Models.TblDistributor
+
+@{
+    ViewData["Title"] = "Add New Distribution";
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<h2>Add New Distributor</h2>
+
+<form id="addDistributorForm" method="post">
+    <div class="form-group">
+        <label for="Distributor" class="control-label">Distributor</label>
+        <!-- Regular input field for Distributor -->
+        <input type="number" id="Distributor" name="Distributor" class="form-control" />
+        <span class="text-danger" id="Distributor-error"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="DistributorName" class="control-label">Distributor Name</label>
+        <!-- Regular input field for Distributor Name -->
+        <input type="text" id="DistributorName" name="DistributorName" class="form-control" />
+        <span class="text-danger" id="DistributorName-error"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Add Distributor</button>
+    </div>
+</form>
+
+<a href="@Url.Action("DistributionsList", "Admin")">Back to List</a>
+
+<div id="responseMessage" class="mt-3"></div> <!-- Placeholder for success or error messages -->
+@section Scripts {
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            console.log("jQuery Loaded");  // Check if jQuery is loaded
+
+            $("#contentArea").submit(function (e) {
+                console.log("Form Submit Triggered");  // Check if form submission is triggered
+
+                e.preventDefault();  // Prevent the default form submission
+
+                // Serialize the form data
+                var formData = $(this).serialize();
+                console.log("Form Data:", formData);
+
+                $.ajax({
+                    url: '/Admin/AddDistribution',  // Ensure this URL matches your controller's route
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        console.log("Server Response:", response);  // Check server response
+
+                        if (response.success) {
+                            $("#responseMessage").html('<div class="alert alert-success">Distributor added successfully!</div>');
+                            $("#addDistributorForm")[0].reset();
+                        } else {
+                            $.each(response.errors, function (key, value) {
+                                $("#" + key + "-error").text(value);  // Show errors
+                            });
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error:", error);
+                        alert('An error occurred while submitting the form.');
+                    }
+                });
+            });
+        });
+
+    </script>
+
+}
+ *@
+
+
+
+ @model Model_New.Models.TblDistributor
+
+@{
+    ViewData["Title"] = "Add New Distributor";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (TempData["AlertMessage"] != null)
+{
+    string alertType = TempData["AlertType"] as string ?? "info"; // Default to 'info' if no type is set
+
+    <div class="alert alert-@alertType alert-dismissible fade show" role="alert">
+        @TempData["AlertMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<h2 class="mb-4">Add New Distributor</h2>
+
+<form id="addDistributorForm" method="post">
+    <div class="form-group mb-3">
+        <label for="Distributor" class="control-label">Distributor Code</label>
+        <input type="number" id="Distributor" name="Distributor" class="form-control" required />
+        <span class="text-danger" id="Distributor-error"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="DistributorName" class="control-label">Distributor Name</label>
+        <input type="text" id="DistributorName" name="DistributorName" class="form-control" required />
+        <span class="text-danger" id="DistributorName-error"></span>
+    </div>
+
+    <div class="form-group d-flex justify-content-start">
+        <button type="submit" class="btn btn-success btn-lg me-3">
+            <i class="bi bi-save me-2"></i> Save
+        </button>
+        <a href="@Url.Action("Index", "Admin")" class="btn btn-outline-primary btn-lg d-inline-flex align-items-center">
+            <i class="bi bi-house-door me-2"></i> Back Home
+        </a>
+    </div>
+
+</form>
+
+<div id="responseMessage" class="mt-4"></div> <!-- Placeholder for success or error messages -->
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Handle form submission
+            $("#addDistributorForm").submit(function (e) {
+                e.preventDefault(); // Prevent default form submission
+
+                // Clear any existing error messages
+                $(".text-danger").text("");
+                $("#responseMessage").html("");
+
+                // Serialize form data
+                var formData = $(this).serialize();
+
+                // AJAX request
+                $.ajax({
+                    url: '@Url.Action("AddDistribution", "Admin")', // Ensure this matches your controller action
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        if (response.success) {
+                            // Success: Display success message and reset the form
+                            $("#responseMessage").html('<div class="alert alert-success alert-dismissible fade show" role="alert">' +
+                                'Distributor added successfully!' +
+                                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
+                                '</div>');
+                            $("#addDistributorForm")[0].reset();
+                        } else if (response.errors) {
+                            // Display validation errors
+                            $.each(response.errors, function (key, value) {
+                                $("#" + key + "-error").text(value);
+                            });
+                        } else {
+                            // General error message
+                            $("#responseMessage").html('<div class="alert alert-warning alert-dismissible fade show" role="alert">' +
+                                (response.message || "An unknown error occurred.") +
+                                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
+                                '</div>');
+                        }
+                    },
+                    error: function (xhr) {
+                        // Error: Display generic error message
+                        console.error("Error:", xhr.responseText);
+                        $("#responseMessage").html('<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
+                            'An error occurred while adding the distributor. Please try again later.' +
+                            '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
+                            '</div>');
+                    }
+                });
+            });
+        });
+    </script>
+}

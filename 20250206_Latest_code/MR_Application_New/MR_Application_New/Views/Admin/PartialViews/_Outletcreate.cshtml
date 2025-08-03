@@ -1,0 +1,118 @@
+﻿@model Model_New.Models.OutLetMasterDetail
+
+@{
+    ViewData["Title"] = "Create OutLet Master Detail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Outletcreate" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="Rscode">Rs Code</label>
+        <input type="number" class="form-control" id="Rscode" name="Rscode" value="@Model.Rscode" />
+    </div>
+
+    <div class="form-group">
+        <label for="RsName">Rs Name</label>
+        <input type="text" class="form-control" id="RsName" name="RsName" value="@Model.RsName" />
+    </div>
+
+    <div class="form-group">
+        <label for="PartyMasterCode">Party Master Code</label>
+        <input type="text" class="form-control" id="PartyMasterCode" name="PartyMasterCode" value="@Model.PartyMasterCode" />
+    </div>
+
+    <div class="form-group">
+        <label for="PartyHllcode">Party Hllcode</label>
+        <input type="text" class="form-control" id="PartyHllcode" name="PartyHllcode" value="@Model.PartyHllcode" />
+    </div>
+
+    <div class="form-group">
+        <label for="PartyName">Party Name</label>
+        <input type="text" class="form-control" id="PartyName" name="PartyName" value="@Model.PartyName" />
+    </div>
+
+    <div class="form-group">
+        <label for="PrimaryChannel">Primary Channel</label>
+        <input type="text" class="form-control" id="PrimaryChannel" name="PrimaryChannel" value="@Model.PrimaryChannel" />
+    </div>
+
+    <div class="form-group">
+        <label for="SecondaryChannel">Secondary Channel</label>
+        <input type="text" class="form-control" id="SecondaryChannel" name="SecondaryChannel" value="@Model.SecondaryChannel" />
+    </div>
+
+    <div class="form-group">
+        <label for="Category">Category</label>
+        <input type="text" class="form-control" id="Category" name="Category" value="@Model.Category" />
+    </div>
+
+    <div class="form-group">
+        <label for="ParStatus">Par Status</label>
+        <input type="text" class="form-control" id="ParStatus" name="ParStatus" value="@Model.ParStatus" />
+    </div>
+
+    <div class="form-group">
+        <label for="UpdateStamp">Update Stamp</label>
+        <input type="time" class="form-control" id="UpdateStamp" name="UpdateStamp" value="@Model.UpdateStamp?.ToString("HH:mm")" />
+    </div>
+
+    <div class="form-group">
+        <label for="OlCreatedDate">Created Date</label>
+        <input type="date" class="form-control" id="OlCreatedDate" name="OlCreatedDate" value="@Model.OlCreatedDate?.ToString("yyyy-MM-dd")" />
+    </div>
+
+    <div class="form-group">
+        <label for="Address1">Address 1</label>
+        <input type="text" class="form-control" id="Address1" name="Address1" value="@Model.Address1" />
+    </div>
+
+    <div class="form-group">
+        <label for="Address2">Address 2</label>
+        <input type="text" class="form-control" id="Address2" name="Address2" value="@Model.Address2" />
+    </div>
+
+    <div class="form-group">
+        <label for="Address3">Address 3</label>
+        <input type="text" class="form-control" id="Address3" name="Address3" value="@Model.Address3" />
+    </div>
+
+    <div class="form-group">
+        <label for="Address4">Address 4</label>
+        <input type="text" class="form-control" id="Address4" name="Address4" value="@Model.Address4" />
+    </div>
+
+    <div class="form-group">
+        <label for="Latitude">Latitude</label>
+        <input type="number" class="form-control" id="Latitude" name="Latitude" value="@Model.Latitude" step="any" />
+    </div>
+
+    <div class="form-group">
+        <label for="Longitude">Longitude</label>
+        <input type="number" class="form-control" id="Longitude" name="Longitude" value="@Model.Longitude" step="any" />
+    </div>
+
+    <div class="form-group">
+        <label for="PrimarychannelCode">Primary Channel Code</label>
+        <input type="text" class="form-control" id="PrimarychannelCode" name="PrimarychannelCode" value="@Model.PrimarychannelCode" />
+    </div>
+
+    <div class="form-group">
+        <label for="SecondarychannelCode">Secondary Channel Code</label>
+        <input type="text" class="form-control" id="SecondarychannelCode" name="SecondarychannelCode" value="@Model.SecondarychannelCode" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+
+
+    <div class="form-group">
+
+        <a href="@Url.Action("Index", "Admin")" class="btn btn-outline-primary btn-lg d-inline-flex align-items-center">
+            <i class="bi bi-house-door me-2"></i> Back Home
+        </a>
+        </div>
+</form>

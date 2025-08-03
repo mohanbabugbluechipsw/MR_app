@@ -1,0 +1,48 @@
+﻿@* @model PlacementViewModel
+
+<div class="container">
+    <h2>@Model.PlacementHeader</h2>
+
+    <form id="placementForm" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label>1. Is this placed in a clearly visible place to the shopper?</label><br>
+            <input type="radio" id="yes" name="IsVisibleToShopper" value="true" @(Model.IsVisibleToShopper == true ? "checked" : "") /> Yes
+            <input type="radio" id="no" name="IsVisibleToShopper" value="false" @(Model.IsVisibleToShopper == false ? "checked" : "") /> No
+        </div>
+
+        <!-- Sub-question (only visible if "Yes" is selected) -->
+        <div id="photoQuestion" style="display:none;">
+            <label>1.1. Is this placed in a clearly visible place to the shopper?</label><br>
+            <input type="radio" name="IsVisibleToShopperYesNo" value="true" @(Model.IsVisibleToShopperYesNo == true ? "checked" : "") /> Yes
+            <input type="radio" name="IsVisibleToShopperYesNo" value="false" @(Model.IsVisibleToShopperYesNo == false ? "checked" : "") /> No
+        </div>
+
+        <div id="takePhoto" style="display:none;">
+            <label>Take a photo:</label>
+            <input type="file" name="Photo" accept="image/*" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        // Show or hide the sub-question and photo input based on the selected radio button
+        $('input[name="IsVisibleToShopper"]').change(function () {
+            if ($(this).val() === "true") {
+                // Show sub-question and photo input
+                $('#photoQuestion').show();
+                $('#takePhoto').show();
+            } else {
+                // Hide sub-question and photo input
+                $('#photoQuestion').hide();
+                $('#takePhoto').hide();
+            }
+        });
+
+        // Trigger the change event on page load to initialize visibility
+        $('input[name="IsVisibleToShopper"]:checked').trigger('change');
+    </script>
+}
+ *@

@@ -1,0 +1,1083 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Accordion Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f7f9;
+        }
+
+        .accordion {
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: 2px solid #388E3C;
+            margin: 8px 0;
+            padding: 15px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            font-size: 16px;
+            text-align: left;
+        }
+
+            .accordion:hover {
+                background: #45A049;
+                transform: translateY(-2px);
+                box-shadow: 0 3px 8px rgba(0,0,0, 0.15);
+            }
+
+        .panel {
+            padding: 15px;
+            margin: 10px 0;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            display: none;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        .arrow {
+            transition: transform 0.3s ease;
+            font-size: 0.9em;
+        }
+
+
+
+        /* Hidden Sections Animation */
+        .Panel > div {
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+
+
+        .accordion.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        #modelDisplayForm {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+
+        .panel p {
+            font-size: 1.05rem;
+            color: #34495e;
+            margin-bottom: 15px;
+            font-weight: 500;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+
+        .panel label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+
+
+            .panel label:hover {
+                background: #e3f2fd;
+            }
+
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #3498db;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            width: 100%;
+            background: #fafafa;
+            transition: border-color 0.3s ease;
+        }
+
+            input[type="file"]:hover {
+                border-color: #2196F3;
+            }
+
+
+
+        .icon {
+            cursor: pointer;
+            color: #0288d1;
+            margin-left: 10px;
+        }
+
+            .icon:hover {
+                color: #01579b;
+            }
+
+        .hidden {
+            display: none;
+        }
+
+
+
+
+
+
+
+
+
+        /* Improved visibility toggling */
+        .visible {
+            display: block !important;
+        }
+
+
+
+
+
+
+
+
+
+
+        /* Enhanced Sachet Hanger Styling */
+        .sachetHangerAccordion {
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: 2px solid #388E3C;
+            margin: 8px 0;
+            padding: 15px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            font-size: 16px;
+            text-align: left;
+        }
+
+
+            .sachetHangerAccordion:hover {
+                background: #45A049;
+                transform: translateY(-2px);
+                box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            }
+
+
+
+
+
+        .sachetHangerPanel {
+            padding: 15px;
+            margin: 10px 0;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            display: none;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+
+
+
+
+
+
+
+        #sachetHangerForm {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Question Styling */
+        .sachetHangerPanel p {
+            font-size: 1.05rem;
+            color: #34495e;
+            margin-bottom: 15px;
+            font-weight: 500;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        /* Radio Button Styling */
+        .sachetHangerPanel label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+
+            .sachetHangerPanel label:hover {
+                background: #e3f2fd;
+            }
+
+
+
+
+
+
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #3498db;
+        }
+
+        /* Nested Sections */
+        #sachetHangerOptions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        /* File Input Styling */
+        input[type="file"] {
+            padding: 10px;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            width: 100%;
+            background: #fafafa;
+            transition: border-color 0.3s ease;
+        }
+
+            input[type="file"]:hover {
+                border-color: #2196F3;
+            }
+
+        /* Sub-section Styling */
+        .sachetHangerPanel .sachetHangerPanel {
+            background: #f8fafb;
+            border-left: 3px solid #3498db;
+            margin: 15px 0;
+            padding: 20px;
+        }
+
+        /* Arrow Animation */
+        .sachetHangerArrow {
+            transition: transform 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .sachetHangerAccordion.active .sachetHangerArrow {
+            transform: rotate(180deg);
+        }
+
+        /* Hidden Sections Animation */
+        .sachetHangerPanel > div {
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Model Display Section -->
+        <button class="accordion">Model Display <span class="arrow">▼</span></button>
+        <div class="panel">
+            <form id="modelDisplayForm">
+
+                <!-- Question 1 -->
+
+                <p id="visibleToShopperLabel"><strong>Is this placed in a clearly visible place to the shopper?</strong></p>
+                <label><input type="radio" name="visibleToShopper" value="yes" onclick="toggleDisplayOption(true); removeHighlight('visibleToShopperLabel')"> Yes</label>
+                <label><input type="radio" name="visibleToShopper" value="no" onclick="toggleDisplayOption(false); removeHighlight('visibleToShopperLabel')"> No</label>
+
+
+
+                <!-- Display Option Section (Initially Hidden) -->
+                <div id="displayOptionSection" class="hidden" style="display: none; margin-top: 10px;">
+
+
+                    <p id="displayOptionLabel"><strong>Display Option:</strong></p>
+
+                    <label><input type="radio" name="displayOption" value="option1" onclick="removeHighlight('displayOptionLabel')"> Option1</label>
+
+                    <span onclick="openImageModal()" class="icon">
+                        <i class="bi bi-image"></i>
+                    </span>
+
+
+                    <label><input type="radio" name="displayOption" value="none" onclick="removeHighlight('displayOptionLabel')"> None</label>
+
+
+
+                </div>
+
+                <!-- Display Photo Section (Initially Hidden) -->
+                <div id="displayPhotoSection" class="hidden" style="display: none; margin-top: 10px;">
+
+
+
+                    <p id="displayPhotoLabel"><strong>Display Photo 1:</strong></p>
+                    <input type="file" id="displayPhoto" name="displayPhoto" accept="image/*" onchange="removeHighlight('displayPhotoLabel')">
+
+                </div>
+
+                <!-- Additional Questions (Initially Hidden) -->
+                <div id="additionalQuestionsSection" class="hidden" style="display: none; margin-top: 10px;">
+
+
+
+
+
+                    <!-- Unilever Separate (Only if visibleToShopper = Yes) -->
+                    <p id="unileverSeparateLabel"><strong>Within the Unilever planogram, are Unilever brands merchandised separately?</strong></p>
+                    <label><input type="radio" name="unileverSeparate" value="yes"> Yes</label>
+                    <label><input type="radio" name="unileverSeparate" value="no"> No</label>
+
+                    <!-- Brand Variants Separate (Only if visibleToShopper = Yes) -->
+                    <p id="brandVariantsSeparateLabel"><strong>Within the Unilever brands, are relevant brand variants merchandised separately?</strong></p>
+                    <label><input type="radio" name="brandVariantsSeparate" value="yes"> Yes</label>
+                    <label><input type="radio" name="brandVariantsSeparate" value="no"> No</label>
+
+                    <!-- Non-Unilever Brands (Only if visibleToShopper = Yes) -->
+                    <p id="nonUnileverNotBetweenLabel"><strong>Are non-Unilever brands placed in between Unilever brands?</strong></p>
+                    <label><input type="radio" name="nonUnileverNotBetween" value="yes"> Yes</label>
+                    <label><input type="radio" name="nonUnileverNotBetween" value="no"> No</label>
+
+                    <!-- Shelf Strip Available (Only if visibleToShopper = Yes) -->
+                    <p id="shelfStripAvailableLabel"><strong>Is ANY Unilever SHELF STRIP available in this Planogram?</strong></p>
+                    <label><input type="radio" name="shelfStripAvailable" value="yes"> Yes</label>
+                    <label><input type="radio" name="shelfStripAvailable" value="no"> No</label>
+
+
+                </div>
+
+            </form>
+        </div>
+
+
+
+
+        <button class="sachetHangerAccordion" id="sachetHangerMainBtn" onclick="toggleSachetHangerVisibility('sachetHangerSection')">
+            Sachet Hanger <span class="sachetHangerArrow">▼</span>
+        </button>
+        <div class="sachetHangerPanel" id="sachetHangerSection">
+            <form id="sachetHangerForm">
+                <p id="sachetHangerLabel"><strong>Any (Competition or Unilever) Sachet Hanger available in the Outlet?</strong></p>
+                <label><input type="radio" name="sachetHangerAvailable" value="yes" onclick="toggleSachetHangerOptions(true); removeHighlight('sachetHangerLabel')"> Yes</label>
+                <label><input type="radio" name="sachetHangerAvailable" value="no" onclick="toggleSachetHangerOptions(false); removeHighlight('sachetHangerLabel')"> No</label>
+
+                <div id="sachetHangerOptions" style="display: none;">
+                    <button type="button" class="sachetHangerAccordion" data-section="sachetHangerLaundry" onclick="toggleSachetHangerSubSection('sachetHangerLaundry')">
+                        Sachet Hanger 1 (Laundry) <span class="sachetHangerArrow">▼</span>
+                    </button>
+
+
+
+
+                    <div class="sachetHangerPanel" id="sachetHangerLaundry">
+                        <p id="sachetHangerLaundryLabel"><strong>Is this placed in a clearly visible place to the shopper?</strong></p>
+                        <label>
+                            <input type="radio" name="sachetHangerLaundryVisible" value="yes" onclick="toggleDisplayQuestions(true, 'sachetHangerLaundryOptions')"> Yes
+                        </label>
+                        <label>
+                            <input type="radio" name="sachetHangerLaundryVisible" value="no" onclick="toggleDisplayQuestions(false, 'sachetHangerLaundryOptions')"> No
+                        </label>
+
+                        <!-- Additional Questions (Initially Hidden) -->
+                        <div id="sachetHangerLaundryOptions" style="display: none; margin-top: 10px;">
+                            <p id="sachetHangerLaundrydisplayOptionLabel"><strong>1. Display Option</strong></p>
+                            <label><input type="radio" name="sachetHangerDisplayOption" value="none"> None</label>
+
+                            <p id="sachetHangerLaundrydisplayPhotoLabel"><strong>2. Display Photo 1</strong></p>
+                            <input type="file" id="sachetHangerdisplayPhoto" name="sachetHangerdisplayPhoto" accept="image/*">
+
+                            <p id="sachetHangerLaundryunileverPlanogramLabel"><strong>3. Within the Unilever planogram, Unilever brands are merchandised separately?</strong></p>
+                            <label><input type="radio" name="unileverPlanogramSeparate" value="yes"> Yes</label>
+                            <label><input type="radio" name="unileverPlanogramSeparate" value="no"> No</label>
+
+                            <p id="sachetHangerLaundryunileverBrandVariantsSLabel"><strong>4. Within the Unilever brands, relevant brand variants are merchandised separately?</strong></p>
+                            <label><input type="radio" name="unileverBrandVariantsSeparate" value="yes"> Yes</label>
+                            <label><input type="radio" name="unileverBrandVariantsSeparate" value="no"> No</label>
+
+                            <p id="sachetHangerLaundrynonUnileverPlacementLabel"><strong>5. Non-Unilever brands are not placed in between Unilever brands?</strong></p>
+                            <label><input type="radio" name="nonUnileverPlacement" value="yes"> Yes</label>
+                            <label><input type="radio" name="nonUnileverPlacement" value="no"> No</label>
+                        </div>
+                    </div>
+
+
+
+                    <button type="button" class="sachetHangerAccordion" data-section="sachetHangerSavoury" onclick="toggleSachetHangerSubSection('sachetHangerSavoury')">
+                        Sachet Hanger 2 (Savoury) <span class="sachetHangerArrow">▼</span>
+                    </button>
+
+                    <div class="sachetHangerPanel" id="sachetHangerSavoury">
+                        <p id="sachetHangerSavouryLabel"><strong>Is this placed in a clearly visible place to the shopper?</strong></p>
+                        <label>
+                            <input type="radio" name="sachetHangerSavouryVisible" value="yes" onclick="toggleSachetHangerDetails(true, 'sachetHangerSavouryOptions')"> Yes
+                        </label>
+                        <label>
+                            <input type="radio" name="sachetHangerSavouryVisible" value="no" onclick="toggleSachetHangerDetails(false, 'sachetHangerSavouryOptions')"> No
+                        </label>
+
+                        <!-- Additional Questions (Initially Hidden) -->
+                        <div id="sachetHangerSavouryOptions" style="display: none; margin-top: 10px;">
+                            <p id="sachetHangerSavourydisplayOptionLabel"><strong>1. Display Option</strong></p>
+                            <label><input type="radio" name="sachetHangerSavouryDisplayOption" value="none"> None</label>
+
+                            <p id="sachetHangerSavourydisplayPhotoLabel"><strong>2. Display Photo 1</strong></p>
+                            <input type="file" id="sachetHangerSavouryPhoto" name="sachetHangerSavouryPhoto" accept="image/*">
+
+                            <p id="sachetHangerSavouryunileverPlanogramLabel"><strong>3. Within the Unilever planogram, are Unilever brands merchandised separately?</strong></p>
+                            <label><input type="radio" name="unileverPlanogramSavourySeparate" value="yes"> Yes</label>
+                            <label><input type="radio" name="unileverPlanogramSavourySeparate" value="no"> No</label>
+
+                            <p id="sachetHangerSavouryunileverBrandVariantsSLabel"><strong>4. Within the Unilever brands, are relevant brand variants merchandised separately?</strong></p>
+                            <label><input type="radio" name="unileverBrandVariantsSavourySeparate" value="yes"> Yes</label>
+                            <label><input type="radio" name="unileverBrandVariantsSavourySeparate" value="no"> No</label>
+
+                            <p id="sachetHangerSavourynonUnileverPlacementLabel"><strong>5. Are non-Unilever brands placed between Unilever brands?</strong></p>
+                            <label><input type="radio" name="nonUnileverPlacementSavoury" value="yes"> Yes</label>
+                            <label><input type="radio" name="nonUnileverPlacementSavoury" value="no"> No</label>
+                        </div>
+                    </div>
+
+
+
+
+                    <button type="button" class="sachetHangerAccordion" data-section="sachetHangerHFD" onclick="toggleSachetHangerSubSection('sachetHangerHFD')">
+                        Sachet Hanger 3 (HFD) <span class="sachetHangerArrow">▼</span>
+                    </button>
+
+                    <div class="sachetHangerPanel" id="sachetHangerHFD">
+
+
+
+
+                        <p id="sachetHangerHFDLabel"><strong>Is this placed in a clearly visible place to the shopper?</strong></p>
+                        <label>
+                            <input type="radio" name="sachetHangerHFDVisible" value="yes" onclick="toggleHangerVisibility(true, 'sachetHangerHFDOptions')"> Yes
+                        </label>
+                        <label>
+                            <input type="radio" name="sachetHangerHFDVisible" value="no" onclick="toggleHangerVisibility(false, 'sachetHangerHFDOptions')"> No
+                        </label>
+
+
+
+
+
+                        <!-- Additional Questions (Initially Hidden) -->
+                        <div id="sachetHangerHFDOptions" style="display: none; margin-top: 10px;">
+                            <p id="sachetHangerHFDdisplayOptionLabel"><strong>1. Display Option</strong></p>
+                            <label><input type="radio" name="sachetHangerHFDDisplayOption" value="none"> None</label>
+
+                            <p id="sachetHangerHFDdisplayPhotoLabel"><strong>2. Display Photo 1</strong></p>
+                            <input type="file" id="sachetHangerHFDPhoto" name="sachetHangerHFDPhoto" accept="image/*">
+
+                            <p id="sachetHangerHFDunileverPlanogramLabel"><strong>3. Within the Unilever planogram, are Unilever brands merchandised separately?</strong></p>
+                            <label><input type="radio" name="unileverPlanogramHFDSeparate" value="yes"> Yes</label>
+                            <label><input type="radio" name="unileverPlanogramHFDSeparate" value="no"> No</label>
+
+                            <p id="sachetHangerHFDunileverBrandVariantsSLabel"><strong>4. Within the Unilever brands, are relevant brand variants merchandised separately?</strong></p>
+                            <label><input type="radio" name="unileverBrandVariantsHFDSeparate" value="yes"> Yes</label>
+                            <label><input type="radio" name="unileverBrandVariantsHFDSeparate" value="no"> No</label>
+
+                            <p id="sachetHangerHFDnonUnileverPlacementLabel"><strong>5. Are non-Unilever brands placed between Unilever brands?</strong></p>
+                            <label><input type="radio" name="nonUnileverPlacementHFD" value="yes"> Yes</label>
+                            <label><input type="radio" name="nonUnileverPlacementHFD" value="no"> No</label>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </form>
+        </div>
+
+
+        <div id="errorModal" style="display:none; background: rgba(0,0,0,0.7); padding: 20px; color: white;">
+            <p id="errorMessage"></p>
+            <button onclick="closeModal()">Close</button>
+        </div>
+
+
+
+        <button class="btn btn-primary mt-3" onclick="validateAndProceed()">Next</button>
+
+
+
+
+
+
+    </div>
+
+    <!-- Bootstrap & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+         
+           function validateAndProceed()
+         {
+            const visibleToShopper = document.querySelector('input[name="visibleToShopper"]:checked');
+            const sachetHangerAvailable = document.querySelector('input[name="sachetHangerAvailable"]:checked');
+            const sachetHangerLaundryVisible = document.querySelector('input[name="sachetHangerLaundryVisible"]:checked');
+            const displayOption = document.querySelector('input[name="displayOption"]:checked');
+            const displayPhoto = document.getElementById('displayPhoto');
+            const unileverSeparate = document.querySelector('input[name="unileverSeparate"]:checked');
+            const brandVariantsSeparate = document.querySelector('input[name="brandVariantsSeparate"]:checked');
+            const nonUnileverNotBetween = document.querySelector('input[name="nonUnileverNotBetween"]:checked');
+            const shelfStripAvailable = document.querySelector('input[name="shelfStripAvailable"]:checked');
+            const sachetHangerDisplayOption = document.querySelector('input[name="sachetHangerDisplayOption"]:checked');
+            const sachetHangerdisplayPhoto = document.getElementById('sachetHangerdisplayPhoto');
+            const sachetHangerunileverSeparate = document.querySelector('input[name="unileverPlanogramSeparate"]:checked');
+            const sachetHangerBrandVariantsSeparate = document.querySelector('input[name="unileverBrandVariantsSeparate"]:checked');
+             const sachetHangernonUnileverPlacement = document.querySelector('input[name="nonUnileverPlacement"]:checked');
+
+             const sachetHangerSavouryVisible = document.querySelector('input[name="sachetHangerSavouryVisible"]:checked');
+               const sachetHangerSavouryDisplayOption = document.querySelector('input[name="sachetHangerSavouryDisplayOption"]:checked');
+            const sachetHangerSavouryPhoto = document.getElementById('sachetHangerSavouryPhoto');
+            const sachetHangerunileverPlanogramSavourySeparate = document.querySelector('input[name="unileverPlanogramSavourySeparate"]:checked');
+            const sachetHangerunileverBrandVariantsSavourySeparate = document.querySelector('input[name="unileverBrandVariantsSavourySeparate"]:checked');
+             const sachetHangernonUnileverPlacementSavoury = document.querySelector('input[name="nonUnileverPlacementSavoury"]:checked');
+
+
+
+
+
+
+
+
+
+            const sachetHangerHFDVisible = document.querySelector('input[name="sachetHangerHFDVisible"]:checked');
+
+
+
+               const sachetHangerHFDDisplayOption = document.querySelector('input[name="sachetHangerHFDDisplayOption"]:checked');
+            const sachetHangerHFDPhoto = document.getElementById('sachetHangerHFDPhoto');
+            const sachetHangerHFDunileverPlanogramSeparate = document.querySelector('input[name="unileverPlanogramHFDSeparate"]:checked');
+            const sachetHangerunileverBrandVariantsHFDSeparate = document.querySelector('input[name="unileverBrandVariantsHFDSeparate"]:checked');
+             const sachetHangernonUnileverPlacementHFD = document.querySelector('input[name="nonUnileverPlacementHFD"]:checked');
+
+
+
+
+
+            let isValid = true;
+            let errorMessages = [];
+
+            // Reset previous error styles
+            resetErrors();
+
+            // Validate "visibleToShopper"
+            if (!visibleToShopper) {
+                document.getElementById('visibleToShopperLabel').style.color = 'red';
+                errorMessages.push("Please answer: Is this placed in a clearly visible place to the shopper?");
+                isValid = false;
+            }
+
+            // Validate "sachetHangerAvailable"
+            if (!sachetHangerAvailable) {
+                document.getElementById('sachetHangerLabel').style.color = 'red';
+                errorMessages.push("Please answer: Any (Competition or Unilever) Sachet Hanger available in the Outlet?");
+                isValid = false;
+            }
+
+            // Validate sachetHangerLaundryVisible **only if sachetHangerAvailable is "yes"**
+            if (sachetHangerAvailable && sachetHangerAvailable.value === "yes") {
+                if (!sachetHangerLaundryVisible) {
+                    document.getElementById('sachetHangerLaundryLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Is this placed in a clearly visible place to the shopper?");
+                    isValid = false;
+                }
+
+                 if (!sachetHangerSavouryVisible) {
+                    document.getElementById('sachetHangerSavouryLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Is the Sachet Hanger (Savoury) placed in a clearly visible place to the shopper?");
+                    isValid = false;
+                }
+
+                if (!sachetHangerHFDVisible) {
+                    document.getElementById('sachetHangerHFDLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Is the Sachet Hanger (HFD) placed in a clearly visible place to the shopper?");
+                    isValid = false;
+                }
+
+
+            }
+
+            // ✅ Validate these fields **only if "visibleToShopper" is "yes"**
+            if (visibleToShopper && visibleToShopper.value === "yes")
+            {
+                if (!displayOption)
+                {
+                    document.getElementById('displayOptionLabel').style.color = 'red';
+                    errorMessages.push("Please select a Display Option.");
+                    isValid = false;
+                }
+
+                if (!displayPhoto.files.length)
+                {
+                    document.getElementById('displayPhotoLabel').style.color = 'red';
+                    errorMessages.push("Please upload a Display Photo.");
+                    isValid = false;
+                }
+
+                if (!unileverSeparate)
+                {
+                    document.getElementById('unileverSeparateLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Within the Unilever planogram, are Unilever brands merchandised separately?");
+                    isValid = false;
+                }
+
+                if (!brandVariantsSeparate)
+                {
+                    document.getElementById('brandVariantsSeparateLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Within the Unilever brands, are relevant brand variants merchandised separately?");
+                    isValid = false;
+                }
+
+                if (!nonUnileverNotBetween)
+                {
+                    document.getElementById('nonUnileverNotBetweenLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Are non-Unilever brands placed in between Unilever brands?");
+                    isValid = false;
+                }
+
+                if (!shelfStripAvailable)
+
+                {
+
+
+                    document.getElementById('shelfStripAvailableLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Is ANY Unilever SHELF STRIP available in this Planogram?");
+                    isValid = false;
+                }
+             }
+
+
+            if (sachetHangerLaundryVisible && sachetHangerLaundryVisible.value === "yes")
+            {
+               if (!sachetHangerDisplayOption) {
+
+               document.getElementById('sachetHangerLaundrydisplayOptionLabel').style.color = 'red';
+                    errorMessages.push("Please select a Display Option.");
+                    isValid = false;
+                }
+
+
+            if(!sachetHangerdisplayPhoto.files.length){
+
+               document.getElementById('sachetHangerLaundrydisplayPhotoLabel').style.color = 'red';
+                    errorMessages.push("Please upload a Display Photo.");
+                    isValid = false;
+            }
+
+
+            if(!sachetHangerunileverSeparate)
+            {
+                document.getElementById('sachetHangerLaundryunileverPlanogramLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Within the Unilever planogram, are Unilever brands merchandised separately?");
+                    isValid = false;
+
+            }
+
+
+            if(!sachetHangerBrandVariantsSeparate){
+               document.getElementById('sachetHangerLaundryunileverBrandVariantsSLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Within the Unilever brands, are relevant brand variants merchandised separately?");
+                    isValid = false;
+
+            }
+
+
+
+            if(!sachetHangernonUnileverPlacement){
+                 document.getElementById('sachetHangerLaundrynonUnileverPlacementLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Within the Unilever brands, are relevant brand variants merchandised separately?");
+                    isValid = false;
+            }
+
+
+
+
+          }
+
+
+
+
+
+
+
+
+         if (sachetHangerSavouryVisible && sachetHangerSavouryVisible.value === "yes")
+
+          {
+            if (!sachetHangerSavouryDisplayOption) {
+
+               document.getElementById('sachetHangerSavourydisplayOptionLabel').style.color = 'red';
+                    errorMessages.push("Please select a Display Option.");
+                    isValid = false;
+            }
+
+
+            if(!sachetHangerSavouryPhoto.files.length){
+
+               document.getElementById('sachetHangerSavourydisplayPhotoLabel').style.color = 'red';
+                    errorMessages.push("Please upload a Display Photo.");
+                    isValid = false;
+            }
+
+
+            if(!sachetHangerunileverPlanogramSavourySeparate)
+            {
+                document.getElementById('sachetHangerSavouryunileverPlanogramLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Within the Unilever planogram, are Unilever brands merchandised separately?");
+                    isValid = false;
+
+            }
+
+
+            if(!sachetHangerunileverBrandVariantsSavourySeparate){
+               document.getElementById('sachetHangerSavouryunileverBrandVariantsSLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Within the Unilever brands, are relevant brand variants merchandised separately?");
+                    isValid = false;
+
+            }
+
+
+
+            if(!sachetHangernonUnileverPlacementSavoury){
+                 document.getElementById('sachetHangerSavourynonUnileverPlacementLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Within the Unilever brands, are relevant brand variants merchandised separately?");
+                    isValid = false;
+            }
+
+
+
+
+          }
+
+
+
+
+
+
+         if (sachetHangerHFDVisible && sachetHangerHFDVisible.value === "yes")
+         {
+            if (!sachetHangerHFDDisplayOption) {
+
+               document.getElementById('sachetHangerHFDdisplayOptionLabel').style.color = 'red';
+                    errorMessages.push("Please select a Display Option.");
+                    isValid = false;
+            }
+
+            if(!sachetHangerHFDPhoto.files.length){
+
+               document.getElementById('sachetHangerHFDdisplayPhotoLabel').style.color = 'red';
+                    errorMessages.push("Please upload a Display Photo.");
+                    isValid = false;
+            }
+
+
+
+
+            if(!sachetHangerHFDunileverPlanogramSeparate)
+            {
+                document.getElementById('sachetHangerHFDunileverPlanogramLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Within the Unilever planogram, are Unilever brands merchandised separately?");
+                    isValid = false;
+
+            }
+
+
+            if(!sachetHangerunileverBrandVariantsHFDSeparate){
+               document.getElementById('sachetHangerHFDunileverBrandVariantsSLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Within the Unilever brands, are relevant brand variants merchandised separately?");
+                    isValid = false;
+
+            }
+
+
+
+            if(!sachetHangernonUnileverPlacementHFD){
+                 document.getElementById('sachetHangerHFDnonUnileverPlacementLabel').style.color = 'red';
+                    errorMessages.push("Please answer: Within the Unilever brands, are relevant brand variants merchandised separately?");
+                    isValid = false;
+            }
+
+
+
+
+         }
+
+
+
+
+
+
+            // Show error messages if validation fails
+            if (!isValid)
+            {
+                document.getElementById('errorMessage').innerHTML = errorMessages.join("<br>");
+                showModal();
+                return;
+            }
+
+            sendDataToDatabase();
+        }
+
+        
+
+
+        // Reset error styling before validation
+        function resetErrors() {
+            const labels = [
+                'visibleToShopperLabel', 'sachetHangerLabel', 'sachetHangerLaundryLabel', 'sachetHangerSavouryLabel','sachetHangerHFDLabel',
+                'displayOptionLabel', 'displayPhotoLabel', 'unileverSeparateLabel',
+                'brandVariantsSeparateLabel', 'nonUnileverNotBetweenLabel', 'shelfStripAvailableLabel',
+                'sachetHangerLaundrydisplayOptionLabel','sachetHangerLaundrydisplayPhotoLabel','sachetHangerLaundryunileverPlanogramLabel','sachetHangerLaundryunileverBrandVariantsSLabel'
+                ,'sachetHangerLaundrynonUnileverPlacementLabel','sachetHangerSavourydisplayOptionLabel','sachetHangerSavourydisplayPhotoLabel','sachetHangerSavourydisplayPhotoLabel','sachetHangerSavouryunileverBrandVariantsSLabel'
+                ,'sachetHangerSavourynonUnileverPlacementLabel','sachetHangerSavouryunileverPlanogramLabel','sachetHangerHFDdisplayOptionLabel','sachetHangerHFDdisplayPhotoLabel','sachetHangerHFDunileverPlanogramLabel','sachetHangerHFDunileverBrandVariantsSLabel'
+                ,'sachetHangerHFDnonUnileverPlacementLabel'
+            ];
+
+            labels.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.style.color = 'black';
+            });
+        }
+
+        // Remove highlight on field change
+        function removeHighlight(id) {
+            const element = document.getElementById(id);
+            if (element) element.style.color = 'black';
+        }
+
+        // Show error modal
+        function showModal() {
+            document.getElementById('errorModal').style.display = 'block';
+        }
+
+        // Close error modal
+        function closeModal() {
+            document.getElementById('errorModal').style.display = 'none';
+        }
+
+
+
+
+                // Accordion toggle with arrow change
+                document.querySelectorAll(".accordion").forEach(button => {
+                    button.addEventListener("click", function () {
+                        this.classList.toggle("active");
+                        let panel = this.nextElementSibling;
+                        let arrow = this.querySelector(".arrow");
+
+                        if (panel.style.display === "block") {
+                            panel.style.display = "none";
+                            arrow.innerHTML = "▼"; // Closed state
+                        } else {
+                            panel.style.display = "block";
+                            arrow.innerHTML = "▲"; // Open state
+                        }
+                    });
+                });
+
+                // Function to toggle Display Option, Display Photo, and Additional Questions sections
+                function toggleDisplayOption(isVisible) {
+                    document.getElementById("displayOptionSection").style.display = isVisible ? "block" : "none";
+                    document.getElementById("displayPhotoSection").style.display = isVisible ? "block" : "none";
+                    document.getElementById("additionalQuestionsSection").style.display = isVisible ? "block" : "none";
+                }
+
+                // Function to open image modal (Placeholder function)
+                function openImageModal() {
+                    alert("Open image modal here");
+                }
+
+
+
+
+             function toggleSachetHangerVisibility(containerId)
+
+        {
+
+            let sachetHangerContainer = document.getElementById(containerId);
+            let sachetHangerToggleBtn = document.getElementById("sachetHangerMainBtn");
+            let sachetHangerToggleArrow = sachetHangerToggleBtn.querySelector(".sachetHangerArrow");
+
+            sachetHangerContainer.classList.toggle("visible");
+
+            sachetHangerToggleArrow.innerHTML = sachetHangerContainer.classList.contains("visible") ? "▲" : "▼";
+        }
+
+        function toggleSachetHangerOptions(isDisplayed)
+        {
+            let sachetHangerOptionsContainer = document.getElementById("sachetHangerOptions");
+
+            if (isDisplayed) {
+                sachetHangerOptionsContainer.classList.add("visible");
+            } else {
+                sachetHangerOptionsContainer.classList.remove("visible");
+
+                document.getElementById("sachetHangerLaundry").classList.remove("visible");
+                document.getElementById("sachetHangerSavoury").classList.remove("visible");
+                document.getElementById("sachetHangerHFD").classList.remove("visible");
+
+                document.querySelectorAll(".sachetHangerArrow").forEach(arrowIcon => {
+                    arrowIcon.innerHTML = "▼";
+                });
+            }
+        }
+
+        function toggleSachetHangerSubSection(subSectionContainerId)
+        {
+            let sachetHangerSubSectionContainer = document.getElementById(subSectionContainerId);
+            let sachetHangerSubSectionBtn = document.querySelector(`[data-section='${subSectionContainerId}']`);
+            let sachetHangerSubSectionArrow = sachetHangerSubSectionBtn.querySelector(".sachetHangerArrow");
+
+            sachetHangerSubSectionContainer.classList.toggle("visible");
+
+            sachetHangerSubSectionArrow.innerHTML = sachetHangerSubSectionContainer.classList.contains("visible") ? "▲" : "▼";
+        }
+
+
+            function toggleDisplayQuestions(isDisplayed, containerId)
+            {
+                let container = document.getElementById(containerId);
+                container.style.display = isDisplayed ? "block" : "none";
+            }
+
+               function toggleHangerVisibility(isVisible, sectionId) {
+                let section = document.getElementById(sectionId);
+                section.style.display = isVisible ? "block" : "none";
+            }
+
+
+
+            function toggleSachetHangerDetails(isVisible, sectionId)
+            {
+                let section = document.getElementById(sectionId);
+                section.style.display = isVisible ? "block" : "none";
+            }
+
+
+
+
+            function sendDataToDatabase() {
+
+
+                        const formData = new FormData();
+
+        // Model Display Data
+        formData.append("ModelDisplay.VisibleToShopper", document.querySelector('input[name="visibleToShopper"]:checked')?.value || "");
+        formData.append("ModelDisplay.DisplayOption", document.querySelector('input[name="displayOption"]:checked')?.value || "");
+        formData.append("ModelDisplay.UnileverSeparate", document.querySelector('input[name="unileverSeparate"]:checked')?.value || "");
+        formData.append("ModelDisplay.BrandVariantsSeparate", document.querySelector('input[name="brandVariantsSeparate"]:checked')?.value || "");
+        formData.append("ModelDisplay.NonUnileverNotBetween", document.querySelector('input[name="nonUnileverNotBetween"]:checked')?.value || "");
+        formData.append("ModelDisplay.ShelfStripAvailable", document.querySelector('input[name="shelfStripAvailable"]:checked')?.value || "");
+
+        // Append Model Display Photo (File)
+        const displayPhoto = document.getElementById('displayPhoto').files[0];
+        if (displayPhoto) {
+            formData.append("ModelDisplay.DisplayPhoto", displayPhoto);
+        }
+
+        // Sachet Hanger Data
+        formData.append("SachetHanger.SachetHangerAvailable", document.querySelector('input[name="sachetHangerAvailable"]:checked')?.value || "");
+
+        // Laundry Section
+        formData.append("SachetHanger.Laundry.Visible", document.querySelector('input[name="sachetHangerLaundryVisible"]:checked')?.value || "");
+        formData.append("SachetHanger.Laundry.DisplayOption", document.querySelector('input[name="sachetHangerDisplayOption"]:checked')?.value || "");
+        formData.append("SachetHanger.Laundry.PlanogramSeparate", document.querySelector('input[name="unileverPlanogramSeparate"]:checked')?.value || "");
+        formData.append("SachetHanger.Laundry.BrandVariantsSeparate", document.querySelector('input[name="unileverBrandVariantsSeparate"]:checked')?.value || "");
+        formData.append("SachetHanger.Laundry.NonUnileverPlacement", document.querySelector('input[name="nonUnileverPlacement"]:checked')?.value || "");
+
+        // Append Laundry Photo (File)
+        const laundryPhoto = document.querySelector('input[name="sachetHangerdisplayPhoto"]')?.files[0];
+        if (laundryPhoto) {
+            formData.append("SachetHanger.Laundry.Photo", laundryPhoto);
+        }
+
+        // Repeat for Savoury and HFD Sections
+        const sections = ["Savoury", "HFD"];
+        sections.forEach(section => {
+            formData.append(`SachetHanger.${section}.Visible`, document.querySelector(`input[name="sachetHanger${section}Visible"]:checked`)?.value || "");
+            formData.append(`SachetHanger.${section}.DisplayOption`, document.querySelector(`input[name="sachetHanger${section}DisplayOption"]:checked`)?.value || "");
+            formData.append(`SachetHanger.${section}.PlanogramSeparate`, document.querySelector(`input[name="unileverPlanogram${section}Separate"]:checked`)?.value || "");
+            formData.append(`SachetHanger.${section}.BrandVariantsSeparate`, document.querySelector(`input[name="unileverBrandVariants${section}Separate"]:checked`)?.value || "");
+            formData.append(`SachetHanger.${section}.NonUnileverPlacement`, document.querySelector(`input[name="nonUnileverPlacement${section}"]:checked`)?.value || "");
+
+            // Append Photos for Each Section
+            const photoInput = document.querySelector(`input[name="sachetHanger${section}Photo"]`)?.files[0];
+            if (photoInput) {
+                formData.append(`SachetHanger.${section}.Photo`, photoInput);
+            }
+        });
+
+        // ✅ Debugging - Log FormData Contents
+        for (let pair of formData.entries()) {
+            console.log(pair[0], pair[1]);
+        }
+
+
+                    console.log(formData);
+
+
+        // Send the FormData using Fetch API
+                    fetch("/api/Display/save", {
+            method: "POST",
+            body: formData, // ✅ Do not manually set Content-Type
+            headers: {
+                "Accept": "application/json" // ✅ Accept JSON response
+            }
+        })
+        .then(response => response.text()) // ✅ Change to .text() to debug raw response
+        .then(data => console.log("Response:", data))
+        .catch(error => console.error("Fetch Error:", error));
+
+
+            }
+
+
+
+
+
+
+
+    </script>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+</body>
+</html>

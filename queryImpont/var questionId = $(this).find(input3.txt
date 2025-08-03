@@ -1,0 +1,49 @@
+var questionId = $(this).find("input[name^='answers[']").val();
+var questionId = $(this).find("input[name^='postanswers[']").val();
+
+if (questionId) {
+    // Continue processing only if questionId is found
+    var type = null;
+    var answer = null;
+    var photoData = null;
+
+    $(this).find("input").each(function () {
+        var name = $(this).attr("name");
+
+        if (name.includes("Type")) {
+            type = $(this).val();
+        }
+
+        if (name.includes("Answer")) {
+            if ($(this).attr('type') === 'radio' && $(this).prop('checked')) {
+                answer = $(this).val();
+            } else if ($(this).attr('type') !== 'radio') {
+                answer = $(this).val();
+            }
+        }
+
+        // Handle other cases such as photo input
+        if (type === 'photo') {
+            var photoInput = $(this).find("input[type='file']")[0];
+            if (photoInput && photoInput.files && photoInput.files[0]) {
+                var file = photoInput.files[0];
+                photoData = file.name;
+            }
+        }
+    });
+
+    // Push the answer data to the array if questionId is found
+    answersArray.push({
+        QuestionId: questionId,
+        Type: type,
+        Answer: answer,
+        PhotoData: photoData,
+        EmpNo: empNo,
+        Rscode: rscode,
+        Outlet: outlet,
+        CreatedAt: createdAt
+    });
+} else {
+    // Optionally handle the case where questionId is not found
+    console.log('QuestionId not found for this entry.');
+}

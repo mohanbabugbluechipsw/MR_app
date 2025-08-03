@@ -1,0 +1,81 @@
+﻿@* @model IEnumerable<Model_New.Models.ReviewsPhoto> 
+
+
+@{
+    ViewData["Title"] = "GETPhoto Details";
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Review ID</th>
+                <th>RS Code</th>
+                <th>Employee Number</th>
+                <th>Outlet</th>
+                <th>Question 1</th>
+                <th>Question 2</th>
+                <th>Question 3</th>
+                <th>Photo 1</th>
+                <th>Photo 2</th>
+                <th>Photo 3</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var review in Model)
+            {
+                <tr>
+                    <td>@review.Id</td>
+                    <td>@review.Rscode</td>
+                    <td>@review.EmpNo</td>
+                    <td>@review.SelectedOutlet</td>
+                    <td>@review.Question1</td>
+                    <td>@review.Question2</td>
+                    <td>@review.Question3</td>
+
+                    <!-- Photo columns, assuming the photos are stored as filenames -->
+
+
+                    <td>
+                        @if (!string.IsNullOrEmpty(review.PhotoPath1))
+                        {
+                            <img src="@Url.Content("/Images/Uploads/" + review.PhotoPath1)" alt="Photo 1" class="img-fluid" />
+                        }
+                        else
+                        {
+                            <span>No photo</span>
+                        }
+                    </td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(review.PhotoPath2))
+                        {
+                            <img src="@Url.Content("/Images/Uploads/" + review.PhotoPath2)" alt="Photo 2" class="img-fluid" />
+                        }
+                        else
+                        {
+                            <span>No photo</span>
+                        }
+                    </td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(review.PhotoPath3))
+                        {
+                            <img src="@Url.Content("/Images/Uploads/" + review.PhotoPath3)" alt="Photo 3" class="img-fluid" />
+                        }
+                        else
+                        {
+                            <span>No photo</span>
+                        }
+                    </td>
+
+                    <td>@review.CreatedAt?.ToString("yyyy-MM-dd HH:mm:ss") </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+ *@

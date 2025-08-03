@@ -1,0 +1,445 @@
+﻿ @model IEnumerable<Model_New.Models.OutLetMasterDetail>
+
+
+
+@{
+    ViewData["Title"] = "Map with Current Location";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@* 
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Find Route Map</h2>
+
+    <div class="bg-light p-4 rounded shadow-sm">
+
+    
+
+
+        <label for="sourceLocation" class="form-label">Source Location (Auto-Detected):</label>
+        <input type="text" id="sourceLocation" readonly class="form-control mb-3" />
+
+
+
+
+        <label for="Rscode" class="form-label">RSCODE:</label>
+        <select id="Rscode" class="form-control mb-3" style="width: 100%;">
+            <option value="">-- Select an RSCODE --</option> *@
+         @*    @{
+                var uniqueDestinations = Model.GroupBy(d => d.Rscode ).Select(g => g.First());
+            } *@
+@* 
+            @foreach (var destination in Model)
+            {
+                <option value="@destination.Rscode">@destination.Rscode - @destination.RsName</option> <!-- Display RSCODE and Name -->
+            }
+        </select>
+
+
+        <label for="PartyHLLCode" class="form-label">PartyHllcode:</label>
+        <select id="PartyHLLCode" class="form-control mb-3" style="width: 100%;">
+            <option value="">-- Select an RSCODE --</option> *@
+        @*     @{
+                var uniquePartyHllCode = Model.GroupBy(d => d.PartyHllcode).Select(g => g.First());
+            } *@
+@* 
+            @foreach (var destination in Model)
+            {
+                <option value="@destination.PartyHllcode">@destination.PartyHllcode</option> <!-- Display RSCODE and Name -->
+            } *@
+@*         </select>
+ *@
+
+@* 
+        <div>
+            <label>Address1:</label>
+            <input type="text" id="Address1" class="form-control mb-2" readonly />
+
+            <label>Address2:</label>
+            <input type="text" id="Address2" class="form-control mb-2" readonly />
+
+            <label>Address3:</label>
+            <input type="text" id="Address3" class="form-control mb-2" readonly />
+
+            <label>Address4:</label>
+            <input type="text" id="Address4" class="form-control mb-2" readonly />
+
+            <label>Latitude:</label>
+            <input type="text" id="Latitude" class="form-control mb-2" readonly />
+
+            <label>Longitude:</label>
+            <input type="text" id="Longitude" class="form-control mb-2" readonly />
+        </div> *@
+
+
+    @*     <label for="DestinationLocation" class="form-label">Destination Location:</label>
+        <select id="DestinationLocation" class="form-control mb-3">
+            <option value="">-- Select a Destination --</option>
+            @foreach (var destination in Model)
+            {
+                <option value="@destination.Id">@destination.RsName</option>
+            }
+        </select> *@
+
+@*         <button id="findRoute" class="btn btn-primary w-100 mb-3">
+            <i class="bi bi-map"></i> Find Route
+        </button>
+        <button id="enterManualSource" class="btn btn-secondary w-100">
+            <i class="bi bi-pencil-square"></i> Enter Manual Source
+        </button>
+    </div>
+
+    <div id="map" style="height: 400px; margin-top: 20px; border: 1px solid #ddd; border-radius: 5px;"></div>
+</div> *@
+
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Find Route Map</h2>
+
+    <div class="bg-light p-4 rounded shadow-sm">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="sourceLocation" class="form-label">Source Location (Auto-Detected):</label>
+                <input type="text" id="sourceLocation" readonly class="form-control mb-3" />
+            </div>
+
+            <div class="col-md-6">
+                <label for="Rscode" class="form-label">RSCODE:</label>
+                <select id="Rscode" class="form-control mb-3">
+                    <option value="">-- Select an RSCODE --</option>
+                    @foreach (var destination in Model)
+                    {
+                        <option value="@destination.Rscode">@destination.Rscode - @destination.RsName</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="PartyName" class="form-label">PartyName:</label>
+                <select id="PartyName" class="form-control mb-3">
+                    <option value="">-- Select PartyHLLCode --</option>
+                </select>
+            </div>
+
+               <div class="col-md-6">
+                <label for="PartyHllcode" class="form-label">PartyHllcode:</label>
+                <input type="text" id="PartyHllcode" class="form-control mb-2" readonly />
+
+               </div>
+        
+
+            <div class="col-md-6">
+                <label for="Latitude" class="form-label">Latitude:</label>
+                <input type="text" id="Latitude" class="form-control mb-2" readonly />
+            </div>
+
+            <div class="col-md-6">
+                <label for="Longitude" class="form-label">Longitude:</label>
+                <input type="text" id="Longitude" class="form-control mb-2" readonly />
+            </div>
+       
+
+            <div class="col-md-6">
+                <label>Address1:</label>
+                <input type="text" id="Address1" class="form-control mb-2" readonly />
+            </div>
+
+            <div class="col-md-6">
+                <label>Address2:</label>
+                <input type="text" id="Address2" class="form-control mb-2" readonly />
+            </div>
+
+            <div class="col-md-6">
+                <label>Address3:</label>
+                <input type="text" id="Address3" class="form-control mb-2" readonly />
+            </div>
+
+            <div class="col-md-6">
+                <label>Address4:</label>
+                <input type="text" id="Address4" class="form-control mb-2" readonly />
+            </div>
+        </div>
+
+    
+
+        <button id="findRoute" class="btn btn-primary w-100 mb-3">
+            <i class="bi bi-map"></i> Find Route
+        </button>
+   
+    </div>
+
+    <div id="map" style="height: 400px; margin-top: 20px; border: 1px solid #ddd; border-radius: 5px;"></div>
+</div>
+
+
+
+
+@section Scripts {
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // When RSCODE is selected, fetch PartyHLLCodes
+            $('#Rscode').change(function () {
+                var rscode = $(this).val();
+                if (rscode) {
+                    // Clear the PartyHLLCode dropdown
+                    $('#PartyName').empty().append('<option value="">-- Loading PartyName --</option>');
+
+                    // AJAX request to get PartyHLLCode based on selected RSCODE
+                    $.ajax({
+                        url: '/Locations/Getcurrent', // Adjust controller name
+                        type: 'GET',
+                        data: { rscode: rscode },
+                        success: function (partyNames) {
+                            console.log(partyNames);
+                            // Populate PartyHLLCode dropdown with received data
+                            $('#PartyName').empty().append('<option value="">-- Select PartyName --</option>');
+                            $.each(partyNames, function (index, PartyName) {
+                                $('#PartyName').append($('<option>', {
+                                    value: PartyName,
+                                    text: PartyName
+
+
+                                }));
+                            });
+                        },
+                        error: function () {
+                            alert("Error fetching PartyName.");
+                        }
+                    });
+                } else {
+                    // Reset PartyHLLCode dropdown if no RSCODE is selected
+                    $('#PartyName').empty().append('<option value="">-- Select PartyName --</option>');
+                }
+            });
+        });
+    </script>
+
+   <script>
+    $(document).ready(function () {
+        // Trigger AJAX call when either RSCODE or PartyName is changed
+        $('#Rscode, #PartyName').change(function () {
+            var rscode = $('#Rscode').val();
+            var partyName = $('#PartyName').val();
+            console.log(partyName);
+
+            // Only trigger AJAX if both RSCODE and PartyName are selected
+            if (rscode && partyName) {
+
+                 console.log(partyName);
+                $.ajax({
+                    url: '/Locations/GetLocationDetails',
+                    type: 'GET',
+                    data: { rscode: rscode, partyName: partyName },
+                    success: function (data) {
+                        // Check if data is returned from the server
+                        if (data) {
+                            // Populate the fields with data
+                            $('#Address1').val(data.address1);
+                            $('#Address2').val(data.address2);
+                            $('#Address3').val(data.address3);
+                            $('#Address4').val(data.address4);
+                            $('#PartyHllcode').val(data.partyHllcode);
+                            $('#Latitude').val(data.latitude);
+                            $('#Longitude').val(data.longitude);
+                        } else {
+                            alert("No data found for the selected RSCODE and PartyName.");
+                        }
+                    },
+                    error: function () {
+                        alert("Error fetching data. Please try again.");
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+
+    <script>
+
+
+        var map, sourceLatLng;
+
+        // Detect user's current location
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+
+            document.getElementById('sourceLocation').value = lat + ', ' + lon;
+            sourceLatLng = L.latLng(lat, lon);
+
+            // Initialize map
+            map = L.map('map').setView([lat, lon], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19
+            }).addTo(map);
+
+            L.marker([lat, lon]).addTo(map)
+                .bindPopup("You are here!")
+                .openPopup();
+        });
+        document.getElementById('findRoute').onclick = function () {
+            var rscode = document.getElementById('Rscode').value;  // Get the selected Rscode
+            var PartyName = document.getElementById('PartyName').value;  // Get the selected PartyHLLCode
+
+            console.log(rscode)
+            console.log(PartyName)
+
+            if (rscode && PartyName && sourceLatLng) {
+                // Fetch destination coordinates based on Rscode and PartyHLLCode
+                    console.log("coordinates")
+
+                      console.log(rscode)
+            console.log(PartyName)
+                $.ajax({
+                    url: '/api/map/getCoordinates', // Your controller action for fetching coordinates
+                    type: 'GET',
+                    data: { rscode: rscode, PartyName: PartyName },
+                    success: function (destination) {
+                         console.log(destination)
+     
+                        if (destination && destination.latitude && destination.longitude)
+                            {
+
+                              console.log(destination.latitude);
+
+                                console.log(destination.longitude);
+
+                            var destinationLatLng = L.latLng(destination.latitude, destination.longitude);
+
+                            // Clear existing layers except the tile layer
+                            map.eachLayer(function (layer) {
+                                if (!(layer instanceof L.TileLayer)) {
+                                    map.removeLayer(layer);
+                                }
+                            });
+
+                            // Add markers for source and destination
+                            L.marker(sourceLatLng).addTo(map).bindPopup("Source Location").openPopup();
+                            L.marker(destinationLatLng).addTo(map).bindPopup("Destination: " + destination.latitude).openPopup();
+
+                            // Add routing and fit bounds
+                            var routeControl = L.Routing.control({
+                                waypoints: [sourceLatLng, destinationLatLng],
+                                routeWhileDragging: true
+                            }).addTo(map);
+
+                            // Fit map to route bounds
+                            routeControl.on('routesfound', function (e) {
+                                var route = e.routes[0];
+                                var bounds = L.latLngBounds(route.coordinates);
+                                map.fitBounds(bounds);
+                            });
+                        } else {
+                            alert("Invalid destination coordinates.");
+                        }
+                    },
+                    error: function (error) {
+                        console.error("Error fetching destination:", error);
+                        alert("Error fetching destination coordinates.");
+                    }
+                });
+            } else {
+                alert("Please select both RSCODE and PartyHLLCode.");
+            }
+        };
+
+
+
+        // document.getElementById('findRoute').onclick = function () {
+        //     var destinationId = document.getElementById('PartyHLLCode').value;
+
+        //     if (destinationId && sourceLatLng) {
+        //         // Fetch destination coordinates and plot the route
+        //         $.ajax({
+        //             url: '/api/Locations/GetCoordinates',
+        //             type: 'GET',
+        //             data: { id: destinationId },
+        //             success: function (destination) {
+        //                 if (destination && destination.lat && destination.lon) {
+        //                     var destinationLatLng = L.latLng(destination.lat, destination.lon);
+
+        //                     // Clear existing layers except the tile layer
+        //                     map.eachLayer(function (layer) {
+        //                         if (!(layer instanceof L.TileLayer)) {
+        //                             map.removeLayer(layer);
+        //                         }
+        //                     });
+
+        //                     // Add markers for source and destination
+        //                     L.marker(sourceLatLng).addTo(map).bindPopup("Source Location").openPopup();
+        //                     L.marker(destinationLatLng).addTo(map).bindPopup("Destination: " + destination.name).openPopup();
+
+        //                     // Add routing and fit bounds
+        //                     var routeControl = L.Routing.control({
+        //                         waypoints: [sourceLatLng, destinationLatLng],
+        //                         routeWhileDragging: true
+        //                     }).addTo(map);
+
+        //                     // Fit map to route bounds
+        //                     routeControl.on('routesfound', function (e) {
+        //                         var route = e.routes[0];
+        //                         var bounds = L.latLngBounds(route.coordinates);
+        //                         map.fitBounds(bounds);
+        //                     });
+        //                 } else {
+        //                     alert("Invalid destination coordinates.");
+        //                 }
+        //             },
+        //             error: function (error) {
+        //                 console.error("Error fetching destination:", error);
+        //             }
+        //         });
+        //     } else {
+        //         alert("Please select a destination.");
+        //     }
+        // };
+
+    
+
+
+      
+
+
+    </script>
+}
+
+<style>
+    /* Custom styles for the map page */
+    .container {
+        max-width: auto; /* Set a max width for the container */
+        margin-top: 50px; /* Space from the top */
+    }
+
+    h2 {
+        color: #007bff; /* Primary color for the heading */
+        font-weight: bold; /* Bold text for the heading */
+    }
+
+    .form-label {
+        font-weight: bold; /* Bold labels for form inputs */
+    }
+
+    .form-control {
+        border-radius: 0.25rem; /* Rounded corners for input fields */
+    }
+
+    .btn {
+        font-weight: bold; /* Bold text for buttons */
+    }
+
+    /* Add hover effects to buttons */
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        border-color: #0056b3; /* Match border color */
+    }
+
+    .btn-secondary:hover {
+        background-color: #6c757d; /* Darker gray on hover */
+        border-color: #6c757d; /* Match border color */
+    }
+</style>

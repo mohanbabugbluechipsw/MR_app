@@ -1,0 +1,82 @@
+﻿@model Model_New.Models.TblMrmaster
+
+@{
+    ViewData["Title"] = "Create New MR Master";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (TempData["AlertMessage"] != null)
+{
+    string alertType = TempData["AlertType"] as string ?? "info";
+
+    <div class="alert alert-@alertType alert-dismissible fade show" role="alert">
+        @TempData["AlertMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<h2 class="mb-4">Create New MR Master</h2>
+
+<form asp-action="AddMrMaster" asp-controller="Admin" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="BpCode" class="form-label">BP Code</label>
+            <input type="number" id="BpCode" name="BpCode" class="form-control" required min="1" />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="BpName" class="form-label">BP Name</label>
+            <input type="text" id="BpName" name="BpName" class="form-control" required />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input type="text" id="Name" name="Name" class="form-control" />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="Position" class="form-label">Position</label>
+            <input type="text" id="Position" name="Position" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="Nic" class="form-label">NIC</label>
+            <input type="number" id="Nic" name="Nic" class="form-control" required min="0" step="any" />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="DateOfBirth" class="form-label">Date of Birth</label>
+            <input type="date" id="DateOfBirth" name="DateOfBirth" class="form-control" required />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="MobileNumber" class="form-label">Mobile Number</label>
+            <input type="text" id="MobileNumber" name="MobileNumber" class="form-control" required />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="EmailAddress" class="form-label">Email Address</label>
+            <input type="email" id="EmailAddress" name="EmailAddress" class="form-control" required />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="TshirtSize" class="form-label">T-Shirt Size</label>
+            <input type="text" id="TshirtSize" name="TshirtSize" class="form-control" required />
+        </div>
+    </div>
+
+    <div class="form-group d-flex justify-content-start">
+        <button type="submit" class="btn btn-success btn-lg me-3">
+            <i class="bi bi-save me-2"></i> Save
+        </button>
+        <a href="@Url.Action("Index", "Admin")" class="btn btn-outline-primary btn-lg d-inline-flex align-items-center">
+            <i class="bi bi-house-door me-2"></i> Back Home
+        </a>
+    </div>
+</form>

@@ -1,0 +1,163 @@
+﻿@model Model_New.Models.QuestionsNew
+
+@{
+    ViewData["Title"] = "Create Question";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1 class="text-primary mb-4 text-center">Create New Question</h1>
+
+<div class="container">
+    <form asp-action="Create" method="post" class="p-4 border rounded bg-light shadow-lg">
+        <div class="row g-3 mb-3">
+            <div class="col-md-6">
+                <label for="Question" class="form-label fw-bold">Question</label>
+                <input class="form-control" id="Question" name="Question" placeholder="Enter your question" required />
+            </div>
+            <div class="col-md-6">
+                <label for="Distributor" class="form-label fw-bold">Distributor</label>
+                <select name="Distributor" class="form-select" id="Distributor" required>
+                    <option value="">-- Select Distributor --</option>
+                    @foreach (var distributor in ViewBag.Distributors as SelectList)
+                    {
+                        <option value="@distributor.Value">
+                            @($"{distributor.Value} - {distributor.Text}")
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+            <div class="col-md-6 position-relative">
+                <label for="PartyHllcode" class="form-label fw-bold">Party HLL Code</label>
+                <input name="PartyHllcode" class="form-control" id="PartyHllcode" autocomplete="off" placeholder="Enter Party HLL Code" />
+                <ul id="partyHllcodeSuggestions" class="suggestions-list"></ul>
+            </div>
+            <div class="col-md-6">
+                <label for="PartyName" class="form-label fw-bold">Party Name</label>
+                <input name="PartyName" class="form-control" id="PartyName" readonly />
+            </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+            <div class="col-md-6">
+                <label for="PartyMasterCode" class="form-label fw-bold">Party Master Code</label>
+                <input name="PartyMasterCode" class="form-control" id="PartyMasterCode" readonly />
+            </div>
+            <div class="col-md-6">
+                <label for="Type" class="form-label fw-bold">Type</label>
+                <select name="Type" class="form-select" id="Type">
+                    <option value="">-- Select Type --</option>
+                    <option value="radio">Radio</option>
+                    <option value="text">Text</option>
+                    <option value="check">Check</option>
+                    <option value="photo">Photo</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+            <div class="col-md-6">
+                <label for="Status" class="form-label fw-bold">Status</label>
+                <select name="Status" class="form-select" id="Status">
+                    <option value="">-- Select Status --</option>
+                    <option value="true">Active</option>
+                    <option value="false">Inactive</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="Ba" class="form-label fw-bold">Before/After</label>
+                <select name="Ba" class="form-select" id="Ba">
+                    <option value="">-- Select Option --</option>
+                    <option value="false">Before</option>
+                    <option value="true">After</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-success px-5 py-2">Create</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById("Distributor").addEventListener("change", getPartyHllcode);
+            document.getElementById("PartyHllcode").addEventListener("input", fetchPartySuggestions);
+        });
+
+        function getPartyHllcode() {
+            var distributorId = document.getElementById("Distributor").value;
+            if (distributorId) {
+                fetch(`/Questions/GetPartyData?distributorId=${distributorId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        window.partyHllcodes = data;
+                    })
+                    .catch(error => console.error("Error fetching data:", error));
+            }
+        }
+
+        function fetchPartySuggestions() {
+            var inputValue = document.getElementById("PartyHllcode").value.trim();
+            var suggestionsList = document.getElementById("partyHllcodeSuggestions");
+            suggestionsList.innerHTML = '';
+
+            if (!window.partyHllcodes) return;
+
+            var filtered = window.partyHllcodes.filter(item =>
+                item.partyHllcode.toLowerCase().includes(inputValue.toLowerCase())
+            );
+
+            if (filtered.length > 0) {
+                filtered.forEach(item => {
+                    var listItem = document.createElement("li");
+                    listItem.textContent = item.partyHllcode;
+                    listItem.onclick = () => selectPartyHllcode(item);
+                    suggestionsList.appendChild(listItem);
+                });
+                suggestionsList.style.display = 'block';
+            } else {
+                suggestionsList.style.display = 'none';
+            }
+        }
+
+        function selectPartyHllcode(item) {
+            document.getElementById("PartyHllcode").value = item.partyHllcode;
+            document.getElementById("partyHllcodeSuggestions").style.display = 'none';
+            fetch(`/Questions/GetPartyDetailsByHllcode?partyHllcode=${item.partyHllcode}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("PartyName").value = data.partyName;
+                    document.getElementById("PartyMasterCode").value = data.partyMasterCode;
+                })
+                .catch(error => console.error("Error fetching details:", error));
+        }
+    </script>
+
+    <style>
+        .suggestions-list {
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: auto;
+            width: 100%;
+            z-index: 1000;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+            .suggestions-list li {
+                padding: 8px;
+                cursor: pointer;
+            }
+
+                .suggestions-list li:hover {
+                    background-color: #f8f9fa;
+                }
+    </style>
+}

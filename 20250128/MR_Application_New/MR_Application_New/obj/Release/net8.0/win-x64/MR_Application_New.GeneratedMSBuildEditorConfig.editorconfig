@@ -1,0 +1,123 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MR_Application_New
+build_property.RootNamespace = MR_Application_New
+build_property.ProjectDir = C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New\MR_Application_New\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\bluechip\Desktop\MR_MVC_core\MR_Application_New\MR_Application_New
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Admin/PartialViews/_AddDistribution.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFydGlhbFZpZXdzXF9BZGREaXN0cmlidXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Admin/PartialViews/_ADDMRMaster.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFydGlhbFZpZXdzXF9BRERNUk1hc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Admin/PartialViews/_DistributionsList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFydGlhbFZpZXdzXF9EaXN0cmlidXRpb25zTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Admin/PartialViews/_Outletcreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFydGlhbFZpZXdzXF9PdXRsZXRjcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Home/Denied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Home/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Locations/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Locations/Getcurrent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25zXEdldGN1cnJlbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Locations/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Login/Admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Login/Welcome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cV2VsY29tZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/ReviewPlane/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV2aWV3UGxhbmVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/ReviewPlane/SurveyStep1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV2aWV3UGxhbmVcU3VydmV5U3RlcDEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/ReviewPlane/SurveyStep2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV2aWV3UGxhbmVcU3VydmV5U3RlcDIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Shared/_LogoutPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dvdXRQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Shared/_NavAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Shared/_NavMain.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZNYWluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bluechip/Desktop/MR_MVC_core/MR_Application_New/MR_Application_New/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

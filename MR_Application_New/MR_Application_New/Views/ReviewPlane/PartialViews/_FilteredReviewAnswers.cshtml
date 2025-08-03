@@ -1,0 +1,410 @@
+﻿@model Model_New.ViewModels.FilteredReviewAnswersViewModel
+
+@{
+    ViewData["Title"] = "Filter Review Answers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container py-5">
+    <h2 class="text-primary text-center mb-4">Filter Review Answers</h2>
+
+    <!-- Filter Form -->
+    <form method="post" action="/ReviewPlane/FilteredReviewAnswers" class="bg-light p-4 rounded shadow-sm">
+        <div class="row g-3 mb-3">
+            <!-- RSCode Field -->
+            <div class="col-md-4 position-relative">
+                <label for="RSCode" class="form-label fw-bold">RSCode:</label>
+                <input type="text" id="RSCode" name="RSCode" class="form-control" placeholder="Start typing RSCode..." value="@Context.Request.Query["RSCode"]" />
+                <ul id="RSCodeSuggestions" class="list-group position-absolute" style="display: none; z-index: 1000; max-height: 200px; overflow-y: auto;"></ul>
+            </div>
+
+            <!-- Employee Name Field -->
+            <div class="col-md-4 position-relative">
+                <label for="EmpName" class="form-label fw-bold">Employee Name:</label>
+                <input type="text" id="EmpName" name="EmpName" class="form-control" placeholder="Start typing Employee Name..." value="@Context.Request.Query["EmpName"]" />
+                <ul id="EmpNameSuggestions" class="list-group position-absolute" style="display: none; z-index: 1000; max-height: 200px; overflow-y: auto;"></ul>
+            </div>
+
+            <!-- Start Date -->
+            <div class="col-md-4">
+                <label for="startDate" class="form-label fw-bold">Start Date:</label>
+                <input type="date" id="startDate" name="startDate" class="form-control" value="@Context.Request.Query["startDate"]" />
+            </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+            <!-- End Date -->
+            <div class="col-md-4">
+                <label for="endDate" class="form-label fw-bold">End Date:</label>
+                <input type="date" id="endDate" name="endDate" class="form-control" value="@Context.Request.Query["endDate"]" />
+            </div>
+
+            <!-- Submit Button -->
+            <div class="col-md-4 d-flex align-items-end">
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="bi bi-funnel"></i> Filter
+                </button>
+            </div>
+
+            <!-- Reset Button -->
+            <div class="col-md-4 d-flex align-items-end">
+                <button type="button" id="resetButton" class="btn btn-secondary w-100">
+                    <i class="bi bi-arrow-counterclockwise"></i> Reset
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Display Error Message -->
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger mt-4 text-center">
+            @Model.ErrorMessage
+        </div>
+    }
+
+    <!-- Results Table -->
+    @if (Model.Results != null && Model.Results.Any())
+    {
+        <div class="table-responsive mt-4">
+            <table id="reviewTable" class="table table-hover table-striped table-bordered">
+                <thead class="table-primary text-center">
+                    <tr>
+                        <th>Question</th>
+                        <th>Distributor</th>
+                        <th>Party HLL Code</th>
+                        <th>Party Master Code</th>
+                        <th>Answer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Results)
+                    {
+                        <tr>
+                            <td>@item.Question</td>
+                            <td>@item.Distributor</td>
+                            <td>@item.PartyHllcode</td>
+                            <td>@item.PartyMasterCode</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(item.CombinedData))
+                                {
+                                    if (item.CombinedData.Length > 300)
+                                    {
+                                        <img src="data:image/jpeg;base64,@item.CombinedData" alt="Photo" class="thumbnail img-fluid rounded shadow-sm" />
+                                    }
+                                    else
+                                    {
+                                        @item.CombinedData
+                                    }
+                                }
+                                else
+                                {
+                                    <span>No data available</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning mt-4 text-center">
+            No records found. Adjust your filters and try again.
+        </div>
+    }
+
+    <!-- Modal for Full-Size Image -->
+    <div id="imageModal" class="modal fade" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="btn-close ms-auto p-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                <img id="modalImage" src="" alt="Full-size image" class="img-fluid rounded mx-auto d-block p-3" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+       
+
+
+    $(document).ready(function () {
+        // Handle keyup event for RSCode input
+
+        $('#reviewTable').DataTable({
+            "pageLength": 10, // Default rows per page
+            "lengthMenu": [5, 10, 25, 50], // Options for rows per page
+            "order": [], // Disable initial sorting
+            "language": {
+                "search": "🔍 Search:", // Adds an icon before the search label
+                "lengthMenu": "Show _MENU_ entries per page", // Dropdown label
+                "info": "Showing _START_ to _END_ of _TOTAL_ entries", // Info text
+                "paginate": {
+                    "first": "⏮ First",
+                    "last": "⏭ Last",
+                    "next": "➡ Next",
+                    "previous": "⬅ Previous"
+                }
+            },
+            "columnDefs": [
+                { "targets": [0], "orderable": true }, // Allow sorting for specific columns
+                { "targets": [4], "orderable": false } // Disable sorting for the 5th column (index 4)
+            ],
+            "responsive": true, // Make table responsive
+            "autoWidth": false, // Prevent auto width adjustments
+            "dom": '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>' + // Customizes table control layout
+                '<"row"<"col-sm-12"tr>>' +
+                '<"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
+            "buttons": [
+                {
+                    extend: 'excelHtml5',
+                    className: 'btn btn-success btn-sm',
+                    text: '<i class="fas fa-file-excel"></i> Export Excel'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    className: 'btn btn-danger btn-sm',
+                    text: '<i class="fas fa-file-pdf"></i> Export PDF'
+                }
+            ]
+        });
+
+        // Initialize Bootstrap tooltips (optional for table controls)
+        $('[data-bs-toggle="tooltip"]').tooltip();
+
+
+
+
+        $('#RSCode').on('keyup', function () {
+            var input = $(this).val();
+            if (input.length >= 3) {
+                $.ajax({
+                    url: '/ReviewPlane/GetRscodeOptions',
+                    method: 'GET',
+                    data: { query: input },
+                    success: function (data) {
+                        var suggestionList = $('#RSCodeSuggestions');
+                        suggestionList.empty().show();
+                        data.forEach(function (item) {
+                            suggestionList.append('<li class="suggestion-item" style="cursor: pointer;" data-value="' + item.distributor + '">' + item.distributor + ' (' + item.distributorName + ')</li>');
+                        });
+                        $('.suggestion-item').on('click', function () {
+                            var value = $(this).data('value');
+                            $('#RSCode').val(value);
+                            $('#RSCodeSuggestions').hide();
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error fetching RSCode suggestions:", error);
+                    }
+                });
+            } else {
+                $('#RSCodeSuggestions').hide();
+            }
+        });
+
+        // Handle keyup event for EmpName input
+        $('#EmpName').on('keyup', function () {
+            var input = $(this).val();
+            if (input.length >= 3) {
+                $.ajax({
+                    url: '/ReviewPlane/GetEmpSuggestions',
+                    method: 'GET',
+                    data: { query: input },
+                    success: function (data) {
+                        console.log(data);
+
+                        var suggestionList = $('#EmpNameSuggestions');
+                        suggestionList.empty().show(); 
+                        data.forEach(function (item) {
+                            
+                            suggestionList.append('<li class="suggestion-item" style="cursor: pointer;" data-value="' + item.empName + ' ,' + item.userId + '">' + item.empName + ' (' + item.empNo + ')</li>');
+                        });
+                        $('.suggestion-item').on('click', function () {
+                            var value = $(this).data('value');
+                            $('#EmpName').val(value);
+                            $('#EmpNameSuggestions').hide();
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error fetching EmpName suggestions:", error);
+                    }
+                });
+            } else {
+                $('#EmpNameSuggestions').hide();
+            }
+        });
+
+        // Reset button functionality
+        $('#resetButton').on('click', function () {
+            // Clear form data
+            $('#RSCode').val('');
+            $('#EmpName').val('');
+            $('#startDate').val('');
+            $('#endDate').val('');
+
+            var table = $('#reviewTable').DataTable();
+            table.clear().draw(); // Clears all rows from the DataTable
+
+        });
+
+        // Suggestions hiding when clicking outside
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('#RSCode').length) {
+                $('#RSCodeSuggestions').hide();
+            }
+            if (!$(e.target).closest('#EmpName').length) {
+                $('#EmpNameSuggestions').hide();
+            }
+        });
+
+
+
+
+        // Image modal functionality
+        $('table').on('click', 'img.thumbnail', function () {
+            const imgSrc = $(this).attr('src');
+            $('#modalImage').attr('src', imgSrc);
+            new bootstrap.Modal($('#imageModal')).show();
+        });
+
+        // Suggestions hiding when clicking outside
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('#RSCode').length) {
+                $('#RSCodeSuggestions').hide();
+            }
+            if (!$(e.target).closest('#EmpName').length) {
+                $('#EmpNameSuggestions').hide();
+            }
+        });
+
+
+        // "dom": 'Bfrtip', // Adds buttons to the top of the table
+        //     "buttons": [
+        //         'excel', 'pdf', 'print' // Add export buttons here
+        //     ]
+
+
+    });
+</script>
+
+<style>
+    .form-container {
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .pagination {
+        font-size: 1.1rem;
+    }
+
+        .pagination .page-item.active .page-link {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+
+        .pagination .page-link {
+            color: #0d6efd;
+            transition: all 0.3s;
+        }
+
+            .pagination .page-link:hover {
+                background-color: #0d6efd;
+                color: #fff;
+            }
+
+    .table-bordered {
+        border: 1px solid #ddd;
+    }
+
+    .table-striped tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+    /* Styling for suggestions */
+    #RSCodeSuggestions, #EmpNameSuggestions {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-top: none;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    .suggestion-item {
+        padding: 8px;
+        cursor: pointer;
+    }
+
+        .suggestion-item:hover {
+            background-color: #f1f1f1;
+        }
+
+
+
+    /* Image modal */
+    #imageModal .modal-content {
+        background: #222;
+    }
+
+    #modalImage {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+    }
+
+    .thumbnail {
+        max-width: 100px;
+        cursor: pointer;
+    }
+
+    /* Responsive design */
+    @@media (max-width: 767px) {
+        .form-container {
+            padding: 15px;
+        }
+
+        .table td, .table th {
+            padding: 8px;
+        }
+    }
+
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 6px 12px;
+        margin: 2px;
+        border-radius: 4px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+    }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background-color: #0056b3;
+        }
+
+    .dataTables_wrapper .dataTables_length select {
+        width: auto;
+        display: inline-block;
+        border-radius: 4px;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        border-radius: 4px;
+        border: 1px solid #ced4da;
+    }
+
+    
+
+</style>

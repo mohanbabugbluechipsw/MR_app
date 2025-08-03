@@ -1,0 +1,15 @@
+ @if (!string.IsNullOrEmpty(item.CombinedData))
+ {
+     if (item.CombinedData.StartsWith("data:image"))  // Check if it's Base64 image data
+     {
+         <img src="data:image/jpeg;base64,@item.CombinedData" alt="Photo" class="thumbnail img-fluid rounded" />
+     }
+     else
+     {
+         <span>@item.CombinedData</span>
+     }
+ }
+ else
+ {
+     <span>No data available</span>
+ }
